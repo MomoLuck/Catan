@@ -1,0 +1,36 @@
+@page "/NameSelect/{Players}"
+@using Catan.PlayerSelect
+@inject NavigationManager _nav
+<main>
+    <h1>Spieler konfigurieren:</h1> 
+    <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-4">
+            <label for="validationCustomUsername" class="form-label">Name</label>
+            <div class="input-group has-validation">    
+                <span class="input-group-text" id="inputGroupPrepend"></span>
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                    Mach jetz an Username eine!
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom01"  class="form-label">Color</label>
+            <input type="color" class="form-control form-control-color" id="validationCustom01" value="#563d7c" title="Choose your color" required>
+            <div class="invalid-feedback">
+                Nimm jezt eine Farbe du whe!
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" @onclick="@(()=>_nav.NavigateTo("/MainGame/"+@Players))">Fertig</button>
+        </div>
+
+    </form>
+    
+    
+</main>
+@code {
+    [Parameter]
+    public string Players { get; init; }
+    
+}

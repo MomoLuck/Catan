@@ -1,0 +1,16 @@
+﻿@page "/"
+@inject NavigationManager _nav
+<main>
+    <h1>Siedler von Catan</h1>
+    
+<section>
+    <button @onclick="@(()=>_nav.NavigateTo("/PlayerSelect"))"><span>Spiel spielen</span></button>
+    <button @onclick="@(()=>_nav.NavigateTo("/Settings"))"><span>Einstellungen</span></button>
+    <button @onclick="@(()=>_nav.NavigateTo("/Credits"))"><span>Credits</span></button>
+</section>
+
+</main>
+
+@code {
+    
+}

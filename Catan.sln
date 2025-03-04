@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatanWepGui", "CatanWepGui\CatanWepGui.csproj", "{D187D1C4-8C09-4902-8D2D-7AB1DC47D432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catan", "Catan\Catan.csproj", "{F19C84D9-E2F0-4A42-9E9A-E7EBD9279539}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D187D1C4-8C09-4902-8D2D-7AB1DC47D432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D187D1C4-8C09-4902-8D2D-7AB1DC47D432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D187D1C4-8C09-4902-8D2D-7AB1DC47D432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D187D1C4-8C09-4902-8D2D-7AB1DC47D432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F19C84D9-E2F0-4A42-9E9A-E7EBD9279539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F19C84D9-E2F0-4A42-9E9A-E7EBD9279539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19C84D9-E2F0-4A42-9E9A-E7EBD9279539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F19C84D9-E2F0-4A42-9E9A-E7EBD9279539}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

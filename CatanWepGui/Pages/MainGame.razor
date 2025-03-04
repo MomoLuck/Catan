@@ -1,0 +1,50 @@
+﻿@page "/MainGame/{Players}"
+@using Catan.MainGame
+<h3>MainGame</h3>
+<a>@playerNum</a>
+<main>
+    <section>
+        <div class = "non-tile"></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[0].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[0]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[1].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[1]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[2].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[2]</a></div>
+        <div class = "non-tile"></div>
+        <!--row end-->
+        <div style="background-image: url(@TileRandomizer.Tiles[3].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[3]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[4].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[4]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[5].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[5]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[6].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[6]</a></div>
+        <!--row end-->
+        <div style="background-image: url(@TileRandomizer.Tiles[7].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[7]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[8].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[8]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[9].ImageUrl)" class = "tile"></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[10].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[9]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[11].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[10]</a></div>
+        <!--row end-->
+        <div style="background-image: url(@TileRandomizer.Tiles[12].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[11]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[13].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[12]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[14].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[13]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[15].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[14]</a></div>
+        <!--row end-->
+        <div class = "non-tile"></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[16].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[15]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[17].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[16]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[18].ImageUrl)" class = "tile"><a>@TileRandomizer.Id[17]</a></div>
+        <div class = "non-tile"></div>
+        <!--row end-->
+    </section>
+</main>
+
+
+@code {
+    protected override async Task OnInitializedAsync() {
+        TileRandomizer.ShuffleTiles();
+        TileRandomizer.AddRandId();
+
+    }
+    [Parameter]
+    public static string Players { get; set; }
+
+    public int playerNum { get; init; } = Convert.ToInt32(Players);
+
+}

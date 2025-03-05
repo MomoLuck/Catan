@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatanWepGui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0ed66e646f86245f6c8f9811557ad603e87e527")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+988cbebeec8c1ecd57a7f77006d41cf492ba67c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatanWepGui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatanWepGui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

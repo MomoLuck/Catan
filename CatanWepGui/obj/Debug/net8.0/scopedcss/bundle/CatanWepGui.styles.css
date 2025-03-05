@@ -59,12 +59,6 @@ section[b-suhk7jx1v8]::before {
     height: 50px;
 }
 /* /Pages/NameSelect.razor.rz.scp.css */
-form input:valid[b-se1n3p28rj] {
-    border: 1px solid greenyellow;
-}
-form input:invalid[b-se1n3p28rj]{
-    border: 1px solid red;
-}
 /* /Pages/PlayerSelect.razor.rz.scp.css */
 h1[b-6er7bswru4]{
     display: flex;

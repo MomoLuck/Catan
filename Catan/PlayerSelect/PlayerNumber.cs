@@ -1,8 +1,7 @@
 ﻿namespace Catan.PlayerSelect;
 
 public class PlayerNumber {
-    public static int Players { get; set; }
+    public static int Players { get; set; } = 0;
     public PlayerNumber() {
-        Players = 0;
     }
 }

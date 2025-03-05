@@ -1,33 +1,35 @@
 @page "/NameSelect"
+@using Catan.MainGame.MainGameloop
 @using Catan.PlayerSelect
 @inject NavigationManager _nav
-<main>
-    <h1>Spieler konfigurieren:</h1> 
-    <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-4">
-            <label for="validationCustomUsername" class="form-label">Name</label>
-            <div class="input-group has-validation">    
-                <span class="input-group-text" id="inputGroupPrepend"></span>
-                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Mach jetz an Username eine!
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <label for="validationCustom01"  class="form-label">Color</label>
-            <input type="color" class="form-control form-control-color" id="validationCustom01" value="#563d7c" title="Choose your color" required>
-            <div class="invalid-feedback">
-                Nimm jezt eine Farbe du whe!
-            </div>
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary" type="submit" >Fertig</button>
-        </div>
 
-    </form>
-    
-    
+
+<main>
+    <h1>Spieler konfigurieren:</h1>
+    @{
+        PlayerNumber.Players = 2;
+        var x = PlayerNumber.Players;
+        Players.PlayerList.Clear();
+        while (x > 0) {
+            Players.PlayerList.Add(new Player("",""));
+            x--;
+        }
+    }
+    <a>@PlayerNumber.Players</a>
+    @foreach (var player in Players.PlayerList) {
+        <EditForm Model="player" OnValidSubmit="Submit" FormName="PlayerName">
+            <label>
+                Username:
+                <InputText @bind-Value="player.Name"/>
+            </label>
+            <button type="submit">Submit</button>
+        </EditForm>
+    }
 </main>
+
 @code {
+
+    public void Submit() {
+        _nav.NavigateTo("/MainGame");
+    }
 }

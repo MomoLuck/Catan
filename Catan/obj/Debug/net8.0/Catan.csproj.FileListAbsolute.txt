@@ -20,3 +20,15 @@ C:/Users/Moritz/RiderProjects/Catan/Catan/obj/Debug/net8.0/ref/Catan.dll
 /home/momoluck/Downloads/Catan/Catan/obj/Debug/net8.0/refint/Catan.dll
 /home/momoluck/Downloads/Catan/Catan/obj/Debug/net8.0/Catan.pdb
 /home/momoluck/Downloads/Catan/Catan/obj/Debug/net8.0/ref/Catan.dll
+/home/momoluck/RiderProjects/Catan/Catan/bin/Debug/net8.0/Catan.deps.json
+/home/momoluck/RiderProjects/Catan/Catan/bin/Debug/net8.0/Catan.dll
+/home/momoluck/RiderProjects/Catan/Catan/bin/Debug/net8.0/Catan.pdb
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/Catan.GeneratedMSBuildEditorConfig.editorconfig
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/Catan.AssemblyInfoInputs.cache
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/Catan.AssemblyInfo.cs
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/Catan.csproj.CoreCompileInputs.cache
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/Catan.sourcelink.json
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/Catan.dll
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/refint/Catan.dll
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/Catan.pdb
+/home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/ref/Catan.dll

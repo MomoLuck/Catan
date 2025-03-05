@@ -1,4 +1,4 @@
-@page "/NameSelect/{Players}"
+@page "/NameSelect"
 @using Catan.PlayerSelect
 @inject NavigationManager _nav
 <main>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="submit" @onclick="@(()=>_nav.NavigateTo("/MainGame/"+@Players))">Fertig</button>
+            <button class="btn btn-primary" type="submit" >Fertig</button>
         </div>
 
     </form>
@@ -30,7 +30,4 @@
     
 </main>
 @code {
-    [Parameter]
-    public string Players { get; init; }
-    
 }

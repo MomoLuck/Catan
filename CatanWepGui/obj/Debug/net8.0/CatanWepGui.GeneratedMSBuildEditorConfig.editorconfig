@@ -13,47 +13,47 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = CatanWepGui
 build_property.RootNamespace = CatanWepGui
-build_property.ProjectDir = C:\Users\Moritz\RiderProjects\Catan\CatanWepGui\
+build_property.ProjectDir = /home/momoluck/RiderProjects/Catan/CatanWepGui/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Moritz\RiderProjects\Catan\CatanWepGui
+build_property.MSBuildProjectDirectory = /home/momoluck/RiderProjects/Catan/CatanWepGui
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/App.razor]
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/_Imports.razor]
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-s41v779so9
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-q73w5bw37g
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/Pages/Credits.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlZGl0cy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-tsnz8v7c6n
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/Pages/Credits.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3JlZGl0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-zq0vjbn0lm
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/Pages/MainGame.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbkdhbWUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-zh4r3tc27q
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/Pages/MainGame.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbkdhbWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-suhk7jx1v8
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/Pages/NameSelect.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmFtZVNlbGVjdC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-owwkdz0ov8
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/Pages/NameSelect.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTmFtZVNlbGVjdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-se1n3p28rj
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/Pages/PlayerSelect.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyU2VsZWN0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = b-uh4jxrybqy
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/Pages/PlayerSelect.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGxheWVyU2VsZWN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-6er7bswru4
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/Pages/Settings.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ3MucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-kiezemsis3
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/Pages/Settings.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2V0dGluZ3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-kw7f6hxsd7
 
-[C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/Pages/StartGui.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhcnRHdWkucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-r1ws1bntz4
+[/home/momoluck/RiderProjects/Catan/CatanWepGui/Pages/StartGui.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU3RhcnRHdWkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-portxyeq7j

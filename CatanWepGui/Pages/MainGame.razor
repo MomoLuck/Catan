@@ -1,7 +1,8 @@
-﻿@page "/MainGame/{Players}"
+﻿@page "/MainGame"
 @using Catan.MainGame
+@using Catan.PlayerSelect
 <h3>MainGame</h3>
-<a>@playerNum</a>
+<a>@PlayerNumber.Players</a>
 <main>
     <section>
         <div class = "non-tile"></div>
@@ -42,9 +43,4 @@
         TileRandomizer.AddRandId();
 
     }
-    [Parameter]
-    public static string Players { get; set; }
-
-    public int playerNum { get; init; } = Convert.ToInt32(Players);
-
 }

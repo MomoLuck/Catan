@@ -1,11 +1,11 @@
 /* /Layout/MainLayout.razor.rz.scp.css */
-.page[b-s41v779so9] {
+.page[b-q73w5bw37g] {
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-main[b-s41v779so9] {
+main[b-q73w5bw37g] {
     flex: 1;
 }
 
@@ -59,6 +59,38 @@ section[b-suhk7jx1v8]::before {
     height: 50px;
 }
 /* /Pages/NameSelect.razor.rz.scp.css */
+label[b-se1n3p28rj]{
+}
+span[b-se1n3p28rj]{
+    margin-right: 10px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+#submitbutton[b-se1n3p28rj]{
+    transition-duration: 0.4s;
+    width: 100px;
+    font-family: "EB Garamond", b;
+    background-color: #04AA6D; /* Green */
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #555555;
+
+    /*Wie heißt de Zwiebel do*/
+
+}
+
+#submitbutton:hover[b-se1n3p28rj] {
+    background-color: #07d187; /* Green */
+    border-radius: 10px;
+}
+
+a[b-se1n3p28rj]{
+    color: #555555;
+    text-decoration: underline;
+    font-family: "EB Garamond", b;
+    text-decoration-color: #555555;
+}
 /* /Pages/PlayerSelect.razor.rz.scp.css */
 h1[b-6er7bswru4]{
     display: flex;
@@ -102,6 +134,29 @@ button:hover[b-6er7bswru4] {
     color: white
 }
 /* /Pages/Settings.razor.rz.scp.css */
+.custom-dropdown[b-kw7f6hxsd7] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.custom-dropdown option[b-kw7f6hxsd7] {
+    background-color: #ffffff;
+    color: #333;
+    padding: 5px;
+}
+
+.custom-dropdown:hover[b-kw7f6hxsd7] {
+    border-color: #007bff;
+}
+
+.custom-dropdown:focus[b-kw7f6hxsd7] {
+    outline: none;
+    border-color: #007bff;
+}
 /* /Pages/StartGui.razor.rz.scp.css */
 h1[b-portxyeq7j]{
     display: flex;

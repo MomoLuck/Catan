@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "/home/momoluck/RiderProjects/Catan/CatanWepGui/Pages/NameSelect.razor.js",
+      "PackagePath": "staticwebassets/Pages/NameSelect.razor.js"
+    },
+    {
       "Id": "/home/momoluck/RiderProjects/Catan/CatanWepGui/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
       "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
     },

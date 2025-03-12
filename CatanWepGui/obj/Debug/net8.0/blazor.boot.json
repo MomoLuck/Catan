@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "CatanWepGui",
   "resources": {
-    "hash": "sha256-EVfVIUphhHdSu6zymUz/TmGbG3QSOECtCGdXumBSi6A=",
+    "hash": "sha256-gldAsEKYpLvBYl+N+JnUvgL/REsCghR0J4DyVR43Y4g=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.ypw0l7my2f.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -208,12 +208,12 @@
       "mscorlib.wasm": "sha256-RAf5jgXLg+06C4tJ3CabxAZaVjCN2/+E6fxRjRN8yHk=",
       "netstandard.wasm": "sha256-KCAE8RQwTurP5pGnGF819qf9sK++2O0rXzt6tOjlfi8=",
       "System.Private.CoreLib.wasm": "sha256-LQqLbHgeEX4HONx7GwIxGgmzIXP6n2OPxqnq+/4Tyqk=",
-      "Catan.wasm": "sha256-eg/lP0T/BQJj9fyWHogMM8mdvCffKGOCUGxrxeO+UpY=",
-      "CatanWepGui.wasm": "sha256-CVmzhXY8G0so3cXeQm7qxTPSA2wnEH6ABtfELfhaXus="
+      "Catan.wasm": "sha256-Esz469iNqK2yGkXVEnbiTQKfYBWLTGJ8HdYq4VTn5B4=",
+      "CatanWepGui.wasm": "sha256-EGwc6yxQCaRuaZeM6NeDdZSjIpSXmp0R9n2exS8rlKI="
     },
     "pdb": {
-      "Catan.pdb": "sha256-PrQJeMTj/d2S2SR1vs7ZB1snLz/Y+bf/7xYOsXed4zU=",
-      "CatanWepGui.pdb": "sha256-n8z9C23nwDIlbwEZaAArQCFGbB2ZFkQi51h0e3iZack="
+      "Catan.pdb": "sha256-g1owrU4bZ3GHu/dYHmr74mFPxI54TJW+J/OxVSgD8EA=",
+      "CatanWepGui.pdb": "sha256-hFCEURU+VT57qWreickG00YGEKvxekNQkey13zbaj0k="
     }
   },
   "cacheBootResources": true,

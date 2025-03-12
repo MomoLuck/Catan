@@ -1,8 +1,7 @@
-﻿@page "/MainGame"
+﻿@page "/MainGame/{Playernum:int}"
 @using Catan.MainGame
-@using Catan.PlayerSelect
 <h3>MainGame</h3>
-<a>@PlayerNumber.Players</a>
+<a>@Playernum</a>
 <main>
     <section>
         <div class = "non-tile"></div>
@@ -36,8 +35,14 @@
     </section>
 </main>
 
+@{
+    
+}
 
 @code {
+    [Parameter]
+    public int Playernum { get; set; }
+    
     protected override async Task OnInitializedAsync() {
         TileRandomizer.ShuffleTiles();
         TileRandomizer.AddRandId();

@@ -5,10 +5,9 @@ using Catan.MainGame.Figures;
 namespace Catan.MainGame.MainGameloop;
 
 public class Player {
-    [Required]
-    [StringLength(0, ErrorMessage = "Du Menjek")]
     public string Name { get; set; }
     public string Color { get; set; }
+    public bool Active { get; set; }
     public int WinPoints { get; set; } = 0;
     public List<AFigure> Figures { get; set; } = new List<AFigure>() {
         new Settlement(),new Settlement(),new Settlement(),new Settlement(),new Settlement(),
@@ -23,6 +22,7 @@ public class Player {
     public Player(string name, string color) {
         Name = name;
         Color = color;
+        Active = false;
     }
     
     

@@ -1,13 +1,12 @@
 ﻿@page "/PlayerSelect"
 @using Catan.MainGame.MainGameloop
-@using Catan.PlayerSelect
 @inject NavigationManager _nav
 <main>
     <h1>Spieleranzahl Auswählen:</h1>
     <section>
-        <button @onclick="@(()=> { _nav.NavigateTo("/NameSelect"); PlayerNumber.Players = 2;})"><span>2 Spieler</span></button>
-        <button @onclick="@(()=> { _nav.NavigateTo("/NameSelect"); PlayerNumber.Players = 3;})"><span>3 Spieler</span></button>
-        <button @onclick="@(()=> { _nav.NavigateTo("/NameSelect"); PlayerNumber.Players = 4;})"><span>4 Spieler</span></button>
+        <button @onclick="@(()=> _nav.NavigateTo("/NameSelect/2"))"><span>2 Spieler</span></button>
+        <button @onclick="@(()=> _nav.NavigateTo("/NameSelect/3"))"><span>3 Spieler</span></button>
+        <button @onclick="@(()=> _nav.NavigateTo("/NameSelect/4"))"><span>4 Spieler</span></button>
 
     </section>
 </main>

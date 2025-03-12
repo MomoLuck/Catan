@@ -4,6 +4,8 @@ using Catan.MainGame.Figures;
 namespace Catan.MainGame.MainGameloop;
 
 public static class Players {
-    public static List<Player> PlayerList { get; set; } = new List<Player>();
-    
+    public static List<Player> PlayerList { get; set; } = new List<Player>() {
+        new Player("",""),new Player("",""),new Player("",""),new Player("","")
+    };
+
 }

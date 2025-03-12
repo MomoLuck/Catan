@@ -1,0 +1,32 @@
+label{
+}
+span{
+    margin-right: 10px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+#submitbutton{
+    transition-duration: 0.4s;
+    width: 100px;
+    font-family: "EB Garamond", b;
+    background-color: #04AA6D; /* Green */
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #555555;
+
+    /*Wie heißt de Zwiebel do*/
+
+}
+
+#submitbutton:hover {
+    background-color: #07d187; /* Green */
+    border-radius: 10px;
+}
+
+a{
+    color: #555555;
+    text-decoration: underline;
+    font-family: "EB Garamond", b;
+    text-decoration-color: #555555;
+}

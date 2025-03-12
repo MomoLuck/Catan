@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5IU5C8Jqx5j43+44FfiZUfw72KtOgbrE+gD/8U7d4b0=",
+  "Hash": "ARrL2+YtR+avFUYbkb2IAhopnQEYChFS3nqqVXEgNCM=",
   "Source": "CatanWepGui",
   "BasePath": "/",
   "Mode": "Root",
@@ -7881,6 +7881,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/momoluck/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/scopedcss/projectbundle/CatanWepGui.bundle.scp.css"
+    },
+    {
+      "Identity": "/home/momoluck/RiderProjects/Catan/CatanWepGui/Pages/NameSelect.razor.js",
+      "SourceId": "CatanWepGui",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/momoluck/RiderProjects/Catan/CatanWepGui/",
+      "BasePath": "/",
+      "RelativePath": "Pages/NameSelect.razor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Pages/NameSelect.razor.js"
     },
     {
       "Identity": "/home/momoluck/RiderProjects/Catan/CatanWepGui/wwwroot/css/app.css",

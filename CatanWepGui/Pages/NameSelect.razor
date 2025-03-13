@@ -1,4 +1,5 @@
 @page "/NameSelect/{Playernum:int}"
+@using Catan
 @using Catan.MainGame.MainGameloop
 @inject NavigationManager _nav
 @inject IJSRuntime JS
@@ -7,52 +8,31 @@
     <h1>Spieler konfigurieren:</h1>
     <section>
     @for (int i = 0; i < Playernum; i++) {
-        Player CurrentPlayer = Players.PlayerList[i];
+        Player currentPlayer = Players.PlayerList[i];
+        string playerLabel = $"Player {i + 1}";
+        int submitNumber = i;
         string[] ids = ["a", "b", "c", "d"];
         <span>
 
-            <EditForm Model="CurrentPlayer" OnSubmit="() => Submit(i)" Form Name="PlayerCreator" id="form" class="@ids[i]" @ref="editFormRef">
-                @switch (classes) {
-                    case "a": {
-                        <a>Player 1</a>
-                        break;
-                    }
-                    case "b": {
-                        <a>Player 2</a>
-                        break;
-
-                    }
-                    case "c": {
-                        <a>Player 3</a>
-                        break;
-
-                    }
-                    case "d": {
-                        <a>Player 4</a>
-                        break;
-
-                    }
-                    default:
-                        <a>oash</a>
-                        break;
-                }
+            <EditForm Model="currentPlayer" OnSubmit="() => Submit(submitNumber)" Form Name="PlayerCreator" id="form" class="@ids[i]">
+                <h4>@playerLabel</h4>
                 <div>
                     <label id="label">
                         <a>Username:</a>
-                        <InputText @bind-Value="CurrentPlayer.Name"/>
+                        <InputText @bind-Value="currentPlayer.Name" placeholder=@RandomUsername() />
                     </label>
                 </div>
                 <div>
                     <label id="label">
                         <a>Color:</a>
-                        <InputText @bind-Value="CurrentPlayer.Color"/>
+                        <InputText @bind-Value="currentPlayer.Color" placeholder="#fffffffff"/>
                     </label>
                 </div>
                 <div>
-                    <button type="submit" id="submitbutton" >Submit</button>
+                    <button type="submit" id="submitbutton" disabled="@isDisabled(submitNumber)" >Submit</button>
                 </div>
             </EditForm>
-            @GetClass()
+
     </span>
         
     }
@@ -71,15 +51,11 @@
     label{ 
         margin-bottom: 5px;
     }
-    .a{
-        background-color: @Players.PlayerList[0].Color;
+    label input::placeholder{
+        color: #D3D3D3;
+        opacity: 0.7;
     }
-    .b{
-        background-color: blue;
-    }
-    .c{
-        background-color: green;
-    }
+    
     section{
         display: flex;  
         flex-wrap: wrap;
@@ -88,51 +64,110 @@
     h4{
         font-family: "EB Garamond", b;
         color: #555555;
-
     }
+    .a{
+        background-color: @Players.PlayerList[0].Color;
+    }
+    .b{
+        background-color: @Players.PlayerList[1].Color;
+    }
+    .c{
+        background-color: @Players.PlayerList[2].Color;
+    }
+    .d{
+        background-color: @Players.PlayerList[3].Color;
+    }
+
     </style>
-    
     
 </main>
 
 @code {
-    [Parameter]
+    [Parameter] 
     public int Playernum { get; set; }
-    public EditForm editFormRef;
-    public int PlayersLeft { get; set; }
-    public string classes { get; set; }
-    protected override void OnInitialized() {
-        PlayersLeft = Playernum-1;
-    }
-
     
-    public void Submit(int num) {
-        Console.WriteLine(Players.PlayerList[num].Active);
-        Console.WriteLine(Players.PlayerList[0].Active);
-        Console.WriteLine(Players.PlayerList[1].Active);
-        Console.WriteLine(Players.PlayerList[2].Active);
-        Console.WriteLine(Players.PlayerList[3].Active);
-        Console.WriteLine("----------------------------");
-        if (Players.PlayerList[num].Active == false) {
-            if (PlayersLeft == 0) {
-                string uri = string.Format("/MainGame?username1={0}&color1={1}&active1={2}&username2={3}&color2={4}&active2={5}&username3={6}&color3={7}&active3={8}&username4={9}&color4={10}&active4={11}", Players.PlayerList[0].Name, Players.PlayerList[0].Color, Players.PlayerList[0].Active, Players.PlayerList[1].Name, Players.PlayerList[1].Color, Players.PlayerList[1].Active, Players.PlayerList[2].Name, Players.PlayerList[2].Color, Players.PlayerList[2].Active, Players.PlayerList[3].Name, Players.PlayerList[3].Color, Players.PlayerList[3].Active);
-                _nav.NavigateTo(uri);
-            }
-            else {
-                PlayersLeft--;
-                Players.PlayerList[num].Active = true;
-            }
-        }
+    public int PlayersLeft { get; set; } = 0;
+    public bool[] buttonState { get; set; } = new bool[4];
+    
+    protected override void OnInitialized()
+    {
+        PlayersLeft = Playernum - 1;
         
     }
-    
-    public async Task GetClass()
-    {
-        for (int i = 0; i < 4; i++) {
-            
-            classes = await JS.InvokeAsync<string>("getElementClass", editFormRef);
-            
 
+
+    public void Submit(int num)
+    {
+        string username = Players.PlayerList[num].Name;
+        if (!IsValidUsername(username))
+        {
+            JS.InvokeVoidAsync("alert", "The username is invalid. It must be non-empty and alphanumeric.");
+            return;
         }
+
+        string color = Players.PlayerList[num].Color;
+        if (!IsValidColor(color))
+        {
+            JS.InvokeVoidAsync("alert", "The color format is invalid or not a valid color.");
+            return;
+        }
+        
+        if (Players.PlayerList[num].Active == false)
+        {
+            if (PlayersLeft == 0)
+            {
+                Players.PlayerList[num].Active = true;
+                foreach (var player in Players.PlayerList)
+                {
+                    if (player.Active)
+                    {
+                        player.Color = player.Color.Remove(0, 1);
+                    }
+                }
+                buttonState[num] = true;
+                string uri = string.Format("/MainGame?username1={0}&color1={1}&active1={2}&username2={3}&color2={4}&active2={5}&username3={6}&color3={7}&active3={8}&username4={9}&color4={10}&active4={11}", Players.PlayerList[0].Name, Players.PlayerList[0].Color, Players.PlayerList[0].Active, Players.PlayerList[1].Name, Players.PlayerList[1].Color, Players.PlayerList[1].Active, Players.PlayerList[2].Name, Players.PlayerList[2].Color, Players.PlayerList[2].Active, Players.PlayerList[3].Name, Players.PlayerList[3].Color, Players.PlayerList[3].Active);
+                Console.WriteLine(uri);
+                _nav.NavigateTo(uri);
+            }
+            else
+            {
+                PlayersLeft--;
+                Players.PlayerList[num].Active = true;
+                buttonState[num] = true;
+
+                
+            }
+        }
+
+
+    }
+    
+    public string RandomUsername()
+    {
+            Random random = new Random();
+            string[] names = Usernames.UsernameList;
+            int randomIndex = random.Next(names.Length);
+            return names[randomIndex];
+    }
+    
+    public bool IsValidColor(string color)
+    {
+        var hexColorPattern = @"^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$";
+
+        var regex = new System.Text.RegularExpressions.Regex(hexColorPattern);
+        return regex.IsMatch(color);
+    }
+
+    public bool IsValidUsername(string username)
+    {
+        var usernamePattern = @"^[a-zA-Z0-9_]+$";
+        var regex = new System.Text.RegularExpressions.Regex(usernamePattern);
+
+        return !string.IsNullOrEmpty(username) && regex.IsMatch(username);
+    }
+
+    public bool isDisabled(int num)
+    {
+        return buttonState[num];
     }
 }

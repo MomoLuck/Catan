@@ -1,11 +1,11 @@
 /* /Layout/MainLayout.razor.rz.scp.css */
-.page[b-q73w5bw37g] {
+.page[b-s41v779so9] {
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-main[b-q73w5bw37g] {
+main[b-s41v779so9] {
     flex: 1;
 }
 
@@ -13,26 +13,32 @@ main[b-q73w5bw37g] {
 
 /* /Pages/Credits.razor.rz.scp.css */
 /* /Pages/MainGame.razor.rz.scp.css */
-main[b-suhk7jx1v8] {
+article[b-zh4r3tc27q] {
     display: flex;
     justify-content: center;
-    --s: 130px;  /* size  */
-    --m: 4px;    /* margin */
+    align-content: center;
+    margin: auto;
+    --s: 130px;
+    --m: 4px;
     --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
-    
 }
 
-section[b-suhk7jx1v8] {
+section[b-zh4r3tc27q] {
     font-size: 0;
     width: calc((var(--s) + 2*var(--m))*5);
+    min-width: calc((var(--s) + 2*var(--m))*5);
+    max-width: calc((var(--s) + 2*var(--m))*5);
+    margin-bottom: 40px;
 }
 
-section div[b-suhk7jx1v8] {
+
+section div[b-zh4r3tc27q] {
     width: var(--s);
+    min-width: var(--s);
     margin: var(--m);
     height: calc(var(--s) * 1.1547);
     display: inline-block;
-    font-size: initial; 
+    font-size: initial;
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
     margin-bottom: calc(var(--m) - var(--s) * 0.2885);
     background: #000000;
@@ -41,33 +47,45 @@ section div[b-suhk7jx1v8] {
     line-height: 9.5em;
 }
 
-section[b-suhk7jx1v8]::before {
+section[b-zh4r3tc27q]::before {
     content: "";
     width: calc(var(--s) / 2 + var(--m));
     float: left;
     height: 120%;
     shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
-    pointer-events: none;   
+    pointer-events: none;
 }
-.non-tile[b-suhk7jx1v8]{
+.non-tile[b-zh4r3tc27q]{
     background: #ffffff;
 }
-.tile[b-suhk7jx1v8]{
-
+.tile[b-zh4r3tc27q]{
+    transition: 0.2s;
 }
-.tile:active[b-suhk7jx1v8]{
+.tile:active[b-zh4r3tc27q]{
     height: 50px;
 }
-/* /Pages/NameSelect.razor.rz.scp.css */
-label[b-se1n3p28rj]{
+
+
+main[b-zh4r3tc27q] {
+    height: 100vh;
+    padding: 10px;
 }
-span[b-se1n3p28rj]{
+/* /Pages/NameSelect.razor.rz.scp.css */
+label[b-owwkdz0ov8]{
+}
+span[b-owwkdz0ov8]{
     margin-right: 10px;
     display:flex;
     flex-direction: row;
     align-items: center;
 }
-#submitbutton[b-se1n3p28rj]{
+
+    /*Wie heißt de Zwiebel do*/
+#submitbutton:hover[b-owwkdz0ov8] {
+    background-color: #07d187; /* Green */
+    border-radius: 10px;
+}
+#submitbutton[b-owwkdz0ov8] {
     transition-duration: 0.4s;
     width: 100px;
     font-family: "EB Garamond", b;
@@ -75,24 +93,26 @@ span[b-se1n3p28rj]{
     color: #fff;
     border-radius: 5px;
     border: 1px solid #555555;
-
-    /*Wie heißt de Zwiebel do*/
-
 }
-
-#submitbutton:hover[b-se1n3p28rj] {
-    background-color: #07d187; /* Green */
+#submitbutton:disabled[b-owwkdz0ov8] {
+    background-color: #A0D5BE;
     border-radius: 10px;
+    cursor: not-allowed;
+}
+#submitbutton:disabled:hover[b-owwkdz0ov8] {
+    background-color: #A0D5BE;
+    border-radius: 10px;
+    cursor: not-allowed;
 }
 
-a[b-se1n3p28rj]{
+a[b-owwkdz0ov8]{
     color: #555555;
     text-decoration: underline;
     font-family: "EB Garamond", b;
     text-decoration-color: #555555;
 }
 /* /Pages/PlayerSelect.razor.rz.scp.css */
-h1[b-6er7bswru4]{
+h1[b-uh4jxrybqy]{
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -100,12 +120,12 @@ h1[b-6er7bswru4]{
     font-size: 100px;
     font-weight: bold;
 }
-main[b-6er7bswru4]{
+main[b-uh4jxrybqy]{
     justify-content: center;
     align-items: center;
     height: 100%
 }
-section[b-6er7bswru4] {
+section[b-uh4jxrybqy] {
     display: flex;
     width: 100%;
     height: 50%;
@@ -116,7 +136,7 @@ section[b-6er7bswru4] {
 
 }
 
-button[b-6er7bswru4]{
+button[b-uh4jxrybqy]{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,12 +149,12 @@ button[b-6er7bswru4]{
     color: #fff;
     transition-duration: 0.4s;
 }
-button:hover[b-6er7bswru4] {
+button:hover[b-uh4jxrybqy] {
     background-color: #04AA6D; /* Green */
     color: white
 }
 /* /Pages/Settings.razor.rz.scp.css */
-.custom-dropdown[b-kw7f6hxsd7] {
+.custom-dropdown[b-kiezemsis3] {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -143,22 +163,22 @@ button:hover[b-6er7bswru4] {
     color: #333;
 }
 
-.custom-dropdown option[b-kw7f6hxsd7] {
+.custom-dropdown option[b-kiezemsis3] {
     background-color: #ffffff;
     color: #333;
     padding: 5px;
 }
 
-.custom-dropdown:hover[b-kw7f6hxsd7] {
+.custom-dropdown:hover[b-kiezemsis3] {
     border-color: #007bff;
 }
 
-.custom-dropdown:focus[b-kw7f6hxsd7] {
+.custom-dropdown:focus[b-kiezemsis3] {
     outline: none;
     border-color: #007bff;
 }
 /* /Pages/StartGui.razor.rz.scp.css */
-h1[b-portxyeq7j]{
+h1[b-r1ws1bntz4]{
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -166,12 +186,12 @@ h1[b-portxyeq7j]{
     font-size: 100px;
     font-weight: bold;
 }
-main[b-portxyeq7j]{
+main[b-r1ws1bntz4]{
     justify-content: center;
     align-items: center;
     height: 100%
 }
-section[b-portxyeq7j] {
+section[b-r1ws1bntz4] {
     display: flex;
     width: 100%;
     height: 50%;
@@ -182,7 +202,7 @@ section[b-portxyeq7j] {
 
 }
 
-button[b-portxyeq7j]{
+button[b-r1ws1bntz4]{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,18 +215,18 @@ button[b-portxyeq7j]{
     color: #fff;
     transition-duration: 0.4s;
 }
-button:hover[b-portxyeq7j]{
+button:hover[b-r1ws1bntz4]{
     background-color: #04AA6D; /* Green */
     color: white;
 }
-button span[b-portxyeq7j] {
+button span[b-r1ws1bntz4] {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-button span[b-portxyeq7j]:after {
+button span[b-r1ws1bntz4]:after {
     content: '→';
     position: absolute;
     opacity: 0;
@@ -214,11 +234,11 @@ button span[b-portxyeq7j]:after {
     right: -20px;
     transition: 0.5s;
 }
-button:hover span[b-portxyeq7j] {
+button:hover span[b-r1ws1bntz4] {
     padding-right: 25px;
 }
 
-button:hover span[b-portxyeq7j]:after {
+button:hover span[b-r1ws1bntz4]:after {
     opacity: 1;
     right: 0;
 }

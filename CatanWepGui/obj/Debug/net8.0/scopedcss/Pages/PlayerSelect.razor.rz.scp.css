@@ -1,4 +1,4 @@
-h1[b-6er7bswru4]{
+h1[b-uh4jxrybqy]{
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -6,12 +6,12 @@ h1[b-6er7bswru4]{
     font-size: 100px;
     font-weight: bold;
 }
-main[b-6er7bswru4]{
+main[b-uh4jxrybqy]{
     justify-content: center;
     align-items: center;
     height: 100%
 }
-section[b-6er7bswru4] {
+section[b-uh4jxrybqy] {
     display: flex;
     width: 100%;
     height: 50%;
@@ -22,7 +22,7 @@ section[b-6er7bswru4] {
 
 }
 
-button[b-6er7bswru4]{
+button[b-uh4jxrybqy]{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@ button[b-6er7bswru4]{
     color: #fff;
     transition-duration: 0.4s;
 }
-button:hover[b-6er7bswru4] {
+button:hover[b-uh4jxrybqy] {
     background-color: #04AA6D; /* Green */
     color: white
 }

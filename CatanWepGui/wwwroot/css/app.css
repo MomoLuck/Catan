@@ -5,7 +5,14 @@ html, body {
 h1:focus {
     outline: none;
 }
-
+main article{
+    padding: 0 !important;
+}
+main article.px-4{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+}
 a, .btn-link {
     color: #0071c1;
 }

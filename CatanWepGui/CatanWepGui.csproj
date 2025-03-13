@@ -15,4 +15,8 @@
       <ProjectReference Include="..\Catan\Catan.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Pages\usernames.txt" />
+    </ItemGroup>
+
 </Project>

@@ -6,7 +6,13 @@ span{
     flex-direction: row;
     align-items: center;
 }
-#submitbutton{
+
+    /*Wie heißt de Zwiebel do*/
+#submitbutton:hover {
+    background-color: #07d187; /* Green */
+    border-radius: 10px;
+}
+#submitbutton {
     transition-duration: 0.4s;
     width: 100px;
     font-family: "EB Garamond", b;
@@ -14,14 +20,16 @@ span{
     color: #fff;
     border-radius: 5px;
     border: 1px solid #555555;
-
-    /*Wie heißt de Zwiebel do*/
-
 }
-
-#submitbutton:hover {
-    background-color: #07d187; /* Green */
+#submitbutton:disabled {
+    background-color: #A0D5BE;
     border-radius: 10px;
+    cursor: not-allowed;
+}
+#submitbutton:disabled:hover {
+    background-color: #A0D5BE;
+    border-radius: 10px;
+    cursor: not-allowed;
 }
 
 a{

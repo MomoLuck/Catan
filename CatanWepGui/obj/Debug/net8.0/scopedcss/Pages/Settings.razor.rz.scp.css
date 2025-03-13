@@ -1,4 +1,4 @@
-.custom-dropdown[b-kw7f6hxsd7] {
+.custom-dropdown[b-kiezemsis3] {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -7,17 +7,17 @@
     color: #333;
 }
 
-.custom-dropdown option[b-kw7f6hxsd7] {
+.custom-dropdown option[b-kiezemsis3] {
     background-color: #ffffff;
     color: #333;
     padding: 5px;
 }
 
-.custom-dropdown:hover[b-kw7f6hxsd7] {
+.custom-dropdown:hover[b-kiezemsis3] {
     border-color: #007bff;
 }
 
-.custom-dropdown:focus[b-kw7f6hxsd7] {
+.custom-dropdown:focus[b-kiezemsis3] {
     outline: none;
     border-color: #007bff;
 }

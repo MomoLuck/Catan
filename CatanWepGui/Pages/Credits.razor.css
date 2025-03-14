@@ -1,1 +1,24 @@
-﻿
+﻿main{
+    padding: 20px;
+    font-family: "EB Garamond", b;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3{
+    font-size: 60px;
+    margin-bottom: 50px;
+}
+
+article strong{
+    font-size: 27px;
+    color: #04AA6D; /* Green */;
+}
+
+article{
+    font-size: 24px;
+    margin-bottom: 50px;
+}

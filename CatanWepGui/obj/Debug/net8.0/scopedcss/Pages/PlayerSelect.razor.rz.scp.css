@@ -9,7 +9,8 @@ h1[b-uh4jxrybqy]{
 main[b-uh4jxrybqy]{
     justify-content: center;
     align-items: center;
-    height: 100%
+    height: 100%;
+    padding: 20px;
 }
 section[b-uh4jxrybqy] {
     display: flex;

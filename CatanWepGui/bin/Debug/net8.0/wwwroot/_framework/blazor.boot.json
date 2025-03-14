@@ -1,21 +1,22 @@
 {
   "mainAssemblyName": "CatanWepGui",
   "resources": {
-    "hash": "sha256-JoBymzX8T3efFw7DSY+fjoUNlPd8skmcPgi+DZ7e2uY=",
+    "hash": "sha256-l8c5xq8tLMVbN239pu7sfVtwcB3vs01VsvSHCqV6H4w=",
     "jsModuleNative": {
-      "dotnet.native.8.0.14.cxyk10u4f6.js": "sha256-DTUQS6Jc6BNnS7sYYezFfaUKVmQq0/lanhQuJfygH/k="
+      "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.8.0.14.uoxvzuxqum.js": "sha256-44Vu7OSX4JP89eoc3oTYbYfC5C7USoIWuCw1W9IG6N4="
+      "dotnet.runtime.js": "sha256-nam8JTYKjhMKOTg6+FlihYP6JpWPGe3jjM9fiUFWzhY="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-mICh/Z0HwmHNDnkBnBbRTyDkRYBu3OBkhmuy2F7aUSU="
+      "dotnet.native.wasm": "sha256-1NJsNYy4gznvjVwzcG5w3Cl50enK1KB/7cKBMY+6jz4="
     },
     "icu": {
       "icudt_CJK.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
       "icudt_EFIGS.dat": "sha256-8fItetYY8kQ0ww6oxwTLiT3oXlBwHKumbeP2pRF4yTc=",
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
+    "coreAssembly": {},
     "assembly": {
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-g81inugSrrLKEtyxg9JkSxiBc3dly3FZcTKaz72rU/U=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-4/ecRnxEzB060rvNFk3n/GL1s3361WaHeLmfoea+Mp8=",
@@ -208,12 +209,12 @@
       "mscorlib.wasm": "sha256-RAf5jgXLg+06C4tJ3CabxAZaVjCN2/+E6fxRjRN8yHk=",
       "netstandard.wasm": "sha256-KCAE8RQwTurP5pGnGF819qf9sK++2O0rXzt6tOjlfi8=",
       "System.Private.CoreLib.wasm": "sha256-LQqLbHgeEX4HONx7GwIxGgmzIXP6n2OPxqnq+/4Tyqk=",
-      "Catan.wasm": "sha256-q+HJIlrU0tmuunU2JUK1fTjPXKa+y5ETngmshKVKYg4=",
-      "CatanWepGui.wasm": "sha256-XCWEtYGTeVtn8NDyK7EpLhPwy4NVYVVJ6YNyuMZFkak="
+      "Catan.wasm": "sha256-UFs/S61BDoa3E0eV4bMRQiJPm02ugOTNiKatZ3b5EZI=",
+      "CatanWepGui.wasm": "sha256-Q5lyx7plpetoVP8BTrkNKWKNSzIQwgLveW//20Nn8fU="
     },
     "pdb": {
-      "Catan.pdb": "sha256-P9zisPVUq0D3MzO17jk1ocQM9cbpg1VlPFeJzMMqWvo=",
-      "CatanWepGui.pdb": "sha256-XP9ifsm0Iedw7MYkFM7063u4HlBJKTV/Ov7YikGJkWo="
+      "Catan.pdb": "sha256-ow3cH23aiex+i8JFZKeMRjvXmnn/KYrwGcrAtVLFjz4=",
+      "CatanWepGui.pdb": "sha256-mMdLjXsGaTs8yTmPLqU6HF7zVPSv/LiARkgjGrdZdPQ="
     }
   },
   "cacheBootResources": true,

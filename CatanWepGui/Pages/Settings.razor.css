@@ -1,4 +1,8 @@
-﻿.custom-dropdown {
+﻿main{
+    padding: 20px;
+}
+
+.custom-dropdown {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;

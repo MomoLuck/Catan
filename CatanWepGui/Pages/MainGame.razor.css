@@ -1,4 +1,8 @@
-﻿article {
+﻿main{
+    padding: 20px;
+}
+
+article {
     display: flex;
     justify-content: center;
     align-content: center;

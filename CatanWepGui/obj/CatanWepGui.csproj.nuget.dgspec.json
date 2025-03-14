@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj": {}
+    "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj": {
+    "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj",
+        "projectUniqueName": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj",
         "projectName": "CatanWepGui",
-        "projectPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj",
-        "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\obj\\",
+        "projectPath": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj",
+        "packagesPath": "C:\\Users\\hubac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hubac\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj": {
-                "projectPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj"
+              "C:\\Users\\hubac\\RiderProjects\\Catan\\Catan\\Catan.csproj": {
+                "projectPath": "C:\\Users\\hubac\\RiderProjects\\Catan\\Catan\\Catan.csproj"
               }
             }
           }
@@ -40,8 +40,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -59,13 +60,13 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.14, )",
+              "version": "[8.0.11, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.14, )",
+              "version": "[9.0.0, )",
               "autoReferenced": true
             }
           },
@@ -82,8 +83,20 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
             }
           ],
           "frameworkReferences": {
@@ -91,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\hubac\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -100,17 +113,17 @@
         }
       }
     },
-    "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj": {
+    "C:\\Users\\hubac\\RiderProjects\\Catan\\Catan\\Catan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj",
+        "projectUniqueName": "C:\\Users\\hubac\\RiderProjects\\Catan\\Catan\\Catan.csproj",
         "projectName": "Catan",
-        "projectPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj",
-        "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\obj\\",
+        "projectPath": "C:\\Users\\hubac\\RiderProjects\\Catan\\Catan\\Catan.csproj",
+        "packagesPath": "C:\\Users\\hubac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hubac\\RiderProjects\\Catan\\Catan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hubac\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -132,8 +145,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -149,12 +163,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\hubac\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

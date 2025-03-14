@@ -55,3 +55,56 @@ main {
     height: 100vh;
     padding: 10px;
 }
+#top_grid_1, #top_grid_2, #top_grid_3, #top_grid_4, #top_grid_5, #top_grid_6, #top_grid_7, #top_grid_8, #top_grid_9,
+#top_grid_10, #top_grid_11, #top_grid_12, #top_grid_13, #top_grid_14, #top_grid_15, #top_grid_16, #top_grid_17,
+#top_grid_18, #top_grid_19, #top_grid_20, #top_grid_21, #top_grid_22, #top_grid_23, #top_grid_24, #top_grid_25,
+#top_grid_26, #top_grid_27, #top_grid_28, #top_grid_29, #top_grid_30, #top_grid_31{
+    position: relative;
+    margin : 0;
+    content: unset;
+    border-radius: 50%;
+    height: calc(var(--s) - 120px);
+    width: calc(var(--s) - 120px);
+    min-width: calc(var(--s) - 120px);
+    background-color: rgba(0, 160, 255, 0.5);
+    clip-path: unset;
+}
+
+#top_grid_1{top: -569.5px; left: 271.2px;}
+#top_grid_2{top: -569.5px; left: 399px;}
+
+#top_grid_3{top: -488.2px; left: 112.9px;}
+#top_grid_4{top: -488.2px; left: 241.2px;}
+#top_grid_5{top: -488.2px; left: 369px;}
+#top_grid_6{top: -488.2px; left: 496.8px;}
+
+#top_grid_7{top: -448.8px; left: 142px;}
+#top_grid_8{top: -448.8px; left: 270px;}
+#top_grid_9 { top: -448.8px; left: 398.1px;}
+
+#top_grid_10 { top: -325.8px; left: 464px; }
+#top_grid_11 { top: -325.8px; left: 592px; }
+#top_grid_12 { top: -325.8px; left: 143.2px;}
+#top_grid_13 { top: -325.8px; left: 271.2px;}
+#top_grid_14 { top: -325.8px; left: 399px; }
+#top_grid_15 { top: -325.8px; left: 527px; }
+
+#top_grid_16 { top: -244.6px; left: 80px; }
+#top_grid_17 { top: -244.6px; left: 208px; }
+#top_grid_18 { top: -244.6px; left: 336px; }
+#top_grid_19 { top: -244.6px; left: 464px; }
+#top_grid_20 { top: -244.6px; left: 592px; }
+
+#top_grid_21 { top: -163.4px; left: 143.2px; }
+#top_grid_22 { top: -163.4px; left: 271.2px; }
+#top_grid_23 { top: -163.4px; left: 399px; }
+#top_grid_24 { top: -163.4px; left: 527px; }
+
+#top_grid_25 { top: -82.2px; left: 208px; }
+#top_grid_26 { top: -82.2px; left: 336px; }
+#top_grid_27 { top: -82.2px; left: 464px; }
+#top_grid_28 { top: -82.2px; left: 464px; }
+#top_grid_29 { top: -82.2px; left: 592px; }
+
+#top_grid_30 { top: -1px; left: 143.2px; }
+#top_grid_31 { top: -1px; left: 271.2px; }

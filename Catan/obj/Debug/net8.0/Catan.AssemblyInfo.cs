@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Catan")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35f92448b2f58aeb018aa45595398aec761fded6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d51182efcb1916824788aac2ec8466101f205a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Catan")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Catan")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,84 +1,88 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\Pages\\MainGame.razor.js",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\Pages\\MainGame.razor.js",
       "PackagePath": "staticwebassets\\Pages\\MainGame.razor.js"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\Pages\\NameSelect.razor.js",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\Pages\\NameSelect.razor.js",
       "PackagePath": "staticwebassets\\Pages\\NameSelect.razor.js"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatanWepGui.styles.css",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\obj\\Debug\\net8.0\\compressed\\xvcgyh9epy.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatanWepGui.styles.css",
       "PackagePath": "staticwebassets\\CatanWepGui.styles.css"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\icon-192.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Ah_So_Cat.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Ah_So_Cat.png",
       "PackagePath": "staticwebassets\\img\\Ah_So_Cat.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Beige.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Beige.png",
       "PackagePath": "staticwebassets\\img\\Beige.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Green.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Green.png",
       "PackagePath": "staticwebassets\\img\\Green.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Grey.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Grey.png",
       "PackagePath": "staticwebassets\\img\\Grey.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Light_green.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Light_green.png",
       "PackagePath": "staticwebassets\\img\\Light_green.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Solid_red.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Solid_red.png",
       "PackagePath": "staticwebassets\\img\\Solid_red.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Solid_yellow.png",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\img\\Solid_yellow.png",
       "PackagePath": "staticwebassets\\img\\Solid_yellow.png"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\index.html",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\sample-data\\weather.json",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {
-      "Id": "C:\\Users\\hubac\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\script\\Credits.js",
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\script\\Credits.js",
       "PackagePath": "staticwebassets\\script\\Credits.js"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CatanWepGui.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+      "Id": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\wwwroot\\script\\MainGame.js",
+      "PackagePath": "staticwebassets\\script\\MainGame.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CatanWepGui.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -20,5 +20,46 @@ article strong{
 
 article{
     font-size: 24px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50em;
+    margin: 25px;
+
+    border-radius: 8px;
+    background-color: #555555;
+    color: #fff;
+    transition-duration: 0.4s;
+}
+button:hover{
+    background-color: #04AA6D; /* Green */
+    color: white;
+}
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button span:after {
+    content: '→';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+button:hover span {
+    padding-right: 25px;
+}
+
+button:hover span:after {
+    opacity: 1;
+    right: 0;
 }

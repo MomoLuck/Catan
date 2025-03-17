@@ -1,4 +1,4 @@
-main[b-tsnz8v7c6n]{
+main[b-zq0vjbn0lm]{
     padding: 20px;
     font-family: "EB Garamond", b;
     margin: auto;
@@ -8,17 +8,58 @@ main[b-tsnz8v7c6n]{
     flex-direction: column;
 }
 
-h3[b-tsnz8v7c6n]{
+h3[b-zq0vjbn0lm]{
     font-size: 60px;
     margin-bottom: 50px;
 }
 
-article strong[b-tsnz8v7c6n]{
+article strong[b-zq0vjbn0lm]{
     font-size: 27px;
     color: #04AA6D; /* Green */;
 }
 
-article[b-tsnz8v7c6n]{
+article[b-zq0vjbn0lm]{
     font-size: 24px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+}
+
+button[b-zq0vjbn0lm]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50em;
+    margin: 25px;
+
+    border-radius: 8px;
+    background-color: #555555;
+    color: #fff;
+    transition-duration: 0.4s;
+}
+button:hover[b-zq0vjbn0lm]{
+    background-color: #04AA6D; /* Green */
+    color: white;
+}
+button span[b-zq0vjbn0lm] {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button span[b-zq0vjbn0lm]:after {
+    content: '→';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+button:hover span[b-zq0vjbn0lm] {
+    padding-right: 25px;
+}
+
+button:hover span[b-zq0vjbn0lm]:after {
+    opacity: 1;
+    right: 0;
 }

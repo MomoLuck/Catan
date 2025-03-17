@@ -1,20 +1,21 @@
 ﻿@page "/Credits" 
 @inject IJSRuntime JSRuntime
+@inject NavigationManager _nav
 <main>
     <h3>Siedler von Catan - Credits</h3>
     <article>
         <strong>Spielidee und Konzept:</strong>
-        Die ursprüngliche Idee basiert auf dem klassischen Brettspiel „Die Siedler von Catan“, entwickelt von Klaus Teuber.
+        Klaus Teuber - Siedler von Catan
     </article>
 
     <article>
         <strong>Spieldesign und Regeln:</strong>
-        Die Regeln wurden inspiriert von „Die Siedler von Catan“ und wurden für diese Version vereinfacht.
+        Momoluck
     </article>
 
     <article>
         <strong>Programmierung und Entwicklung:</strong>
-        Momoknack
+        Momolúck, Rudi
     </article>
 
     <article>
@@ -24,32 +25,27 @@
 
     <article>
         <strong>Karten- und Brettdesign:</strong>
-        Die Darstellung des Catan-Bretts und der Landschaftselemente wurde für das digitale Spiel angepasst.
-    </article>
-
-    <article>
-        <strong>Musik und Soundeffekte:</strong>
-        Keine💀
+        Momoluck, Rudi
     </article>
 
     <article>
         <strong>Spielbalance und Testen:</strong>
-       Schwierig
+        Georg Dhdal
     </article>
 
     <article>
         <strong>Benutzeroberfläche (UI) Design:</strong>
-        Cool
+        Momoluck, Rudi
     </article>
 
     <article>
         <strong>Fehlerbehebung und Debugging:</strong>
-        Auf jeden Fall nicht Jetbrains Rider
+        Momoluck
     </article>
 
     <article>
         <strong>Sprach- und Textübersetzungen:</strong>
-        Übersetzungen, um das Spiel für ein internationales Publikum zugänglich zu machen.
+        Rudi
     </article>
 
     <article>
@@ -59,22 +55,17 @@
 
     <article>
         <strong>Prototyping und frühe Ideen:</strong>
-        Momoknack
+        Momoluck
     </article>
 
     <article>
         <strong>Marketing und Promotion:</strong>
-        Bombardini Gusini
-    </article>
-
-    <article>
-        <strong>Website und Online-Präsenz:</strong>
-        
+        Gessner Bernhard Oliver
     </article>
 
     <article>
         <strong>Beta-Tester und Feedbackgeber:</strong>
-        Wertvolles Feedback von Horchi, um das Spiel zu verbessern.
+        Georg Dhdal
     </article>
 
     <article>
@@ -84,24 +75,25 @@
 
     <article>
         <strong>Verwendete Tools und Software:</strong>
-        Jetbrains Rider, Discord, Github und weitere Tools wurden zur Erstellung des Spiels verwendet.
+        Jetbrains Rider, Discord, Github, ....
     </article>
 
     <article>
         <strong>Sonderdank an Familie und Freunde:</strong>
-        Ein herzlicher Dank an alle, die uns bei der Entwicklung unterstützt haben.
+        Danke Horchi
     </article>
 
     <article>
         <strong>Besondere Anerkennung für Unterstützung:</strong>
-        Danke an Klaus Teuber für das ursprüngliche Spiel „Die Siedler von Catan“, das die Grundlage für unser Projekt bildete.
+        Danke an Klaus Teuber für das ursprüngliche Spiel „Die Siedler von Catan“, das die Grundlage für dieses wunderbare Projekt bildete.
     </article>
+
+    <button @onclick="@(()=>_nav.NavigateTo("/"))"><span>Zurück zum Hauptmenü</span></button>
 </main>
 
 @code {
     protected override async Task OnInitializedAsync()
     {
-        await JSRuntime.InvokeVoidAsync("autoScroll");
-    }
+        await JSRuntime.InvokeVoidAsync("autoScroll.scroller");    }
 
 }

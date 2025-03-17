@@ -1,5 +1,22 @@
 ﻿main{
     padding: 20px;
+    margin: auto;
+    width: 100%;
+    font-family: "EB Garamond", b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+h1{
+    font-size: 60px;
+    padding-bottom: 50px;
+}
+
+article{
+    font-size: 20px;
 }
 
 .custom-dropdown {

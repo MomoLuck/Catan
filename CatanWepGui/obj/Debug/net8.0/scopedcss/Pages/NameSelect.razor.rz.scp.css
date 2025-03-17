@@ -1,10 +1,10 @@
-main[b-owwkdz0ov8]{
+main[b-se1n3p28rj]{
     padding: 20px;
 }
 
-label[b-owwkdz0ov8]{
+label[b-se1n3p28rj]{
 }
-span[b-owwkdz0ov8]{
+span[b-se1n3p28rj]{
     margin-right: 10px;
     display:flex;
     flex-direction: row;
@@ -12,11 +12,11 @@ span[b-owwkdz0ov8]{
 }
 
     /*Wie heißt de Zwiebel do*/
-#submitbutton:hover[b-owwkdz0ov8] {
+#submitbutton:hover[b-se1n3p28rj] {
     background-color: #07d187; /* Green */
     border-radius: 10px;
 }
-#submitbutton[b-owwkdz0ov8] {
+#submitbutton[b-se1n3p28rj] {
     transition-duration: 0.4s;
     width: 100px;
     font-family: "EB Garamond", b;
@@ -25,18 +25,18 @@ span[b-owwkdz0ov8]{
     border-radius: 5px;
     border: 1px solid #555555;
 }
-#submitbutton:disabled[b-owwkdz0ov8] {
+#submitbutton:disabled[b-se1n3p28rj] {
     background-color: #A0D5BE;
     border-radius: 10px;
     cursor: not-allowed;
 }
-#submitbutton:disabled:hover[b-owwkdz0ov8] {
+#submitbutton:disabled:hover[b-se1n3p28rj] {
     background-color: #A0D5BE;
     border-radius: 10px;
     cursor: not-allowed;
 }
 
-a[b-owwkdz0ov8]{
+a[b-se1n3p28rj]{
     color: #555555;
     text-decoration: underline;
     font-family: "EB Garamond", b;

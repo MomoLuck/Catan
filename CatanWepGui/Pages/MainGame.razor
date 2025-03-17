@@ -1,92 +1,39 @@
 ﻿@page "/MainGame"
-@using System.ComponentModel
-@using System.Reflection.Metadata
 @using Catan.MainGame
 @using Catan.MainGame.MainGameloop
-@inject IJSRuntime JS
 
 <main style="border: 7px solid @colorRotator[currentColorId]; transition: border-color 0.5s ease-in-out;" >
     <article>
-        <section>
-            <div class="non-tile"></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[0].ImageUrl)" class="tile"><a>@TileRandomizer.Id[0]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[1].ImageUrl)" class="tile"><a>@TileRandomizer.Id[1]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[2].ImageUrl)" class="tile"><a>@TileRandomizer.Id[2]</a></div>
-            <div class="non-tile"></div>
-            <!--row end-->
-            <div style="background-image: url(@TileRandomizer.Tiles[3].ImageUrl)" class="tile"><a>@TileRandomizer.Id[3]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[4].ImageUrl)" class="tile"><a>@TileRandomizer.Id[4]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[5].ImageUrl)" class="tile"><a>@TileRandomizer.Id[5]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[6].ImageUrl)" class="tile"><a>@TileRandomizer.Id[6]</a></div>
-            <!--row end-->
-            <div style="background-image: url(@TileRandomizer.Tiles[7].ImageUrl)" class="tile"><a>@TileRandomizer.Id[7]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[8].ImageUrl)" class="tile"><a>@TileRandomizer.Id[8]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[9].ImageUrl)" class="tile"></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[10].ImageUrl)" class="tile"><a>@TileRandomizer.Id[9]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[11].ImageUrl)" class="tile"><a>@TileRandomizer.Id[10]</a></div>
-            <!--row end-->
-            <div style="background-image: url(@TileRandomizer.Tiles[12].ImageUrl)" class="tile"><a>@TileRandomizer.Id[11]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[13].ImageUrl)" class="tile"><a>@TileRandomizer.Id[12]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[14].ImageUrl)" class="tile"><a>@TileRandomizer.Id[13]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[15].ImageUrl)" class="tile"><a>@TileRandomizer.Id[14]</a></div>
-            <!--row end-->
-            <div class="non-tile"></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[16].ImageUrl)" class="tile"><a>@TileRandomizer.Id[15]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[17].ImageUrl)" class="tile"><a>@TileRandomizer.Id[16]</a></div>
-            <div style="background-image: url(@TileRandomizer.Tiles[18].ImageUrl)" class="tile"><a>@TileRandomizer.Id[17]</a></div>
-            <div class="non-tile"></div>
-            <!--row end-->
-
-            <div class = "intersec" id="top_grid_1" style="visibility: visible" @onclick="@(() => Change("top_grid_1"))"></div>
-            <div class = "intersec" id="top_grid_2" style="visibility: visible" @onclick="@(() => Change("top_grid_2"))"></div>
-            <!-- row end -->
-            <div class = "intersec" id="top_grid_3" style="visibility: visible" @onclick="@(() => Change("top_grid_3"))"></div>
-            <div class = "intersec" id="top_grid_4" style="visibility: visible" @onclick="@(() => Change("top_grid_4"))"></div>
-            <div class = "intersec" id="top_grid_5" style="visibility: visible" @onclick="@(() => Change("top_grid_5"))"></div>
-            <!-- row end -->
-            <div class = "intersec" id="top_grid_6" style="visibility: visible" @onclick="@(() => Change("top_grid_6"))"></div>
-            <div class = "intersec" id="top_grid_7" style="visibility: visible" @onclick="@(() => Change("top_grid_7"))"></div>
-            <div class = "intersec" id="top_grid_8" style="visibility: visible" @onclick="@(() => Change("top_grid_8"))"></div>
-            <!--  row end -->
-            <div class = "intersec" id="top_grid_9" style="visibility: visible" @onclick="@(() => Change("top_grid_9"))"></div>
-            <div class = "intersec" id="top_grid_10" style="visibility: visible" @onclick="@(() => Change("top_grid_10"))"></div>
-            <div class = "intersec" id="top_grid_11" style="visibility: visible" @onclick="@(() => Change("top_grid_11"))"></div>
-            <div class = "intersec" id="top_grid_12" style="visibility: visible" @onclick="@(() => Change("top_grid_12"))"></div>
-            <!-- row end -->
-            <div class = "intersec" id="top_grid_13" style="visibility: visible" @onclick="@(() => Change("top_grid_13"))"></div>
-            <div class = "intersec" id="top_grid_14" style="visibility: visible" @onclick="@(() => Change("top_grid_14"))"></div>
-            <div class = "intersec" id="top_grid_15" style="visibility: visible" @onclick="@(() => Change("top_grid_15"))"></div>
-            <div class = "intersec" id="top_grid_16" style="visibility: visible" @onclick="@(() => Change("top_grid_16"))"></div>
-            <!-- row end -->
-            <div class = "intersec" id="top_grid_17" style="visibility: visible" @onclick="@(() => Change("top_grid_17"))"></div>
-            <div class = "intersec" id="top_grid_18" style="visibility: visible" @onclick="@(() => Change("top_grid_18"))"></div>
-            <div class = "intersec" id="top_grid_19" style="visibility: visible" @onclick="@(() => Change("top_grid_19"))"></div>
-            <div class = "intersec" id="top_grid_20" style="visibility: visible" @onclick="@(() => Change("top_grid_20"))"></div>
-            <!-- row end -->
-            <div class = "intersec" id="top_grid_21" style="visibility: visible" @onclick="@(() => Change("top_grid_21"))"></div>
-            <div class = "intersec" id="top_grid_22" style="visibility: visible" @onclick="@(() => Change("top_grid_22"))"></div>
-            <div class = "intersec" id="top_grid_23" style="visibility: visible" @onclick="@(() => Change("top_grid_23"))"></div>
-            <!-- row end -->
-            <div class = "intersec" id="top_grid_24" style="visibility: visible" @onclick="@(() => Change("top_grid_24"))"></div>
-            <div class = "intersec" id="top_grid_25" style="visibility: visible" @onclick="@(() => Change("top_grid_25"))"></div>
-            <div class = "intersec" id="top_grid_26" style="visibility: visible" @onclick="@(() => Change("top_grid_26"))"></div>
-            <div class = "intersec" id="top_grid_27" style="visibility: visible" @onclick="@(() => Change("top_grid_27"))"></div>
-            <!-- row end -->
-            <div class = "intersec" id="top_grid_28" style="visibility: visible" @onclick="@(() => Change("top_grid_28"))"></div>
-            <div class = "intersec" id="top_grid_29" style="visibility: visible" @onclick="@(() => Change("top_grid_29"))"></div>
-            <div class = "intersec" id="top_grid_30" style="visibility: visible" @onclick="@(() => Change("top_grid_30"))"></div>
-            
-            <div class = "intersec" id="top_grid_31" style="visibility: visible" @onclick="@(() => Change("top_grid_31"))"></div>
-            <div class = "intersec" id="top_grid_32" style="visibility: visible" @onclick="@(() => Change("top_grid_32"))"></div>
-            <div class = "intersec" id="top_grid_33" style="visibility: visible" @onclick="@(() => Change("top_grid_33"))"></div>
-            <div class = "intersec" id="top_grid_34" style="visibility: visible" @onclick="@(() => Change("top_grid_34"))"></div>
-            
-            <div class = "intersec" id="top_grid_35" style="visibility: visible" @onclick="@(() => Change("top_grid_35"))"></div>
-            <div class = "intersec" id="top_grid_36" style="visibility: visible" @onclick="@(() => Change("top_grid_36"))"></div>
-            <!-- row end -->
-
-        </section>
-
+    <section>
+        <div class="non-tile"></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[0].ImageUrl)" class="tile"><a>@TileRandomizer.Id[0]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[1].ImageUrl)" class="tile"><a>@TileRandomizer.Id[1]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[2].ImageUrl)" class="tile"><a>@TileRandomizer.Id[2]</a></div>
+        <div class="non-tile"></div>
+        <!--row end-->
+        <div style="background-image: url(@TileRandomizer.Tiles[3].ImageUrl)" class="tile"><a>@TileRandomizer.Id[3]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[4].ImageUrl)" class="tile"><a>@TileRandomizer.Id[4]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[5].ImageUrl)" class="tile"><a>@TileRandomizer.Id[5]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[6].ImageUrl)" class="tile"><a>@TileRandomizer.Id[6]</a></div>
+        <!--row end-->
+        <div style="background-image: url(@TileRandomizer.Tiles[7].ImageUrl)" class="tile"><a>@TileRandomizer.Id[7]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[8].ImageUrl)" class="tile"><a>@TileRandomizer.Id[8]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[9].ImageUrl)" class="tile"></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[10].ImageUrl)" class="tile"><a>@TileRandomizer.Id[9]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[11].ImageUrl)" class="tile"><a>@TileRandomizer.Id[10]</a></div>
+        <!--row end-->
+        <div style="background-image: url(@TileRandomizer.Tiles[12].ImageUrl)" class="tile"><a>@TileRandomizer.Id[11]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[13].ImageUrl)" class="tile"><a>@TileRandomizer.Id[12]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[14].ImageUrl)" class="tile"><a>@TileRandomizer.Id[13]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[15].ImageUrl)" class="tile"><a>@TileRandomizer.Id[14]</a></div>
+        <!--row end-->
+        <div class="non-tile"></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[16].ImageUrl)" class="tile"><a>@TileRandomizer.Id[15]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[17].ImageUrl)" class="tile"><a>@TileRandomizer.Id[16]</a></div>
+        <div style="background-image: url(@TileRandomizer.Tiles[18].ImageUrl)" class="tile"><a>@TileRandomizer.Id[17]</a></div>
+        <div class="non-tile"></div>
+        <!--row end-->
+    </section>
     </article>
     @for (int i = 0; i < activePlayers.Count; i++)
     {
@@ -175,7 +122,7 @@
         }
     }
     
-    public void ChangeBorderColor()
+    public async void ChangeBorderColor()
     {
         if (currentColorId < activePlayers.Count - 1)
         {
@@ -187,9 +134,4 @@
         }
 
     }
-
-    public async Task Change(string id)
-    {
-        await JS.InvokeVoidAsync("Change.changeElement", id);
-    } 
 }

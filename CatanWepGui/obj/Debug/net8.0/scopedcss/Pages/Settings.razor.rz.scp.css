@@ -1,8 +1,25 @@
-main[b-kiezemsis3]{
+main[b-kw7f6hxsd7]{
     padding: 20px;
+    margin: auto;
+    width: 100%;
+    font-family: "EB Garamond", b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
 }
 
-.custom-dropdown[b-kiezemsis3] {
+h1[b-kw7f6hxsd7]{
+    font-size: 60px;
+    padding-bottom: 50px;
+}
+
+article[b-kw7f6hxsd7]{
+    font-size: 20px;
+}
+
+.custom-dropdown[b-kw7f6hxsd7] {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -11,17 +28,17 @@ main[b-kiezemsis3]{
     color: #333;
 }
 
-.custom-dropdown option[b-kiezemsis3] {
+.custom-dropdown option[b-kw7f6hxsd7] {
     background-color: #ffffff;
     color: #333;
     padding: 5px;
 }
 
-.custom-dropdown:hover[b-kiezemsis3] {
+.custom-dropdown:hover[b-kw7f6hxsd7] {
     border-color: #007bff;
 }
 
-.custom-dropdown:focus[b-kiezemsis3] {
+.custom-dropdown:focus[b-kw7f6hxsd7] {
     outline: none;
     border-color: #007bff;
 }

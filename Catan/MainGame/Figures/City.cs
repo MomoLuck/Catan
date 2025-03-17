@@ -6,6 +6,7 @@ public class City : AFigure{
     }
     
     public override AFigure Place() {
+        Console.WriteLine("ahh");
         return new City();
     }
 }

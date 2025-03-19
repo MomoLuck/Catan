@@ -44,6 +44,7 @@ section::before {
     shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
     pointer-events: none;
 }
+
 .non-tile{
     background: #ffffff;
 }
@@ -53,7 +54,10 @@ section::before {
 .tile:active{
     height: 50px;
 }
-
+#top_grid{
+    position: relative;
+    top: -5px;
+}
 
 main {
     height: 100vh;
@@ -71,4 +75,17 @@ main {
     width: calc(var(--s) - 120px);
     min-width: calc(var(--s) - 120px);
     clip-path: unset;
+    transition-duration: 0.5s !important;
+}
+#top_grid_37{
+    position: relative;
+    margin : 0;
+    content: unset;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    clip-path: unset;
+    transition-duration: 0s !important;
 }

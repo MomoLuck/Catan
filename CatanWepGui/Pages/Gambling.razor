@@ -1,34 +1,45 @@
 @page "/Gambling"
 @inject NavigationManager _nav
-<h3>Gambling</h3>
-<EditForm Model="ahhh" OnSubmit="Submit" Form Name="inoash" id="form">
-    <div>
-        <label id="label">
-            <a>Zahl oda so:</a>
-            <InputText @bind-Value="ahhhaberhaltnichtahhh"/>
-        </label>
-    </div>
-</EditForm>
-
+<section>
+    
+    <EditForm Model="model" OnSubmit="Submit" Form Name="inoash" id="form">
+        <div>
+            <h3>Gambling</h3>
+            <label id="label">
+                <a>Gib eine Zahl ein: </a>
+                <InputText @bind-Value="value" placeholder="@value2"/>
+            </label>
+        </div>
+    </EditForm>
+</section>
+<style>
+    label input::placeholder{
+        color: #D3D3D3;
+    }
+</style>
 @code {
-    public string ahhhaberhaltnichtahhh { get; set; } = "";
-    public string ahhh { get; set; } = "0";
+    public string value { get; set; } = "";
+    public string value2 { get; set; } = "";
+    public string model { get; set; } = "0";
     protected override void OnInitialized()
     {
         Random random = new Random();
-        ahhh = random.Next(1, 100).ToString();  
+        model = random.Next(1, 100).ToString();  
+        value2 = random.Next(1, 100).ToString();  
     }
+    
 
     public void Submit()
     {
-        if (ahhh == ahhhaberhaltnichtahhh)
+        if (model == value)
         {
             
             _nav.NavigateTo("/");
         }
         else
         {
-            Console.WriteLine(ahhh);
+            Random random = new Random();
+            value2 = random.Next(1, 100).ToString();  
         }
     }
 }

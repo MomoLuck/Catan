@@ -1,0 +1,12 @@
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;
+}
+div{
+    border: #04aa6d solid 3px;
+    border-radius: 8px;
+    padding: 10px;
+}

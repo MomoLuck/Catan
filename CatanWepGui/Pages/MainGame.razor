@@ -1,12 +1,10 @@
 ﻿@page "/MainGame"
-@using System.ComponentModel
-@using System.Reflection.Metadata
 @using Catan.MainGame
 @using Catan.MainGame.Figures
 @using Catan.MainGame.MainGameloop
-@inject IJSRuntime JS
+@inject IJSRuntime Js
 
-<main style="border: 7px solid @colorRotator[currentColorId]; transition: border-color 0.5s ease-in-out;" >
+<main style="border: 7px solid @ColorRotator[CurrentColorId]; transition: border-color 0.5s ease-in-out;" >
     <article>
         <section>
             <div class="non-tile"></div>
@@ -37,57 +35,53 @@
             <div style="background-image: url(@TileRandomizer.Tiles[18].ImageUrl)" class="tile"><a>@TileRandomizer.Id[17]</a></div>
             <div class="non-tile"></div>
             <!--row end-->
-
-            <div class = "intersec active" id="top_grid_1" style="visibility: hidden" @onclick="@(() => Place("top_grid_1"))"></div>
-            <div class = "intersec active" id="top_grid_2" style="visibility: hidden" @onclick="@(() => Place("top_grid_2"))"></div>
-            <!-- row end -->
-            <div class = "intersec active" id="top_grid_3" style="visibility: hidden" @onclick="@(() => Place("top_grid_3"))"></div>
-            <div class = "intersec active" id="top_grid_4" style="visibility: hidden" @onclick="@(() => Place("top_grid_4"))"></div>
-            <div class = "intersec active" id="top_grid_5" style="visibility: hidden" @onclick="@(() => Place("top_grid_5"))"></div>
-            <!-- row end -->
-            <div class = "intersec active" id="top_grid_6" style="visibility: hidden" @onclick="@(() => Place("top_grid_6"))"></div>
-            <div class = "intersec active" id="top_grid_7" style="visibility: hidden" @onclick="@(() => Place("top_grid_7"))"></div>
-            <div class = "intersec active" id="top_grid_8" style="visibility: hidden" @onclick="@(() => Place("top_grid_8"))"></div>
-            <!--  row end -->
-            <div class = "intersec active" id="top_grid_9" style="visibility: hidden" @onclick="@(() => Place("top_grid_9"))"></div>
-            <div class = "intersec active" id="top_grid_10" style="visibility: hidden" @onclick="@(() => Place("top_grid_10"))"></div>
-            <div class = "intersec active" id="top_grid_11" style="visibility: hidden" @onclick="@(() => Place("top_grid_11"))"></div>
-            <div class = "intersec active" id="top_grid_12" style="visibility: hidden" @onclick="@(() => Place("top_grid_12"))"></div>
-            <!-- row end -->
-            <div class = "intersec active" id="top_grid_13" style="visibility: hidden" @onclick="@(() => Place("top_grid_13"))"></div>
-            <div class = "intersec active" id="top_grid_14" style="visibility: hidden" @onclick="@(() => Place("top_grid_14"))"></div>
-            <div class = "intersec active" id="top_grid_15" style="visibility: hidden" @onclick="@(() => Place("top_grid_15"))"></div>
-            <div class = "intersec active" id="top_grid_16" style="visibility: hidden" @onclick="@(() => Place("top_grid_16"))"></div>
-            <!-- row end -->
-            <div class = "intersec active" id="top_grid_17" style="visibility: hidden" @onclick="@(() => Place("top_grid_17"))"></div>
-            <div class = "intersec active" id="top_grid_18" style="visibility: hidden" @onclick="@(() => Place("top_grid_18"))"></div>
-            <div class = "intersec active" id="top_grid_19" style="visibility: hidden" @onclick="@(() => Place("top_grid_19"))"></div>
-            <div class = "intersec active" id="top_grid_20" style="visibility: hidden" @onclick="@(() => Place("top_grid_20"))"></div>
-            <!-- row end -->
-            <div class = "intersec active" id="top_grid_21" style="visibility: hidden" @onclick="@(() => Place("top_grid_21"))"></div>
-            <div class = "intersec active" id="top_grid_22" style="visibility: hidden" @onclick="@(() => Place("top_grid_22"))"></div>
-            <div class = "intersec active" id="top_grid_23" style="visibility: hidden" @onclick="@(() => Place("top_grid_23"))"></div>
-            <!-- row end -->
-            <div class = "intersec active" id="top_grid_24" style="visibility: hidden" @onclick="@(() => Place("top_grid_24"))"></div>
-            <div class = "intersec active" id="top_grid_25" style="visibility: hidden" @onclick="@(() => Place("top_grid_25"))"></div>
-            <div class = "intersec active" id="top_grid_26" style="visibility: hidden" @onclick="@(() => Place("top_grid_26"))"></div>
-            <div class = "intersec active" id="top_grid_27" style="visibility: hidden" @onclick="@(() => Place("top_grid_27"))"></div>
-            <!-- row end -->
-            <div class = "intersec active" id="top_grid_28" style="visibility: hidden" @onclick="@(() => Place("top_grid_28"))"></div>
-            <div class = "intersec active" id="top_grid_29" style="visibility: hidden" @onclick="@(() => Place("top_grid_29"))"></div>
-            <div class = "intersec active" id="top_grid_30" style="visibility: hidden" @onclick="@(() => Place("top_grid_30"))"></div>
-            
-            <div class = "intersec active" id="top_grid_31" style="visibility: hidden" @onclick="@(() => Place("top_grid_31"))"></div>
-            <div class = "intersec active" id="top_grid_32" style="visibility: hidden" @onclick="@(() => Place("top_grid_32"))"></div>
-            <div class = "intersec active" id="top_grid_33" style="visibility: hidden" @onclick="@(() => Place("top_grid_33"))"></div>
-            <div class = "intersec active" id="top_grid_34" style="visibility: hidden" @onclick="@(() => Place("top_grid_34"))"></div>
-            
-            <div class = "intersec active" id="top_grid_35" style="visibility: hidden" @onclick="@(() => Place("top_grid_35"))"></div>
-            <div class = "intersec active" id="top_grid_36" style="visibility: hidden" @onclick="@(() => Place("top_grid_36"))"></div>
-            <!-- row end -->
-
+    
+        <section id="top_grid"><div class = "intersec active" id="top_grid_1" style="visibility: hidden; top: -569.5px; left: 271.2px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_1"))"></div>
+    <div class = "intersec active" id="top_grid_2" style="visibility: hidden; top: -569.5px; left: 399px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_2"))"></div>
+    <!-- row end -->
+    <div class = "intersec active" id="top_grid_3"  style="visibility: hidden; top: -488.2px; left: 112.9px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_3"))"></div>
+    <div class = "intersec active" id="top_grid_4"  style="visibility: hidden; top: -488.2px; left: 241.2px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_4"))"></div>
+    <div class = "intersec active" id="top_grid_5"  style="visibility: hidden; top: -488.2px; left: 369px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_5"))"></div>
+    <!-- row end -->
+    <div class = "intersec active" id="top_grid_6"  style="visibility: hidden; top: -488.2px; left: 496.8px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_6"))"></div>
+    <div class = "intersec active" id="top_grid_7"  style="visibility: hidden; top: -448.8px; left: 142px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_7"))"></div>
+    <div class = "intersec active" id="top_grid_8"  style="visibility: hidden; top: -448.8px; left: 270px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_8"))"></div>
+    <!-- row end -->
+    <div class = "intersec active" id="top_grid_9"  style="visibility: hidden; top: -448.8px; left: 398.1px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_9"))"></div>
+    <div class = "intersec active" id="top_grid_10" style="visibility: hidden; top: -367.9px; left: -25.8px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_10"))"></div>
+    <div class = "intersec active" id="top_grid_11" style="visibility: hidden; top: -367.9px; left: 101.9px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_11"))"></div>
+    <div class = "intersec active" id="top_grid_12" style="visibility: hidden; top: -367.9px; left: 229.7px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_12"))"></div>
+    <!-- row end -->
+    <div class = "intersec active" id="top_grid_13" style="visibility: hidden; top: -367.9px; left: 358px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_13"))"></div>
+    <div class = "intersec active" id="top_grid_14" style="visibility: hidden; top: -367.9px; left: 486px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_14"))"></div>
+    <div class = "intersec active" id="top_grid_15" style="visibility: hidden; top: -328.5px; left: -7px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_15"))"></div>
+    <div class = "intersec active" id="top_grid_16" style="visibility: hidden; top: -328.5px; left: 121px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_16"))"></div>
+    <!-- row end -->
+    <div class = "intersec active" id="top_grid_17" style="visibility: hidden; top: -328.5px; left: 249px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_17"))"></div>
+    <div class = "intersec active" id="top_grid_18" style="visibility: hidden; top: -328.5px; left: 377px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_18"))"></div>
+    <div class = "intersec active" id="top_grid_19" style="visibility: hidden; top: -247px; left: -47px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_19"))"></div>
+    <div class = "intersec active" id="top_grid_20" style="visibility: hidden; top: -247px; left: 81px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_20"))"></div>
+    <!-- row end -->
+    <div class = "intersec active" id="top_grid_21" style="visibility: hidden; top: -247px; left: 209px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_21"))"></div>
+    <div class = "intersec active" id="top_grid_22" style="visibility: hidden; top: -247px; left: 337px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_22"))"></div>
+    <div class = "intersec active" id="top_grid_23" style="visibility: hidden; top: -207.8px; left: -155.7px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_23"))"></div>
+    <!-- row end -->
+    <div class = "intersec active" id="top_grid_24" style="visibility: hidden; top: -207.8px; left: -27.9px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_24"))"></div>
+    <div class = "intersec active" id="top_grid_25" style="visibility: hidden; top: -207.8px; left: 100px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_25"))"></div>
+    <div class = "intersec active" id="top_grid_26" style="visibility: hidden; top: -207.8px; left: 228px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_26"))"></div>
+    <div class = "intersec active" id="top_grid_27" style="visibility: hidden; top: -207.8px; left: 356.7px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_27"))"></div>
+    <div class = "intersec active" id="top_grid_28" style="visibility: hidden; top: -126.5px; left: -67.9px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_28"))"></div>
+    <div class = "intersec active" id="top_grid_29" style="visibility: hidden; top: -126.5px; left: 60px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_29"))"></div>
+    <div class = "intersec active" id="top_grid_30" style="visibility: hidden; top: -126.5px; left: 188px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_30"))"></div>
+    <div class = "intersec active" id="top_grid_31" style="visibility: hidden; top: -87.3px; left: -166.9px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_31"))"></div>
+    <div class = "intersec active" id="top_grid_32" style="visibility: hidden; top: -87.3px; left: -38.9px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_32"))"></div>
+    <div class = "intersec active" id="top_grid_33" style="visibility: hidden; top: -87.3px; left: 89px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_33"))"></div>
+    <div class = "intersec active" id="top_grid_34" style="visibility: hidden; top: -87.3px; left: 216.8px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_34"))"></div>
+    <div class = "intersec active" id="top_grid_35" style="visibility: hidden; top: -5.8px; left: -69px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_35"))"></div>
+    <div class = "intersec active" id="top_grid_36" style="visibility: hidden; top: -5.8px; left: 59px; background-color: rgba(0, 160, 255, 0.5);" @onclick="@(() => Place("top_grid_36"))"></div>
+    <div class = "stopper        " id="top_grid_37" style="visibility: hidden; top: 0px; left: 0px; background-color: rgba(0,255,0,0);"></div>
         </section>
-
+        </section>
         <aside>
             <button id="City" class="building" @onclick="@(() => Build(new City()))" >Stadt</button>
             <button id="Settlement" class="building" @onclick="@(() => Build(new Settlement()))" >Siedlung</button>
@@ -95,117 +89,130 @@
             <button id="Raider" class="activity">Räuber</button>
         </aside>
     </article>
-    @for (int i = 0; i < activePlayers.Count; i++)
+    @for (int i = 0; i < ActivePlayers.Count; i++)
     {
         <h4>Players @(i + 1)</h4>
-        <a>Name : @activePlayers[i].Name</a>
-        <a>Color : @activePlayers[i].Color</a>
+        <a>Name : @ActivePlayers[i].Name</a>
+        <a>Color : @ActivePlayers[i].Color</a>
     }
     <button @onclick="() => ChangeBorderColor()">click me!</button>
 </main>
 
-
+<style>
+.intersec{
+    background-color: rgba(0, 160, 255, 0.5);
+    transition: 0.05s;
+}
+.intersec:active{
+    transition: 0.05s !important;
+    background-color: rgba(255, 0, 0, 0.9);
+}
+.intersec:hover{
+    transition: 0.4s !important;
+    background-color: rgba(0, 160, 255, 0.9);
+}
+</style>
 
 @code {
     // Player 1
     [SupplyParameterFromQuery]
-    public string? username1 { get; set; }
+    public string? Username1 { get; set; }
     [SupplyParameterFromQuery]
-    public string? color1 { get; set; }    
+    public string? Color1 { get; set; }    
     [SupplyParameterFromQuery]
-    public bool active1 { get; set; }
+    public bool Active1 { get; set; }
     // Player 2
     [SupplyParameterFromQuery]
-    public string? username2 { get; set; }
+    public string? Username2 { get; set; }
     [SupplyParameterFromQuery]
-    public string? color2 { get; set; }    
+    public string? Color2 { get; set; }    
     [SupplyParameterFromQuery]
-    public bool active2 { get; set; }
+    public bool Active2 { get; set; }
     // Player 3
     [SupplyParameterFromQuery]
-    public string? username3 { get; set; }
+    public string? Username3 { get; set; }
     [SupplyParameterFromQuery]
-    public string? color3 { get; set; }    
+    public string? Color3 { get; set; }    
     [SupplyParameterFromQuery]
-    public bool active3 { get; set; }
+    public bool Active3 { get; set; }
     // Player 4
     [SupplyParameterFromQuery]
-    public string? username4 { get; set; }
+    public string? Username4 { get; set; }
     [SupplyParameterFromQuery]
-    public string? color4 { get; set; }    
+    public string? Color4 { get; set; }    
     [SupplyParameterFromQuery]
-    public bool active4 { get; set; }
+    public bool Active4 { get; set; }
     /*
      *
      * 
      *
      */
-    public AFigure currentBuilding { get; set; } = new City();
-    public int currentColorId { get; set; } = 0;
-    public List<string> colorRotator { get; set; } = new List<string>();
-    public List<Player> activePlayers { get; set; } = new List<Player>();
+    public AFigure CurrentBuilding { get; set; } = new City();
+    public int CurrentColorId { get; set; } = 0;
+    public List<string> ColorRotator { get; set; } = new List<string>();
+    public List<Player> ActivePlayers { get; set; } = new List<Player>();
     protected override async Task OnInitializedAsync() {
         TileRandomizer.ShuffleTiles();
         TileRandomizer.AddRandId();
-        initPlayers();
+        InitPlayers();
     }
 
-    public void initPlayers()
+    public void InitPlayers()
     {
-        if (active1)
+        if (Active1)
         {
-            Player player = new Player(username1, color1);
+            Player player = new Player(Username1, Color1);
             
-            activePlayers.Add(player);
-            colorRotator.Add("#"+player.Color);
+            ActivePlayers.Add(player);
+            ColorRotator.Add("#"+player.Color);
         }
-        if (active2)
+        if (Active2)
         {
-            Player player = new Player(username2, color2);
+            Player player = new Player(Username2, Color2);
             
-            activePlayers.Add(player);
-            colorRotator.Add("#"+player.Color);
+            ActivePlayers.Add(player);
+            ColorRotator.Add("#"+player.Color);
         }
-        if (active3)
+        if (Active3)
         {
-            Player player = new Player(username3, color3);
+            Player player = new Player(Username3, Color3);
             
-            activePlayers.Add(player);
-            colorRotator.Add("#"+player.Color);
+            ActivePlayers.Add(player);
+            ColorRotator.Add("#"+player.Color);
         }
-        if (active4)
+        if (Active4)
         {
-            Player player = new Player(username4, color4);
+            Player player = new Player(Username4, Color4);
             
-            activePlayers.Add(player);
-            colorRotator.Add("#"+player.Color);
+            ActivePlayers.Add(player);
+            ColorRotator.Add("#"+player.Color);
         }
     }
     
     public void ChangeBorderColor()
     {
-        if (currentColorId < activePlayers.Count - 1)
+        if (CurrentColorId < ActivePlayers.Count - 1)
         {
-            currentColorId++;
+            CurrentColorId++;
         }
         else
         {
-            currentColorId = 0;
+            CurrentColorId = 0;
         }
 
     }
 
     public async Task Change(string classs)
     {
-        await JS.InvokeVoidAsync("Change.changeElement", classs);
+        await Js.InvokeVoidAsync("Change.changeElement", classs);
     }
 
     public void Build(AFigure building) {
         Change(".intersec");
-        currentBuilding = building;
+        CurrentBuilding = building;
     }
 
     public async Task Place(string location) {
-        await JS.InvokeVoidAsync("Place.placeBuilding", location, currentBuilding);
+        await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId]);
     }
 }

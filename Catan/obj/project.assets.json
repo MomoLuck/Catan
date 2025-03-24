@@ -8,11 +8,16 @@
     "net8.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
     "/home/rudi/.nuget/packages/": {}
+=======
+    "C:\\Users\\Moritz\\.nuget\\packages\\": {}
+>>>>>>> origin/master
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj",
       "projectName": "Catan",
       "projectPath": "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj",
@@ -21,6 +26,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/rudi/.nuget/NuGet/NuGet.Config"
+=======
+      "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj",
+      "projectName": "Catan",
+      "projectPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj",
+      "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> origin/master
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -75,7 +90,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "/home/rudi/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
+>>>>>>> origin/master
       }
     }
   }

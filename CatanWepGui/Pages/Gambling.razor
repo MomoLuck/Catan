@@ -1,0 +1,34 @@
+@page "/Gambling"
+@inject NavigationManager _nav
+<h3>Gambling</h3>
+<EditForm Model="ahhh" OnSubmit="Submit" Form Name="inoash" id="form">
+    <div>
+        <label id="label">
+            <a>Zahl oda so:</a>
+            <InputText @bind-Value="ahhhaberhaltnichtahhh"/>
+        </label>
+    </div>
+</EditForm>
+
+@code {
+    public string ahhhaberhaltnichtahhh { get; set; } = "";
+    public string ahhh { get; set; } = "0";
+    protected override void OnInitialized()
+    {
+        Random random = new Random();
+        ahhh = random.Next(1, 100).ToString();  
+    }
+
+    public void Submit()
+    {
+        if (ahhh == ahhhaberhaltnichtahhh)
+        {
+            
+            _nav.NavigateTo("/");
+        }
+        else
+        {
+            Console.WriteLine(ahhh);
+        }
+    }
+}

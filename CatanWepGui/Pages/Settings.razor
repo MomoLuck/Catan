@@ -2,27 +2,89 @@
 
 <main>
 <h1>Einstellungen</h1>
-<h3>Sprache auswählen</h3>
+<div class="object">
+    <h3>Sprache auswählen</h3>
+    <EditForm Model="@formModel" class="custom-dropdown">
 
-<EditForm Model="@formModel" class="custom-dropdown">
+        <InputSelect @bind-Value="formModel.SelectedLanguage">
+            @foreach (var option in options)
+            {
+                <option value="@option">@option</option>
+            }
+        </InputSelect>
+    </EditForm>
+</div>
 
-    <InputSelect @bind-Value="formModel.SelectedOption">
-        @foreach (var option in options)
-        {
-            <option value="@option">@option</option>
-        }
-    </InputSelect>
-    <article>Ausgewählte Option: @formModel.SelectedOption</article>
-</EditForm>
+<div class = "placeholder"></div>
+
+<div class="object">
+    <h3>Musik & Effekte</h3>
+    <EditForm Model="@formModel" class="custom-dropdown">
+
+        <InputSelect @bind-Value="formModel.SelectedState">
+            @foreach (var state in onoff)
+            {
+                <option value="@state">@state</option>
+            }
+        </InputSelect>
+    </EditForm>
+</div>
+
+<div class = "placeholder"></div>
+
+<div class="object">
+        <h3>VSync</h3>
+        <EditForm Model="@formModel" class="custom-dropdown">
+
+            <InputSelect @bind-Value="formModel.VSync">
+                @foreach (var state in onoff)
+                {
+                    <option value="@state">@state</option>
+                }
+            </InputSelect>
+        </EditForm>
+    </div>
+
+<div class = "placeholder"></div>
+
+<div class="object">
+    <h3>Gambling mode</h3>
+    <a href="/Gambling"><button id="gambling_button">Enter Gambling mode</button></a>
+</div>
+<div class = "placeholder"></div>
 <article>Aktuelle Version: 0.63</article>
-<article></article>
+    
 </main>
 @code {
     private FormModel formModel = new FormModel();
-    private List<string> options = new List<string> { "Deutsch", "English", "中國人" };
-
+    private List<string> options = new List<string>
+    {
+        "Deutsch", "English", "中文", "Español", "Français", "日本語", 
+        "한국어", "Русский", "Português", "Italiano", "Türkçe",
+        "العربية", "हिन्दी", "বাংলা", "ไทย", "Polski", 
+        "Nederlands", "Svenska", "Dansk", "Norsk", "Suomi", 
+        "Ελληνικά", "Română", "עברית", "Čeština", "Magyar", 
+        "Azərbaycan dili", "עברית", "हिन्दी", "اردو", "Bahasa Indonesia",
+        "Filipino", "বাংলা", "Slovenčina", "Български", "Shqip", 
+        "Tiếng Việt", "Kiswahili", "Монгол", "Azərbaycan dili", 
+        "Kreyòl ayisyen", "IsiXhosa", "IsiZulu", "தமிழ்", "తెలుగు", 
+        "ಕನ್ನಡ", "ਪੰਜਾਬੀ", "मराठी", "ગુજરાતી", "മലയാളം", 
+        "ଓଡ଼ିଆ", "অসমীয়া", "नेपाली", "සිංහල", "ខ្មែរ", "မြန်မာ",
+        "ລາວ", "Монгол", "پښتو", "فارسی", "Soomaali", "ትግርኛ", 
+        "አማርኛ", "Kreyòl ayisyen", "Māori", "Samoan", "Fijian", "Hmong", "Quechua", "Aymara", "Nāhuatl", "Guaraní",
+        "Māori", "Bislama", "Tetum", "Chamorro", "Palauan", "Kreyòl ayisyen", "Yoruba", "Igbo", "Ewe", "Fante", "Ashanti",
+        "Twi", "Wolof", "Tigray", "Bemba", "Shona", "Xhosa", "Zulu", "Kinyarwanda", "Lingala", "Luganda", "Sotho",
+        "Sesotho", "Venda", "Afrikaans", "Sundanese", "Bahasa Melayu", "O'zbek", "ქართული", "Հայերեն", "ខ្មែរ", "Kurdî",
+        "Quechua", "Татар теле", "Türkmençe", "Uyghur", "বাংলা", "भोजपुरी", "Azərbaycan dili", "Қазақша", "Türkçe"
+    };
+    private List<string> onoff = new List<string> { "Ein", "Aus" };
+    private List<string> onPanhofer = new List<string> { "Aus", "Panhofer Mode" };
+    
     public class FormModel
     {   
-        public string SelectedOption { get; set; }
+        public string SelectedLanguage { get; set; }
+        public string SelectedState { get; set; }
+        public string VSync { get; set; }
+        public string Dark_Mode { get; set; }
     }
 }

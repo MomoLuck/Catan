@@ -8,9 +8,14 @@
     flex-direction: column;
 }
 
-h3{
-    font-size: 60px;
+h1{
+    display: flex;
+    justify-content: center;
+    font-family: "UnifrakturCook", b;
     margin-bottom: 50px;
+    font-size: 100px;
+    font-weight: bold;
+    color: #555555;
 }
 
 article strong{

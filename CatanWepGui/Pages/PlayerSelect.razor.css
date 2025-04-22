@@ -2,14 +2,20 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    font-family: "EB Garamond", b;
+    font-family: "UnifrakturCook", b;
+    color: #4C6030;
     font-size: 100px;
     font-weight: bold;
+    
 }
+
 main{
+    background-image: url("./img/catan1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     padding: 20px;
 }
 section {
@@ -30,13 +36,37 @@ button{
     height: 50px;
     width: 50em;
     margin: 25px;
+    border: none;
 
     border-radius: 8px;
-    background-color: #555555;
+    background-color: #706C8C;
     color: #fff;
     transition-duration: 0.4s;
 }
-button:hover {
-    background-color: #04AA6D; /* Green */
-    color: white
+button:hover{
+    background-color: #CC9EA8; /* Green */
+    color: white;
+}
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button span:after {
+    content: '→';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+button:hover span {
+    padding-right: 25px;
+}
+
+button:hover span:after {
+    opacity: 1;
+    right: 0;
 }

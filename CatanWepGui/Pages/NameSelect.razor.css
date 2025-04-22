@@ -1,7 +1,25 @@
 main{
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-image: url("./img/catan1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
 }
 
+h1{
+    display: flex;
+    justify-content: center;
+    font-family: "UnifrakturCook", b;
+    margin-top: 50px;
+    font-size: 100px;   
+    font-weight: bold;
+    color: #4C6030;
+}
 
 span{
     margin-right: 10px;
@@ -10,34 +28,42 @@ span{
     align-items: center;
 }
 
+h4{
+    color: white;
+}
+
     /*Wie heißt de Zwiebel do*/
 #submitbutton:hover {
-    background-color: #07d187; /* Green */
-    border-radius: 10px;
+    background-color:  #CC9EA8;
 }
 #submitbutton {
     transition-duration: 0.4s;
-    width: 100px;
+    width: 100%;
     font-family: "EB Garamond", b;
-    background-color: #04AA6D; /* Green */
+    background-color: #555555;
     color: #fff;
     border-radius: 5px;
-    border: 1px solid #555555;
+    border:none;
 }
 #submitbutton:disabled {
-    background-color: #A0D5BE;
-    border-radius: 10px;
+    background-color: #2D431D;
+    border-radius: 5px;
     cursor: not-allowed;
 }
 #submitbutton:disabled:hover {
-    background-color: #A0D5BE;
-    border-radius: 10px;
+    background-color: #2D431D;
+    border-radius: 5px;
     cursor: not-allowed;
 }
 
 a{
-    color: #555555;
+    color: white;
     text-decoration: underline;
     font-family: "EB Garamond", b;
     text-decoration-color: #555555;
 }
+ 
+#label{
+    color: white;
+}
+

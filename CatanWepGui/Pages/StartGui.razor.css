@@ -1,17 +1,22 @@
-﻿h1{
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    font-family: "EB Garamond", b;
-    font-size: 100px;
-    font-weight: bold;
-}
-main{
+﻿main{
+    background-image: url("./img/catan.png");
+    background-repeat: no-repeat;
+    background-position: center;
     justify-content: center;
     align-items: center;
     height: 100%;
     padding: 20px;
 }
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-family: "UnifrakturCook", b;
+    font-size: 100px;
+    font-weight: bold;
+    color: #F2AC57;
+}
+
 section {
     display: flex;
     width: 100%;
@@ -30,14 +35,14 @@ button{
     height: 50px;
     width: 50em;
     margin: 25px;
-    
+    border: none;
     border-radius: 8px;
-    background-color: #555555;
+    background-color: #c5523b;
     color: #fff;
     transition-duration: 0.4s;
 }
 button:hover{
-    background-color: #04AA6D; /* Green */
+    background-color: #F2AC57; /* Green */
     color: white;
 }
 button span {
@@ -62,4 +67,14 @@ button:hover span {
 button:hover span:after {
     opacity: 1;
     right: 0;
+}
+
+p{
+    color: #F2AC57;
+    margin-left: 30px;
+    transition: 0.4s;
+}
+
+p:hover{
+    color: #C02529;
 }

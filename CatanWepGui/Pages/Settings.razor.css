@@ -7,11 +7,20 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url("./img/catan3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
 }
 
 h1{
-    font-size: 60px;
-    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    font-family: "UnifrakturCook", b;
+    margin-bottom: 50px;
+    font-size: 100px;
+    font-weight: bold;
+    color: #555555;
 }
 
 article{

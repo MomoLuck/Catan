@@ -3,7 +3,7 @@
     justify-content: center;
     margin-top: 50px;
     font-family: "UnifrakturCook", b;
-    color: #4C6030;
+    color: #A96F4A;
     font-size: 100px;
     font-weight: bold;
     
@@ -39,12 +39,12 @@ button{
     border: none;
 
     border-radius: 8px;
-    background-color: #706C8C;
+    background-color: #83634A;
     color: #fff;
     transition-duration: 0.4s;
 }
 button:hover{
-    background-color: #CC9EA8; /* Green */
+    background-color: #af7e69; /* Green */
     color: white;
 }
 button span {

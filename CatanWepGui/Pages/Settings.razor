@@ -1,58 +1,61 @@
 ﻿@page "/Settings"
 
 <main>
-<h1>Einstellungen</h1>
-<div class="object">
-    <h3>Sprache auswählen</h3>
-    <EditForm Model="@formModel" class="custom-dropdown">
+    <h1>Einstellungen</h1>
+    <div id="outside">
+        <div class="object">
+            <h3>Sprache auswählen</h3>
+            <EditForm Model="@formModel" class="custom-dropdown">
 
-        <InputSelect @bind-Value="formModel.SelectedLanguage">
-            @foreach (var option in options)
-            {
-                <option value="@option">@option</option>
-            }
-        </InputSelect>
-    </EditForm>
-</div>
+                <InputSelect @bind-Value="formModel.SelectedLanguage">
+                    @foreach (var option in options)
+                    {
+                        <option value="@option">@option</option>
+                    }
+                </InputSelect>
+            </EditForm>
+        </div>
 
-<div class = "placeholder"></div>
+        <div class="placeholder"></div>
 
-<div class="object">
-    <h3>Musik & Effekte</h3>
-    <EditForm Model="@formModel" class="custom-dropdown">
+        <div class="object">
+            <h3>Musik & Effekte</h3>
+            <EditForm Model="@formModel" class="custom-dropdown">
 
-        <InputSelect @bind-Value="formModel.SelectedState">
-            @foreach (var state in onoff)
-            {
-                <option value="@state">@state</option>
-            }
-        </InputSelect>
-    </EditForm>
-</div>
+                <InputSelect @bind-Value="formModel.SelectedState">
+                    @foreach (var state in onoff)
+                    {
+                        <option value="@state">@state</option>
+                    }
+                </InputSelect>
+            </EditForm>
+        </div>
 
-<div class = "placeholder"></div>
+        <div class="placeholder"></div>
 
-<div class="object">
-        <h3>VSync</h3>
-        <EditForm Model="@formModel" class="custom-dropdown">
+        <div class="object">
+            <h3>VSync</h3>
+            <EditForm Model="@formModel" class="custom-dropdown">
 
-            <InputSelect @bind-Value="formModel.VSync">
-                @foreach (var state in onoff)
-                {
-                    <option value="@state">@state</option>
-                }
-            </InputSelect>
-        </EditForm>
+                <InputSelect @bind-Value="formModel.VSync">
+                    @foreach (var state in onoff)
+                    {
+                        <option value="@state">@state</option>
+                    }
+                </InputSelect>
+            </EditForm>
+        </div>
+
+        <div class="placeholder"></div>
+
+        <div class="object">
+            <h3>Gambling mode</h3>
+            <a href="/Gambling"><button id="gambling_button">Enter Gambling mode</button></a>
+        </div>
+        <div class="placeholder"></div>
+        <article>Aktuelle Version: 0.63</article>
     </div>
 
-<div class = "placeholder"></div>
-
-<div class="object">
-    <h3>Gambling mode</h3>
-    <a href="/Gambling"><button id="gambling_button">Enter Gambling mode</button></a>
-</div>
-<div class = "placeholder"></div>
-<article>Aktuelle Version: 0.63</article>
     
 </main>
 @code {

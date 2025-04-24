@@ -18,7 +18,7 @@ h1{
     margin-top: 50px;
     font-size: 100px;   
     font-weight: bold;
-    color: #4C6030;
+    color: #A96F4A;
 }
 
 span{
@@ -34,24 +34,24 @@ h4{
 
     /*Wie heißt de Zwiebel do*/
 #submitbutton:hover {
-    background-color:  #CC9EA8;
+    background-color:  #af7e69;
 }
 #submitbutton {
     transition-duration: 0.4s;
     width: 100%;
-    font-family: "EB Garamond", b;
-    background-color: #555555;
+    background-color: #83634A;
     color: #fff;
     border-radius: 5px;
     border:none;
+    text-decoration: underline solid white 1px;
 }
 #submitbutton:disabled {
-    background-color: #2D431D;
+    background-color: #712a2a;
     border-radius: 5px;
     cursor: not-allowed;
 }
 #submitbutton:disabled:hover {
-    background-color: #2D431D;
+    background-color: #712a2a;
     border-radius: 5px;
     cursor: not-allowed;
 }
@@ -59,7 +59,6 @@ h4{
 a{
     color: white;
     text-decoration: underline;
-    font-family: "EB Garamond", b;
     text-decoration-color: #555555;
 }
  

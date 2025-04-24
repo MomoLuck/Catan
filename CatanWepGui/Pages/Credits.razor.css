@@ -1,11 +1,14 @@
 ﻿main{
     padding: 20px;
-    font-family: "EB Garamond", b;
     margin: auto;
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-image: url("img/catan3.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 h1{
@@ -15,17 +18,20 @@ h1{
     margin-bottom: 50px;
     font-size: 100px;
     font-weight: bold;
-    color: #555555;
+    color: #6e5e51;
 }
 
 article strong{
     font-size: 27px;
-    color: #04AA6D; /* Green */;
+    color: #6e5e51; /* Green */;
+    font-family: "EB Garamond", b;
 }
 
 article{
     font-size: 24px;
     margin-bottom: 100px;
+    color: white;
+    font-family: "EB Garamond", b;
 }
 
 button{
@@ -35,14 +41,14 @@ button{
     height: 50px;
     width: 50em;
     margin: 25px;
-
+    border: none;
     border-radius: 8px;
-    background-color: #555555;
+    background-color: #6e5948;
     color: #fff;
     transition-duration: 0.4s;
 }
 button:hover{
-    background-color: #04AA6D; /* Green */
+    background-color: #7c6a56; /* Green */
     color: white;
 }
 button span {

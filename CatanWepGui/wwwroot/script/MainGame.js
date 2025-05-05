@@ -208,16 +208,23 @@ window.Place = window.Place || {
 window.Butn = window.Butn || {
     butnn: function () {
         let buttons = document.getElementsByClassName("buildingbutn");
+        function removeBackgroundColor() {
+            for (const button of buttons) {
+                button.style.backgroundColor = "#83634A"
+            }
+        }
+        
         for (const button of buttons) {
             button.addEventListener("click", function () {
-                button.style.backgroundColor = "rgb(255,255,255)";
+                let buttons = document.getElementsByClassName("buildingbutn");
+                button.style.backgroundColor = "#af7e69";
             })
             
             
         let actives = document.getElementsByClassName("active")
         for (const active of actives) {
              active.addEventListener("click", function () {
-                console.log("bastard")
+                removeBackgroundColor();
              })
             }
         }

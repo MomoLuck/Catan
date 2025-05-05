@@ -210,7 +210,7 @@ window.Butn = window.Butn || {
         let buttons = document.getElementsByClassName("buildingbutn");
         for (const button of buttons) {
             button.addEventListener("click", function () {
-                
+                button.style.backgroundColor = "rgb(255,255,255)";
             })
             
             

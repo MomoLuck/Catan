@@ -25,7 +25,15 @@
                 }
             }
             
+        } else{
+            var idk2 = document.querySelectorAll(".bord")
+            for(node of idk2) {
+                if(node.classList.contains("active")) {
+                node.style.visibility = "hidden";
+                }
+            }
         }
+        
     },
 
 }

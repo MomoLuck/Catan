@@ -1,0 +1,4 @@
+- Resource Cards/ Special Cards
+- Win condition / Building resources
+- canPlace für settlements / City
+- Räuber

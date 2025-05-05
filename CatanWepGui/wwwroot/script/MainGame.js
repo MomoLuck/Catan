@@ -207,19 +207,19 @@ window.Place = window.Place || {
 
 window.Butn = window.Butn || {
     butnn: function () {
-        togglgeButtons = document.getElementsByClassName("butn");
-        console.log(togglgeButtons);
-        for (var toggleButton of togglgeButtons) {
-            console.log(toggleButton);
-            toggleButton.addEventListener("click", () => {
-                console.log("adsf")
-                this.classList.toggle("activated");
-                if (this.classList.contains("activated")) {
-                    this.style.backgroundColor = "#3f3f3f";
-                } else {
-                    this.style.backgroundColor = "#ff0000";
-                }
+        let buttons = document.getElementsByClassName("buildingbutn");
+        for (const button of buttons) {
+            button.addEventListener("click", function () {
+                
             })
+            
+            
+        let actives = document.getElementsByClassName("active")
+        for (const active of actives) {
+             active.addEventListener("click", function () {
+                console.log("bastard")
+             })
+            }
         }
     }
 }

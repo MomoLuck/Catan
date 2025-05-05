@@ -4,14 +4,11 @@
 @using Catan.MainGame.MainGameloop
 @inject IJSRuntime Js
 
-<main style="border: 7px solid @ColorRotator[CurrentColorId]; transition: border-color 0.5s ease-in-out;" >
+<main style="border: 7px solid @ColorRotator[CurrentColorId]; transition: border-color 0.5s ease-in-out; padding: 0px "  >
     <div id="activePlayer">
-        @for (int i = 0; i < ActivePlayers.Count; i++)
-        {
-            <h4>Players @(i + 1)</h4>
-            <a>Name : @ActivePlayers[i].Name</a>
-            <a>Color : @ActivePlayers[i].Color</a>
-        }
+        <h4>Players @(CurrentColorId + 1)</h4>
+        <a>Name : @ActivePlayers[CurrentColorId].Name</a><br/>
+        <a>Color : @ActivePlayers[CurrentColorId].Color</a>
     </div>
     <article>
         <section>
@@ -138,14 +135,21 @@
             
             
         </section>
-        <aside>
-            <button id="City" class="building butn" @onclick="@(() => Build(new City()))" >Stadt</button>
-            <button id="Settlement" class="building butn" @onclick="@(() => Build(new Settlement()))" >Siedlung</button>
-            <button id="Road" class="building butn" @onclick="@(() => Change(".bord"))" >Straße</button>
-            <button id="Raider" class="activity butn">Räuber</button>
-        </aside>
     </article>
-    <button @onclick="() => ChangeBorderColor()">click me!</button>
+    <aside>
+        <nav>
+            <button id="City" class="building buildingbutn" @onclick="@(() => Build(new City()))" >Stadt</button>
+            <button id="Settlement" class="building buildingbutn" @onclick="@(() => Build(new Settlement()))" >Siedlung</button>
+            <button id="Road" class="building buildingbutn" @onclick="@(() => Change(".bord"))" >Straße</button>
+            <button id="Raider" class="activity buildingbutn">Räuber</button>
+        </nav>
+
+        <div id="switchable">
+
+        </div>
+
+        <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">Nächster SPil</button></div>
+    </aside>
 </main>
 
 <style>
@@ -207,7 +211,6 @@
         TileRandomizer.ShuffleTiles();
         TileRandomizer.AddRandId();
         InitPlayers();
-        Butn();
     }
 
     public void InitPlayers()
@@ -284,7 +287,10 @@
         FirstPicsList[CurrentColorId][1] -= 1;
     }
 
-    public async Task Butn() {
-        await Js.InvokeVoidAsync("Butn.butnn");
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (firstRender)
+        {
+            await Js.InvokeVoidAsync("Butn.butnn");
+        }
     }
 }

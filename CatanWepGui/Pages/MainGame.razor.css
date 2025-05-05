@@ -21,9 +21,6 @@ section {
     max-width: calc((var(--s) + 2*var(--m))*5);
     margin-bottom: 10px;
 }
-aside button{
-    transition: 0.3s ease;
-}
 
 section div {
     width: var(--s);
@@ -232,7 +229,88 @@ main {
 }
 
 #activePlayer{
-    border: 1px solid red;
-    padding: 10px;
+    border: 2px solid #a474ff;
+    padding: 12px;
     border-radius: 5px;
+    height: 13%;
+    margin-left: 10px;
+    margin-top: 5px;
+    
+}
+
+#activePlayer h4{
+    font-size: 32px;
+    text-decoration: underline 1px solid;
+}
+
+#activePlayer a{
+    font-size: 20px;
+}
+
+aside{
+    height: 100%;
+    width: 20vw;
+    background-color: #af7e69;
+    border: none;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+aside nav{
+    height: 6%;
+    width: 95%;
+    margin: auto;
+    margin-top: 8px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #83634A;
+    
+}
+
+aside nav button{
+    width: 22%;
+    height: 80%;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    background-color: #83634A;  
+    transition: all 0.1s ease-in-out;
+
+}
+
+aside nav button:hover{;
+    background-color: #af7e69;
+}
+
+#switchable{
+    height:84%;
+    border-radius: 8px;
+    margin: 8px;
+    background-color: #83634A;
+    
+}
+
+#nextPlayerButton{
+    width: 95%;
+    height : 7.5%;
+    margin: auto;
+    margin-top: 8px;
+}
+
+#nextPlayerButton button{
+    height: 90%;
+    width: 100%;
+    margin: auto;
+    border: none;
+    border-radius: 8px;
+    background-color: #83634A;
+    color: white
+    
+}
+
+#nextPlayerButton button:hover{
+    background-color: #af7e69;
 }

@@ -1,5 +1,4 @@
 ﻿main{
-    padding: 20px;
     display: flex;
     flex-direction: row;
 }
@@ -62,7 +61,6 @@ section::before {
 
 main {
     height: 100vh;
-    padding: 10px;
 }
 #top_grid_1, #top_grid_2, #top_grid_3, #top_grid_4, #top_grid_5, #top_grid_6, #top_grid_7, #top_grid_8, #top_grid_9,
 #top_grid_10, #top_grid_11, #top_grid_12, #top_grid_13, #top_grid_14, #top_grid_15, #top_grid_16, #top_grid_17,

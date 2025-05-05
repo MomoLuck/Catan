@@ -1,5 +1,7 @@
 ﻿main{
     padding: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 article {
@@ -227,4 +229,10 @@ main {
 
 #top_grid_line_39{
     transform: rotate(-60deg)
+}
+
+#activePlayer{
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
 }

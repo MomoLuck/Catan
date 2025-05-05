@@ -5,6 +5,14 @@
 @inject IJSRuntime Js
 
 <main style="border: 7px solid @ColorRotator[CurrentColorId]; transition: border-color 0.5s ease-in-out;" >
+    <div id="activePlayer">
+        @for (int i = 0; i < ActivePlayers.Count; i++)
+        {
+            <h4>Players @(i + 1)</h4>
+            <a>Name : @ActivePlayers[i].Name</a>
+            <a>Color : @ActivePlayers[i].Color</a>
+        }
+    </div>
     <article>
         <section>
             <div class="non-tile"></div>
@@ -137,12 +145,6 @@
             <button id="Raider" class="activity butn">Räuber</button>
         </aside>
     </article>
-    @for (int i = 0; i < ActivePlayers.Count; i++)
-    {
-        <h4>Players @(i + 1)</h4>
-        <a>Name : @ActivePlayers[i].Name</a>
-        <a>Color : @ActivePlayers[i].Color</a>
-    }
     <button @onclick="() => ChangeBorderColor()">click me!</button>
 </main>
 
@@ -254,7 +256,6 @@
         {
             CurrentColorId = 0;
         }
-
     }
 
     public async Task Change(string classs){

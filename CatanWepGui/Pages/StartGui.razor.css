@@ -71,10 +71,14 @@ button:hover span:after {
 
 p{
     color: #F2AC57;
-    margin-left: 30px;
+    margin-left: 0px;
     transition: 0.4s;
 }
 
 p:hover{
     color: #C02529;
+}
+
+.distance{
+    width: 35px;
 }

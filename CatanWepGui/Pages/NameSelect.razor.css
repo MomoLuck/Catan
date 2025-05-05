@@ -66,3 +66,21 @@ a{
     color: white;
 }
 
+section{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.color-picker {
+    margin-top: 20px;
+}
+.selected-color {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
+    text-align: center;
+    background-color: #fff;  /* Standard-Hintergrundfarbe */
+}

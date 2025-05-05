@@ -25,7 +25,8 @@
                 <div>
                     <label id="label">
                         <a>Color:</a>
-                        <InputText @bind-Value="currentPlayer.Color" placeholder="#fffffffff"/>
+                        <input type="color" id="colorInput" class="color-picker">
+                        <div id="selectedColor" class="selected-color">Ausgewählte Farbe: #000000</div>
                     </label>
                 </div>
                 <div>

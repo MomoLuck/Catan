@@ -25,7 +25,7 @@
                 <div>
                     <label id="label">
                         <a>Color:</a>
-                        <input type="color" id="colorInput" class="color-picker">
+                        <input type="color" @bind="currentPlayer.Color" id="colorInput" class="color-picker">
                     </label>
                 </div>
                 <div>
@@ -109,11 +109,7 @@
         }
 
         string color = Players.PlayerList[num].Color;
-        if (!IsValidColor(color))
-        {
-            JS.InvokeVoidAsync("alert", "The color format is invalid or not a valid color.");
-            return;
-        }
+        Console.WriteLine(color);
         
         if (Players.PlayerList[num].Active == false)
         {

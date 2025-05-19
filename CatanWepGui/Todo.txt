@@ -4,4 +4,7 @@
 Whala für dich Rudian:
 - canplace für settlements / city (Falls du noch Zeit hast)
 - Resource Cards/ Special Cards (generelles Resource System, jeder spieler hat schon die properties du musst sie nur abziehen usw)
-
+1. Counter für resource und special cards
+2. Machst du ifs bei c# und so, wird nicht funtional ausschaun is aber egal
+3. canPlace mit resourcen das und so damit das nur anzeigt wenn du genug hast
+(4. Funktion zum Resourcen geben)

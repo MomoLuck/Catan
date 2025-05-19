@@ -331,6 +331,7 @@
     }
 
     public async Task Place(string location) {
+        
         await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0]);
         if (FirstPicsList[CurrentColorId][0] > 0) {
             FirstPicsList[CurrentColorId][0] -= 1;

@@ -227,7 +227,6 @@ main {
 }
 
 #activePlayer{
-    border: 2px solid #a474ff;
     padding: 12px;
     border-radius: 5px;
     height: 13%;

@@ -9,4 +9,10 @@ Whala für dich Rudian:
 2. Machst du ifs bei c# und so, wird nicht funtional ausschaun is aber egal 
 3. canPlace mit resourcen das und so damit das nur anzeigt wenn du genug hast
 (4. Funktion zum Resourcen geben)
+
+
+Game ablauf:
+|--           Phase 0           --|--           Phase 1             --|--         Aktion         --|
+Start Player 1 -> Start Player 2 -> Würfel roll -> Ertrag von Würfel -> Player 1 Zug -> Player 2 Zug
+                                  |--                              Gameloop                      --|  
 5. Eier

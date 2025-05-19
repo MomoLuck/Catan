@@ -251,3 +251,59 @@ window.Butn = window.Butn || {
         }
     }
 }
+
+window.Ertrag = window.Ertrag || {
+    erwirtschaftung: function (roll) {
+        const tilePairs = {
+            0: ["top_grid_1","top_grid_3","top_grid_4","top_grid_7"],
+            1: ["top_grid_1","top_grid_2","top_grid_4","top_grid_5","top_grid_8"],
+            2: ["top_grid_2","top_grid_5","top_grid_6","top_grid_9"],
+            3: ["top_grid_3","top_grid_7","top_grid_10","top_grid_11","top_grid_15"],
+            4: ["top_grid_4","top_grid_7","top_grid_8","top_grid_11","top_grid_12","top_grid_16"],
+            5: ["top_grid_5","top_grid_8","top_grid_9","top_grid_12","top_grid_13","top_grid_17"],
+            6: ["top_grid_6","top_grid_9","top_grid_13","top_grid_14","top_grid_18"],
+            7: ["top_grid_10","top_grid_15","top_grid_19","top_grid_23"],
+            8: [],
+            9: [],
+            10: [],
+            11: [],
+            12: [],
+            13: [],
+            14: [],
+            15: [],
+            16: [],
+            17: [],
+            18: [],
+            19: [],
+            20: [],
+            21: [],
+            22: [],
+            23: [],
+            24: [],
+            25: [],
+            26: [],
+            27: [],
+            28: [],
+            29: [],
+            30: [],
+            31: [],
+            32: [],
+            33: [],
+            34: [],
+            35: [],
+            36: [],
+            37: [],
+            38: [],
+            39: [],
+            40: [],
+            41: []
+        };
+
+        tiles = [...document.getElementsByClassName("tile")];
+        tiles.splice(9,1);
+        tilesFiltered = tiles.filter(t => t.children[0].textContent == roll);
+        tiles.forEach(t => console.log(t.children[0].textContent));
+        console.log(tiles.indexOf(tilesFiltered[0]));
+        console.log(tiles.indexOf(tilesFiltered[1]));
+    }
+}

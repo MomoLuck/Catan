@@ -1,5 +1,6 @@
 ﻿@page "/MainGame"
 @using Catan.MainGame
+@using Catan.MainGame.Cards
 @using Catan.MainGame.Figures
 @using Catan.MainGame.MainGameloop
 @inject IJSRuntime Js
@@ -145,7 +146,61 @@
         </nav>
 
         <div id="switchable">
-
+            <div>
+                <h3>Ressource Cards</h3>
+                <div id="wood" class="ressource">
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wood))
+                    {
+                        <article class="ressourceCard">
+                            <img src="wood" alt="kein wut">
+                            <h3>@Card.Id</h3>
+                        </article>
+                    }
+                </div>
+                <div id="clay" class="ressource">
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Clay))
+                    {
+                        <article class="ressourceCard">
+                            <img src="wood" alt="kein wut">
+                            <h3>@Card.Id</h3>
+                        </article>
+                    }
+                </div>
+                <div id="sheep" class="ressource">
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Sheep))
+                    {
+                        <article class="ressourceCard">
+                            <img src="wood" alt="kein wut">
+                            <h3>@Card.Id</h3>
+                        </article>
+                    }
+                </div>
+                <div id="wheat" class="ressource">
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wheat))
+                    {
+                        <article class="ressourceCard">
+                            <img src="wood" alt="kein wut">
+                            <h3>@Card.Id</h3>
+                        </article>
+                    }
+                </div>
+                <div id="ore" class="ressource">
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Ore))
+                    {
+                        <article class="ressourceCard">
+                            <img src="wood" alt="kein wut">
+                            <h3>@Card.Id</h3>
+                        </article>
+                    }
+                </div>
+            </div>
+            
+            <section>
+                <h3>Special Cards</h3>
+                <div id="specialCardCorner">
+                    
+                </div>
+            </section>
         </div>
 
         <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">Nächster Spieler</button></div>
@@ -268,7 +323,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("noarbia");
+                    Console.WriteLine("noariba");
                     CurrentColorId = 0;
                     HasRolled = false;
                     DiceRoll = "?";
@@ -337,8 +392,27 @@
             FirstPicsList[CurrentColorId][0] -= 1;
         }
     }
-    public async Task PlaceStreet(string location) {
-        await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1]);
+    public async Task PlaceStreet(string location)
+    {
+        List<string> stringResources = (List<string>)ActivePlayers[CurrentColorId].RessourceCards.Select(r =>
+        {
+            switch (r.Id)
+            {
+                case ECards.Wood:
+                    return "Wood";
+                case ECards.Clay:
+                    return "Clay";
+                case ECards.Sheep:
+                    return "Sheep";
+                case ECards.Ore:
+                    return "Ore";
+                case ECards.Wheat:
+                    return "Wheat";
+                default:
+                    return "";
+            }
+        });
+        await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], stringResources);
         if (FirstPicsList[CurrentColorId][1] > 0) {
             FirstPicsList[CurrentColorId][1] -= 1;
         }

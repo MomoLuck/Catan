@@ -79,7 +79,7 @@ window.Place = window.Place || {
         }
         }
     },
-    canPlace: function (location, color, firstpics) {
+    canPlace: function (location, color, firstpics, resourceCards) {
         const pairs = {
             "top_grid_line_0": ["top_grid_1", "top_grid_4"],
             "top_grid_line_1": ["top_grid_2", "top_grid_5"],
@@ -153,8 +153,14 @@ window.Place = window.Place || {
                 const lineElement = document.getElementById(lineId);
                 return lineElement && !lineElement.classList.contains("active") && lineElement.classList.contains(color);
             })
-                
-            return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
+            
+            if (resourceCards.filter(f => f.Id == "Wheat").length >= 0 && resourceCards.filter(f => f.Id == "Clay").length >= 0){
+                return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
+            }
+            else{
+                return false;
+            }
+
         } else{
             const currentLines = Object.keys(pairs).filter(pair => pairs[pair].includes(location));
             
@@ -170,16 +176,21 @@ window.Place = window.Place || {
                     return false;
                 }
             }
+            if (resourceCards.filter(f => f.Id == "Wheat").length > 0 && resourceCards.filter(f => f.Id == "Clay").length > 0){
+                return hasOwnRoad;
+            }
+            else{
+                return false;
+            }
 
-            return hasOwnRoad;
         }        
     },
     
-    placeStreet: function (location, color, FirstPicValue) {
+    placeStreet: function (location, color, FirstPicValue, resourceCards) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
         console.log(firstpics);
-        if (this.canPlace(location, color, firstpics)) {
+        if (this.canPlace(location, color, firstpics, resourceCards)) {
             canContinue = false
             if (firstpics) {
                 canContinue = true
@@ -189,12 +200,13 @@ window.Place = window.Place || {
                 }
             }
             if (canContinue) {
-                if (Place.canPlace(location, color)) {
+                if (Place.canPlace(location, color, resourceCards)) {
                     if (element.classList.contains("active")) {
                         element.classList.remove("active");
                         document.getElementById(location).style.backgroundColor = color;
                         element.classList.add(color);
                     }
+                    
 
                     var idk = document.querySelectorAll(".bord")
                     for (const node of idk) {

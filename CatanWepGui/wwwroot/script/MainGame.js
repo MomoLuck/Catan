@@ -370,48 +370,42 @@ window.Ertrag = window.Ertrag || {
             5: ["top_grid_5","top_grid_8","top_grid_9","top_grid_12","top_grid_13","top_grid_17"],
             6: ["top_grid_6","top_grid_9","top_grid_13","top_grid_14","top_grid_18"],
             7: ["top_grid_10","top_grid_15","top_grid_19","top_grid_23"],
-            8: [],
+            8: ["top_grid_11","top_grid_15","top_grid_16","top_grid_19","top_grid_20","top_grid_24"],
             9: [],
-            10: [],
-            11: [],
-            12: [],
-            13: [],
-            14: [],
-            15: [],
-            16: [],
-            17: [],
-            18: [],
-            19: [],
-            20: [],
-            21: [],
-            22: [],
-            23: [],
-            24: [],
-            25: [],
-            26: [],
-            27: [],
-            28: [],
-            29: [],
-            30: [],
-            31: [],
-            32: [],
-            33: [],
-            34: [],
-            35: [],
-            36: [],
-            37: [],
-            38: [],
-            39: [],
-            40: [],
-            41: []
+            10: ["top_grid_13","top_grid_17","top_grid_18","top_grid_21","top_grid_22","top_grid_26"],
+            11: ["top_grid_14","top_grid_18","top_grid_22","top_grid_27"],
+            12: ["top_grid_19","top_grid_23","top_grid_24","top_grid_28","top_grid_31"],
+            13: ["top_grid_20","top_grid_24","top_grid_25","top_grid_28","top_grid_29","top_grid_32"],
+            14: ["top_grid_21","top_grid_25","top_grid_26","top_grid_29","top_grid_30","top_grid_33"],
+            15: ["top_grid_22","top_grid_26","top_grid_27","top_grid_30","top_grid_34"],
+            16: ["top_grid_28","top_grid_31","top_grid_32","top_grid_35"],
+            17: ["top_grid_29","top_grid_32","top_grid_33","top_grid_35","top_grid_36"],
+            18: ["top_grid_30","top_grid_33","top_grid_34","top_grid_36"]
         };
 
         tiles = [...document.getElementsByClassName("tile")];
         tiles.splice(9,1);
         tilesFiltered = tiles.filter(t => t.children[0].textContent == roll);
-        tiles.forEach(t => console.log(t.children[0].textContent));
-        console.log(tiles.indexOf(tilesFiltered[0]));
-        console.log(tiles.indexOf(tilesFiltered[1]));
+        
+        ernte = {
+            "Wood" : [],
+            "Sheep" : [],
+            "Stone" : [],
+            "Wheat" : [],
+            "Clay" : []
+        }
+
+        tilesFiltered.forEach(tile => {
+            resource = tile.style.backgroundImage.split("/")[2].split(".")[0]
+            lines = tilePairs[tiles.indexOf(tile)]
+            lines = lines.filter(line => !document.getElementById(line).classList.contains("active"))
+            lines.forEach(line => {
+                ernte[resource].push(document.getElementById(line).classList.toString().split("#")[1])
+
+            })
+        })
+        
+        console.log(ernte)
     }
 }
 Place.canPlaceSettlement()

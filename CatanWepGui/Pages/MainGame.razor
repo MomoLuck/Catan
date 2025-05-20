@@ -16,7 +16,7 @@
     else {
         <div id="activePlayer" style="border: 2px solid @ColorRotator[CurrentColorId]; transition: border-color 0.5s ease-in-out;">
             <h4>Dice Roll</h4>
-            @{Dice();}
+            @{ Dice(); }
             <a>@DiceRoll</a>
         </div>
     }
@@ -159,8 +159,7 @@
             <div>
                 <h3>Ressource Cards</h3>
                 <div id="wood" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wood))
-                    {
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wood)) {
                         <article class="ressourceCard">
                             <img src="wood" alt="kein wut">
                             <h3>@Card.Id</h3>
@@ -168,8 +167,7 @@
                     }
                 </div>
                 <div id="clay" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Clay))
-                    {
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Clay)) {
                         <article class="ressourceCard">
                             <img src="wood" alt="kein wut">
                             <h3>@Card.Id</h3>
@@ -177,8 +175,7 @@
                     }
                 </div>
                 <div id="sheep" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Sheep))
-                    {
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Sheep)) {
                         <article class="ressourceCard">
                             <img src="wood" alt="kein wut">
                             <h3>@Card.Id</h3>
@@ -186,8 +183,7 @@
                     }
                 </div>
                 <div id="wheat" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wheat))
-                    {
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wheat)) {
                         <article class="ressourceCard">
                             <img src="wood" alt="kein wut">
                             <h3>@Card.Id</h3>
@@ -195,8 +191,7 @@
                     }
                 </div>
                 <div id="ore" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Ore))
-                    {
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Ore)) {
                         <article class="ressourceCard">
                             <img src="wood" alt="kein wut">
                             <h3>@Card.Id</h3>
@@ -204,21 +199,21 @@
                     }
                 </div>
             </div>
-            
+
             <section>
                 <h3>Special Cards</h3>
                 <div id="specialCardCorner">
-                    
+
                 </div>
             </section>
         </div>
-@if (CurrentPhaseId != 0) {
+        @if (CurrentPhaseId != 0) {
             <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">Nächster Spieler</button></div>
         }
-else {
-    <div id="nextPlayerButton"><button @onclick="() => Ertragerwirtschafter()">Ertrag erwirtschaften</button></div>
+        else {
+            <div id="nextPlayerButton"><button @onclick="() => Ertragerwirtschafter()">Ertrag erwirtschaften</button></div>
 
-}
+        }
     </aside>
 </main>
 

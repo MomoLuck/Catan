@@ -1,7 +1,7 @@
 ﻿namespace Catan.MainGame;
 
 public class Forest : ATile {
-    public Forest() : base(ETileTypes.Forest, ERessource.Wood, """'./img/Green.png'""")
+    public Forest() : base(ETileTypes.Forest, ERessource.Wood, """'./img/Wood.png'""")
     {
         
     }

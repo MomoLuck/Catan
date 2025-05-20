@@ -1,7 +1,7 @@
 ﻿namespace Catan.MainGame;
 
 public class Field : ATile {
-    public Field() : base(ETileTypes.Field, ERessource.Wheat, """'./img/Beige.png'""")
+    public Field() : base(ETileTypes.Field, ERessource.Wheat, """'./img/Wheat.png'""")
     {
     }
     

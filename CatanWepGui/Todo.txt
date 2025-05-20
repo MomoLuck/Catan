@@ -1,18 +1,15 @@
 - Win condition / Building resources
 - Räuber movement 
-
+- Funktionen für resourcen geben
 Whala für dich Rudian:
 - canplace für settlements / city (Falls du noch Zeit hast)
     - muss auch preis zu canPlace machen
-- Resource Cards/ Special Cards (generelles Resource System, jeder spieler hat schon die properties du musst sie nur abziehen usw)
-1. Counter für resource und special cards -
-2. Machst du ifs bei c# und so, wird nicht funtional ausschaun is aber egal 
-3. canPlace mit resourcen das und so damit das nur anzeigt wenn du genug hast
-(4. Funktion zum Resourcen geben)
-
-
+    - und muss auch in c# noch abziehen
+    - change mach ich whala
+    
 Game ablauf:
 |--           Phase 0           --|--           Phase 1             --|--         Aktion         --|
 Start Player 1 -> Start Player 2 -> Würfel roll -> Ertrag von Würfel -> Player 1 Zug -> Player 2 Zug
                                   |--                              Gameloop                      --|  
 5. Eier
+6. Kaborchi minorchi horchi kaborchi

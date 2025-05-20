@@ -420,6 +420,24 @@ public void Dice() {
                     return "";
             }
         });
+
+        bool removedWood = false;
+        bool removedClay = false;
+        foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards)
+        {
+            if (Card.Id == ECards.Wood && removedWood == false)
+            {
+                ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                removedWood = true;
+            }
+
+            if (Card.Id == ECards.Clay && removedClay == false)
+            {
+                ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                removedClay = true;
+            }
+        }
+        
         await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], stringResources);
         if (FirstPicsList[CurrentColorId][1] > 0) {
             FirstPicsList[CurrentColorId][1] -= 1;

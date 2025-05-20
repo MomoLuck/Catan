@@ -42,6 +42,7 @@ window.Place = window.Place || {
     placeBuilding: function (location,building, color, FirstPicValue) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
+        //----
         if(this.canPlace(location,color, firstpics)) {
             canContinue = false
             if(firstpics && building.id === 1){
@@ -51,6 +52,7 @@ window.Place = window.Place || {
                     canContinue = true
                 }
             }
+            //------
         if(canContinue) {
             element.classList.remove("active");
             element.classList.add(building.id);
@@ -79,6 +81,106 @@ window.Place = window.Place || {
         }
         }
     },
+
+    canPlaceSettlement: function (building, location, color, firstpics, resourceCards) {
+        // Wenn settlement -> soll auf firstpics hören und weiter machen egal ob resourcen da sind aber er soll immernoch auf Kollisionen aufpassen
+        // Wenn city && firstpics -> immer nein
+        // In PlaceBuilding einfügen mit building und so 
+        const pairs = {
+            "top_grid_line_0": ["top_grid_1", "top_grid_4"],
+            "top_grid_line_1": ["top_grid_2", "top_grid_5"],
+            "top_grid_line_2": ["top_grid_3", "top_grid_7"],
+            "top_grid_line_3": ["top_grid_4", "top_grid_7"],
+            "top_grid_line_4": ["top_grid_4", "top_grid_8"],
+            "top_grid_line_5": ["top_grid_5", "top_grid_8"],
+            "top_grid_line_6": ["top_grid_5", "top_grid_9"],
+            "top_grid_line_7": ["top_grid_6", "top_grid_9"],
+            "top_grid_line_8": ["top_grid_7", "top_grid_11"],
+            "top_grid_line_9": ["top_grid_8", "top_grid_12"],
+            "top_grid_line_10": ["top_grid_9", "top_grid_13"],
+            "top_grid_line_11": ["top_grid_10", "top_grid_15"],
+            "top_grid_line_12": ["top_grid_11", "top_grid_15"],
+            "top_grid_line_13": ["top_grid_11", "top_grid_16"],
+            "top_grid_line_14": ["top_grid_12", "top_grid_16"],
+            "top_grid_line_15": ["top_grid_12", "top_grid_17"],
+            "top_grid_line_16": ["top_grid_13", "top_grid_17"],
+            "top_grid_line_17": ["top_grid_13", "top_grid_18"],
+            "top_grid_line_18": ["top_grid_14", "top_grid_18"],
+            "top_grid_line_19": ["top_grid_15", "top_grid_19"],
+            "top_grid_line_20": ["top_grid_16", "top_grid_20"],
+            "top_grid_line_21": ["top_grid_17", "top_grid_21"],
+            "top_grid_line_22": ["top_grid_18", "top_grid_22"],
+            "top_grid_line_23": ["top_grid_19", "top_grid_23"],
+            "top_grid_line_24": ["top_grid_19", "top_grid_24"],
+            "top_grid_line_25": ["top_grid_20", "top_grid_24"],
+            "top_grid_line_26": ["top_grid_20", "top_grid_25"],
+            "top_grid_line_27": ["top_grid_21", "top_grid_25"],
+            "top_grid_line_28": ["top_grid_21", "top_grid_26"],
+            "top_grid_line_29": ["top_grid_22", "top_grid_26"],
+            "top_grid_line_30": ["top_grid_22", "top_grid_27"],
+            "top_grid_line_31": ["top_grid_24", "top_grid_28"],
+            "top_grid_line_32": ["top_grid_25", "top_grid_29"],
+            "top_grid_line_33": ["top_grid_26", "top_grid_30"],
+            "top_grid_line_34": ["top_grid_28", "top_grid_31"],
+            "top_grid_line_35": ["top_grid_28", "top_grid_32"],
+            "top_grid_line_36": ["top_grid_29", "top_grid_32"],
+            "top_grid_line_37": ["top_grid_29", "top_grid_33"],
+            "top_grid_line_38": ["top_grid_30", "top_grid_33"],
+            "top_grid_line_39": ["top_grid_30", "top_grid_34"],
+            "top_grid_line_40": ["top_grid_32", "top_grid_35"],
+            "top_grid_line_41": ["top_grid_33", "top_grid_36"]
+        };
+
+        // Alle Linien, die mit diesem Knoten verbunden sind
+        const connectedLines = Object.entries(pairs)
+            .filter(([_, nodes]) => nodes.includes(location))
+            .map(([lineId]) => lineId);
+
+        // Wenn keine Linien an dem Knoten, darf man nicht bauen
+        if (connectedLines.length === 0) return false;
+
+        const nodeEl = document.getElementById(location);
+        if (!nodeEl || nodeEl.classList.contains("active")) return false;
+
+        // Startphase: nur sicherstellen, dass keine fremden Gebäude nebenan
+        if (firstpics && building === "settlement") {
+            for (const line of connectedLines) {
+                const [n1, n2] = pairs[line];
+                const neighborNode = n1 === location ? n2 : n1;
+                const neighborEl = document.getElementById(neighborNode);
+                if (neighborEl && neighborEl.classList.contains("active")) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
+
+        // Normale Phase: prüfen, ob eine verbundene Linie der eigenen Farbe ist
+        let hasOwnRoad = false;
+        for (const line of connectedLines) {
+            const lineEl = document.getElementById(line);
+            if (!lineEl) continue;
+
+            if (!lineEl.classList.contains("active") && lineEl.classList.contains(color)) {
+                hasOwnRoad = true;
+            } else if (!lineEl.classList.contains("active") && !lineEl.classList.contains(color)) {
+                // Fremde Straße, verbietet das Bauen
+                return false;
+            }
+        }
+
+        if (!hasOwnRoad) return false;
+
+        // Ressourcen checken
+        const hasResources = resourceCards.filter(f => f.Id == "Wheat").length > 0 &&
+            resourceCards.filter(f => f.Id == "Clay").length > 0;
+
+        return hasResources;
+    },
+
     canPlace: function (location, color, firstpics, resourceCards) {
         const pairs = {
             "top_grid_line_0": ["top_grid_1", "top_grid_4"],
@@ -153,7 +255,9 @@ window.Place = window.Place || {
                 const lineElement = document.getElementById(lineId);
                 return lineElement && !lineElement.classList.contains("active") && lineElement.classList.contains(color);
             })
-            
+            if(firstpics){
+                return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
+            }
             if (resourceCards.filter(f => f.Id == "Wheat").length >= 0 && resourceCards.filter(f => f.Id == "Clay").length >= 0){
                 return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
             }
@@ -176,7 +280,10 @@ window.Place = window.Place || {
                     return false;
                 }
             }
-            if (resourceCards.filter(f => f.Id == "Wheat").length > 0 && resourceCards.filter(f => f.Id == "Clay").length > 0){
+            if(firstpics){
+                return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
+            }
+            if (resourceCards.filter(f => f.Id == "Wheat").length > 0 && resourceCards.filter(f => f.Id == "Clay").length > 0 && !firstpics){
                 return hasOwnRoad;
             }
             else{
@@ -307,3 +414,4 @@ window.Ertrag = window.Ertrag || {
         console.log(tiles.indexOf(tilesFiltered[1]));
     }
 }
+Place.canPlaceSettlement()

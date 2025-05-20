@@ -4185,8 +4185,8 @@ C:/Users/Moritz/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/4gjg
 /home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/refint/CatanWepGui.dll
 /home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/CatanWepGui.pdb
 /home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/ref/CatanWepGui.dll
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/t76f23xsbo-1bi80mzbqn.gz
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/68pywpernj-r4ajsgutzj.gz
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/106t986sv0-2o2ra7adqy.gz
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/jc0hu5xtmg-nosytkqs4y.gz
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/ibsjcp7n0r-nyb4paamlx.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/t76f23xsbo-0sdk2e6v0t.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/68pywpernj-lnamx1of9d.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/106t986sv0-h8ncesqe0v.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/jc0hu5xtmg-b88wf27bxy.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/ibsjcp7n0r-0xaqsbspo7.gz

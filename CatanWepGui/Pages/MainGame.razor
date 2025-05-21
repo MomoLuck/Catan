@@ -1,4 +1,5 @@
 ﻿@page "/MainGame"
+@using System.Text.Json
 @using Catan.MainGame
 @using Catan.MainGame.Cards
 @using Catan.MainGame.Figures
@@ -207,7 +208,7 @@
                 </div>
             </section>
         </div>
-        @if (CurrentPhaseId != 0) {
+        @if (CurrentPhaseId != 0) { // nur wegen debug da muss auf 1 gewechselt werden
             <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">Nächster Spieler</button></div>
         }
         else {
@@ -449,7 +450,29 @@ public void Dice() {
     public async Task Ertragerwirtschafter() {
         DiceRoll = "4";
         if (DiceRoll != "?") {
-            await Js.InvokeVoidAsync("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll));
+//            var resources = await Js.InvokeAsync<dynamic>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll)) ;
+            var resources = await Js.InvokeAsync<Dictionary<string, List<object>>>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll));
+
+            foreach (var color in resources["Sheep"]) {
+                Console.WriteLine(color);
+            }
+            foreach (var color in resources["Clay"]) {
+                Console.WriteLine(color);
+            }
+            foreach (var color in resources["Stone"]) {
+                Console.WriteLine(color);
+            }
+            foreach (var color in resources["Wheat"]) {
+                Console.WriteLine(color);
+            }
+            foreach (var color in resources["Wood"]) {
+                Console.WriteLine(color);
+            }
+
+            Console.WriteLine("ariba");
+            Console.WriteLine(resources);
         }
     }
+    
+
 }

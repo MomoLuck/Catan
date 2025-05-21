@@ -384,28 +384,30 @@ window.Ertrag = window.Ertrag || {
         };
 
         tiles = [...document.getElementsByClassName("tile")];
-        tiles.splice(9,1);
-        tilesFiltered = tiles.filter(t => t.children[0].textContent == roll);
+        tilesDesertless = [...document.getElementsByClassName("tile")];
+        tilesDesertless.splice(9,1);
+        tilesFiltered = tilesDesertless.filter(t => t.children[0].textContent == roll);
         
         ernte = {
-            "Wood" : [],
-            "Sheep" : [],
-            "Stone" : [],
-            "Wheat" : [],
-            "Clay" : []
+            Wood : [],
+            Sheep : [],
+            Stone : [],
+            Wheat : [],
+            Clay : []
         }
-
         tilesFiltered.forEach(tile => {
             resource = tile.style.backgroundImage.split("/")[2].split(".")[0]
-            lines = tilePairs[tiles.indexOf(tile)]
-            lines = lines.filter(line => !document.getElementById(line).classList.contains("active"))
-            lines.forEach(line => {
+            
+            nodes = tilePairs[tiles.indexOf(tile)]
+            nodes = nodes.filter(node => !document.getElementById(node).classList.contains("active"))
+            nodes.forEach(line => {
                 ernte[resource].push(document.getElementById(line).classList.toString().split("#")[1])
 
             })
         })
         
-        console.log(ernte)
+        return ernte
     }
 }
+// muss man ganz am ende rauslöschen
 Place.canPlaceSettlement()

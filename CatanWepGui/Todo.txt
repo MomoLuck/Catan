@@ -1,15 +1,16 @@
-- Win condition / Building resources
-- Räuber movement 
-- Funktionen für resourcen geben
-Whala für dich Rudian:
-- canplace für settlements / city (Falls du noch Zeit hast)
+- Special cards / interface für karten
+- Räuber implementieren
+- Funktionen für resourcen fertig machen
+- canplace für settlements / city debuggen 
     - muss auch preis zu canPlace machen
     - und muss auch in c# noch abziehen
-    - change mach ich whala
+    - changeElement anpassen
+- debuggen
     
+    
+    
+
 Game ablauf:
 |--           Phase 0           --|--           Phase 1             --|--         Aktion         --|
 Start Player 1 -> Start Player 2 -> Würfel roll -> Ertrag von Würfel -> Player 1 Zug -> Player 2 Zug
                                   |--                              Gameloop                      --|  
-5. Eier
-6. Kaborchi minorchi horchi kaborchi

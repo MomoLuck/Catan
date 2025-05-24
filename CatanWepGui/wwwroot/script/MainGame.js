@@ -1,5 +1,9 @@
 ﻿window.Change = window.Change || {
-    changeElement: function (classs, color) {
+    changeElement: function (classs, color, firstPics, resourceCards) {
+
+        var firstPicsBuilding = firstPics[0] > 0
+        var firstPicsRoad = firstPics[1] > 0
+        
         var idk  = document.querySelectorAll(classs);
         for (const node of idk) {
                 node.style.visibility = "visible";
@@ -10,7 +14,7 @@
                 node.style.visibility = "visible";
             }
             for (const node of idk) {
-                if (!Place.canPlace(node.id, color)) {
+                if (!Place.canPlace(node.id, color, firstPicsRoad,resourceCards)) {
                     if (node.classList.contains("active")) {
                         node.style.visibility = "hidden";
                     }
@@ -42,7 +46,7 @@ window.Place = window.Place || {
     placeBuilding: function (location,building, color, FirstPicValue) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
-        //----
+        //---- Muss geändert werden
         if(this.canPlace(location,color, firstpics)) {
             canContinue = false
             if(firstpics && building.id === 1){
@@ -296,7 +300,6 @@ window.Place = window.Place || {
     placeStreet: function (location, color, FirstPicValue, resourceCards) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
-        console.log(firstpics);
         if (this.canPlace(location, color, firstpics, resourceCards)) {
             canContinue = false
             if (firstpics) {
@@ -307,7 +310,7 @@ window.Place = window.Place || {
                 }
             }
             if (canContinue) {
-                if (Place.canPlace(location, color, resourceCards)) {
+                if (this.canPlace(location, color,firstpics,resourceCards)) {
                     if (element.classList.contains("active")) {
                         element.classList.remove("active");
                         document.getElementById(location).style.backgroundColor = color;
@@ -410,4 +413,4 @@ window.Ertrag = window.Ertrag || {
     }
 }
 // muss man ganz am ende rauslöschen
-Place.canPlaceSettlement()
+// Place.canPlaceSettlement()

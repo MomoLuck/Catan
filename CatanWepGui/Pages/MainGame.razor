@@ -1,4 +1,5 @@
 ﻿@page "/MainGame"
+@using System.Runtime.CompilerServices
 @using System.Text.Json
 @using Catan.MainGame
 @using Catan.MainGame.Cards
@@ -150,9 +151,9 @@
     </article>
     <aside>
         <nav>
-            <button id="City" class="building buildingbutn" @onclick="@(() => Build(new City()))">Stadt</button>
-            <button id="Settlement" class="building buildingbutn" @onclick="@(() => Build(new Settlement()))">Siedlung</button>
-            <button id="Road" class="building buildingbutn" @onclick="@(() => Change(".bord"))">Straße</button>
+            <button id="City" class="building buildingbutn" @onclick="@(() => Build(new City(),".intersec"))">Stadt</button>
+            <button id="Settlement" class="building buildingbutn" @onclick="@(() => Build(new Settlement(),".intersec"))">Siedlung</button>
+            <button id="Road" class="building buildingbutn" @onclick="@(() => Build(new Road(),".bord"))">Straße</button>
             <button id="Raider" class="activity buildingbutn">Räuber</button>
         </nav>
 
@@ -208,7 +209,7 @@
                 </div>
             </section>
         </div>
-        @if (CurrentPhaseId != 0) { // nur wegen debug da muss auf 1 gewechselt werden
+        @if (CurrentPhaseId != 1) { // zu 0 wechseln falls ertrag nicht funktioniert (debuggen)
             <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">Nächster Spieler</button></div>
         }
         else {
@@ -323,14 +324,9 @@
         if (CurrentPhaseId == 0) {
             if (FirstPicsList[CurrentColorId][0] == 0 && FirstPicsList[CurrentColorId][1] == 0) {
                 if (CurrentColorId < ActivePlayers.Count - 1) {
-                    Console.WriteLine("ariba");
-                    Console.WriteLine(CurrentColorId);
                     CurrentColorId++;
-                    Console.WriteLine(CurrentColorId);
-                    Console.WriteLine(CurrentPhaseId);
                 }
                 else {
-                    Console.WriteLine("noariba");
                     CurrentColorId = 0;
                     HasRolled = false;
                     DiceRoll = "?";
@@ -373,21 +369,58 @@ public void Dice() {
         }
     }
 
+    public string[] RessourceCardsJsConvert(List<ACards> resourceCards)
+    {
+        var stringCards = resourceCards.Select(card =>
+        {
+            var type = "";
+            switch (card.Id)
+            {
+                case ECards.Clay:
+                    type = "Clay";
+                    break;
+                    
+                case ECards.Wood:
+                    type = "Wood";
+                    break;
+                    
+                case ECards.Sheep:
+                    type = "Sheep";
+                    break;
+                    
+                case ECards.Wheat:
+                    type = "Wheat";
+                    break;
+                    
+                case ECards.Ore:
+                    type = "Stone";
+                    break;
+                default:
+                    type = "";
+                    break;
+            }
+            return type;
+        });
+        return stringCards.ToArray();
+    }
+    
     <!-- In Asyn tasks und so ty shi ty shi mit js und so -->
     public async Task Change(string classs){
-        if (On) {
-            On = false;
-        }
-        else {
-            On = true;
-        }
-        await Js.InvokeVoidAsync("Change.changeElement", classs, ColorRotator[CurrentColorId], On);
+        
+        await Js.InvokeVoidAsync("Change.changeElement", classs, ColorRotator[CurrentColorId],FirstPicsList[CurrentColorId] ,RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
 
     }
 
-    public void Build(AFigure building) {
-        Change(".intersec");
-        CurrentBuilding = building;
+    public void Build(AFigure building, string id) {
+        if (id == ".intersec")
+        {
+            Change(".intersec");
+            CurrentBuilding = building;
+        }
+        else
+        {
+            Change(".bord");
+        }
     }
 
     public async Task Place(string location) {
@@ -397,30 +430,12 @@ public void Dice() {
         }
     }
     public async Task PlaceStreet(string location)
-    {
-        List<string> stringResources = (List<string>)ActivePlayers[CurrentColorId].RessourceCards.Select(r =>
-        {
-            switch (r.Id)
-            {
-                case ECards.Wood:
-                    return "Wood";
-                case ECards.Clay:
-                    return "Clay";
-                case ECards.Sheep:
-                    return "Sheep";
-                case ECards.Ore:
-                    return "Ore";
-                case ECards.Wheat:
-                    return "Wheat";
-                default:
-                    return "";
-            }
-        });
-
+    { 
         bool removedWood = false;
         bool removedClay = false;
-        foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards)
+        for(var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++)
         {
+            var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
             if (Card.Id == ECards.Wood && removedWood == false)
             {
                 ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
@@ -433,8 +448,8 @@ public void Dice() {
                 removedClay = true;
             }
         }
-        
-        await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], stringResources);
+
+        await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
         if (FirstPicsList[CurrentColorId][1] > 0) {
             FirstPicsList[CurrentColorId][1] -= 1;
         }
@@ -453,24 +468,24 @@ public void Dice() {
 //            var resources = await Js.InvokeAsync<dynamic>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll)) ;
             var resources = await Js.InvokeAsync<Dictionary<string, List<object>>>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll));
 
-            foreach (var color in resources["Sheep"]) {
-                Console.WriteLine(color);
+
+            foreach (var color in resources["Sheep"])
+            {
+                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Sheep,true,false,false));
             }
             foreach (var color in resources["Clay"]) {
-                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Clay,true,false,false));            
             }
             foreach (var color in resources["Stone"]) {
-                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Ore,true,false,false));
             }
             foreach (var color in resources["Wheat"]) {
-                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Wheat,true,false,false));
             }
             foreach (var color in resources["Wood"]) {
-                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Wood,true,false,false));
             }
 
-            Console.WriteLine("ariba");
-            Console.WriteLine(resources);
         }
     }
     

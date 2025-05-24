@@ -1,9 +1,38 @@
 ﻿window.Change = window.Change || {
-    changeElement: function (classs, color, firstPics, resourceCards) {
+    changeElement: function (classId, color, firstPics, resourceCards, building) {
 
         var firstPicsBuilding = firstPics[0] > 0
         var firstPicsRoad = firstPics[1] > 0
+        var elements = document.querySelectorAll(classId)
+        var otherElements
+        if(classId == ".intersec"){
+            otherElements = document.querySelectorAll(".bord")
+        } else{
+            otherElements = document.querySelectorAll(".intersec")
+        }
+        var firstPicsSettlementBool = firstPics[0] > 0
+        var firstPicsRoadBool = firstPics[1] > 0
         
+        if(classId == ".intersec"){
+            for (const node of elements){
+                if(true && node.classList.contains("active")){
+                    node.style.visibility = "visible"
+                }
+            }
+            for (const node of otherElements){
+                node.style.visibility = "hidden"
+            }
+        } else{
+            for(const node of elements){
+                if(Place.canPlace(node, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")){
+                    node.style.visibility = "visible"
+                }
+            }
+            for (const node of otherElements){
+                node.style.visibility = "hidden"
+            }
+        }
+/*
         var idk  = document.querySelectorAll(classs);
         for (const node of idk) {
                 node.style.visibility = "visible";
@@ -37,7 +66,7 @@
                 }
             }
         }
-        
+    */
     },
 
 }
@@ -293,7 +322,6 @@ window.Place = window.Place || {
             else{
                 return false;
             }
-
         }        
     },
     

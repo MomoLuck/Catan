@@ -277,6 +277,10 @@
     public int CurrentPhaseId { get; set; } = 0;
     public string DiceRoll { get; set; } = "?";
     public bool HasRolled { get; set; } = false;
+    public List<string> GridPlacedList { get; set; } = Enumerable
+        .Range(1, 35)
+        .Select(i => $"top_grid_{i}")
+        .ToList();
     public bool On { get; set; } = false;
     protected override async Task OnInitializedAsync() {
         TileRandomizer.ShuffleTiles();
@@ -407,27 +411,27 @@ public void Dice() {
     <!-- In Asyn tasks und so ty shi ty shi mit js und so -->
     public async Task Change(string classs){
         
-        await Js.InvokeVoidAsync("Change.changeElement", classs, ColorRotator[CurrentColorId],FirstPicsList[CurrentColorId] ,RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
+        await Js.InvokeVoidAsync("Change.changeElement", classs, ColorRotator[CurrentColorId],FirstPicsList[CurrentColorId] ,RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards), CurrentBuilding);
 
     }
 
     public void Build(AFigure building, string id) {
-        if (id == ".intersec")
-        {
-            Change(".intersec");
+            Change(id);
             CurrentBuilding = building;
-        }
-        else
-        {
-            Change(".bord");
-        }
+
     }
 
     public async Task Place(string location) {
-        await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0]);
-        if (FirstPicsList[CurrentColorId][0] > 0) {
-            FirstPicsList[CurrentColorId][0] -= 1;
+        if (GridPlacedList.Contains(location))
+        {
+            GridPlacedList.Remove(location);
+            await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0]);
+            if (FirstPicsList[CurrentColorId][0] > 0) {
+                FirstPicsList[CurrentColorId][0] -= 1;
+            }
         }
+        
+
     }
     public async Task PlaceStreet(string location)
     { 

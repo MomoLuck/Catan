@@ -1,10 +1,14 @@
 ﻿window.Change = window.Change || {
     changeElement: function (classId, color, firstPics, resourceCards, building) {
-
+        //Muss noch auf die buttons angepasst werden bzw halt, dass es on/off switched
         var firstPicsBuilding = firstPics[0] > 0
         var firstPicsRoad = firstPics[1] > 0
         var elements = document.querySelectorAll(classId)
         var otherElements
+        var pressedButton = document.getElementsByClassName("pressed")
+        console.log(pressedButton)
+        
+        
         if(classId == ".intersec"){
             otherElements = document.querySelectorAll(".bord")
         } else{
@@ -19,17 +23,21 @@
                     node.style.visibility = "visible"
                 }
             }
-            for (const node of otherElements){
-                node.style.visibility = "hidden"
+            for (const node of otherElements) {
+                if (node.classList.contains("active")) {
+                    node.style.visibility = "hidden"
+                }
             }
         } else{
             for(const node of elements){
-                if(Place.canPlace(node, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")){
+                if(Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")){
                     node.style.visibility = "visible"
                 }
             }
             for (const node of otherElements){
-                node.style.visibility = "hidden"
+                if(node.classList.contains("active")){
+                    node.style.visibility = "hidden"
+                }
             }
         }
 /*
@@ -100,18 +108,7 @@ window.Place = window.Place || {
             }
             element.style.backgroundColor = color;
             element.classList.add(color);
-        
-
-        var idk = document.querySelectorAll(".intersec")
-        for (const node of idk) {
-            if(node.classList.contains("active")) {
-                node.backgroundColor = "rgb(255,255,255)";
-                node.style.visibility = "hidden"; //hidden
-                node.backgroundColor = "rgb(0, 160, 255)";
-
             }
-        }
-        }
         }
     },
 
@@ -208,8 +205,8 @@ window.Place = window.Place || {
         if (!hasOwnRoad) return false;
 
         // Ressourcen checken
-        const hasResources = resourceCards.filter(f => f.Id == "Wheat").length > 0 &&
-            resourceCards.filter(f => f.Id == "Clay").length > 0;
+        const hasResources = resourceCards.filter(f => f == "Wheat").length > 0 &&
+            resourceCards.filter(f => f == "Clay").length > 0;
 
         return hasResources;
     },
@@ -274,7 +271,6 @@ window.Place = window.Place || {
         for (const line in neighbors) {
             neighbors[line] = Array.from(neighbors[line]);
         }
-
         if(pairs[location] !== undefined) {
             const currentNodes = pairs[location];
 
@@ -289,18 +285,20 @@ window.Place = window.Place || {
                 return lineElement && !lineElement.classList.contains("active") && lineElement.classList.contains(color);
             })
             if(firstpics){
-                return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
+                return (ownedInactive || connectedToOwnRoad) && !enemyInactive; 
+            } else{
+                if (resourceCards.filter(f => f == "Wheat").length >= 0 && resourceCards.filter(f => f == "Clay").length >= 0){
+                    return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
+                }
+                else{
+                    return false;
+                }
             }
-            if (resourceCards.filter(f => f.Id == "Wheat").length >= 0 && resourceCards.filter(f => f.Id == "Clay").length >= 0){
-                return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
-            }
-            else{
-                return false;
-            }
-
-        } else{
-            const currentLines = Object.keys(pairs).filter(pair => pairs[pair].includes(location));
             
+
+        } else{ // else ist wahrscheinlich unnötig
+            const currentLines = Object.keys(pairs).filter(pair => pairs[pair].includes(location));
+
             let hasOwnRoad = false;
             for (const line of currentLines) {
                 const lineEl = document.getElementById(line);
@@ -316,7 +314,7 @@ window.Place = window.Place || {
             if(firstpics){
                 return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
             }
-            if (resourceCards.filter(f => f.Id == "Wheat").length > 0 && resourceCards.filter(f => f.Id == "Clay").length > 0 && !firstpics){
+            if (resourceCards.filter(f => f == "Wheat").length > 0 && resourceCards.filter(f => f == "Clay").length > 0 && !firstpics){
                 return hasOwnRoad;
             }
             else{
@@ -344,17 +342,6 @@ window.Place = window.Place || {
                         document.getElementById(location).style.backgroundColor = color;
                         element.classList.add(color);
                     }
-                    
-
-                    var idk = document.querySelectorAll(".bord")
-                    for (const node of idk) {
-                        if (node.classList.contains("active")) {
-                            node.backgroundColor = "rgb(255,255,255)";
-                            node.style.visibility = "hidden"; //hidden
-                            node.backgroundColor = "rgb(0, 160, 255)";
-
-                        }
-                    }
 
                 }
             }
@@ -365,27 +352,26 @@ window.Place = window.Place || {
 
 window.Butn = window.Butn || {
     butnn: function () {
-        let buttons = document.getElementsByClassName("buildingbutn");
+        let buttons = document.getElementsByClassName("butn");
         function removeBackgroundColor() {
             for (const button of buttons) {
                 button.style.backgroundColor = "#83634A"
+                button.classList.remove("pressed")
             }
         }
         
         for (const button of buttons) {
             button.addEventListener("click", function () {
-                let buttons = document.getElementsByClassName("buildingbutn");
-                removeBackgroundColor();
-                button.style.backgroundColor = "#af7e69";
+                let buttons = document.getElementsByClassName("butn");
+                if(!button.classList.contains("pressed")){
+                    removeBackgroundColor()
+                    button.style.backgroundColor = "#af7e69";
+                    button.classList.add("pressed")
+                } else{
+                    button.style.backgroundColor = "#83634A"
+                    button.classList.remove("pressed")
+                }
             })
-            
-            
-        let actives = document.getElementsByClassName("active")
-        for (const active of actives) {
-             active.addEventListener("click", function () {
-                removeBackgroundColor();
-             })
-            }
         }
     }
 }

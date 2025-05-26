@@ -353,7 +353,10 @@
         }
         else {
             if (CurrentPhaseId == 2) {
-                CurrentColorId++;
+                CurrentColorId = 0;
+                CurrentPhaseId = 1;
+                DiceRoll = "?";
+                HasRolled = false;
             }
             else {
 //                CurrentColorId = 0;
@@ -438,22 +441,23 @@ public void Dice() {
     {
         bool removedWood = false;
         bool removedClay = false;
-        for(var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++)
-        {
-            var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
-            if (Card.Id == ECards.Wood && removedWood == false)
+        if(FirstPicsList[CurrentColorId][1] == 0){
+            for(var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++)
             {
-                ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                removedWood = true;
-            }
+                var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
+                if (Card.Id == ECards.Wood && removedWood == false)
+                {
+                    ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                    removedWood = true;
+                }
 
-            if (Card.Id == ECards.Clay && removedClay == false)
-            {
-                ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                removedClay = true;
+                if (Card.Id == ECards.Clay && removedClay == false)
+                {
+                    ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                    removedClay = true;
+                }
             }
         }
-
         await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
         Build(CurrentBuilding, ".bord");
 
@@ -470,11 +474,10 @@ public void Dice() {
     }
     
     public async Task Ertragerwirtschafter() {
-        DiceRoll = "4";
         if (DiceRoll != "?") {
 //            var resources = await Js.InvokeAsync<dynamic>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll)) ;
             var resources = await Js.InvokeAsync<Dictionary<string, List<object>>>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll));
-
+            Console.WriteLine(ActivePlayers.Count);
 
             foreach (var color in resources["Sheep"])
             {
@@ -494,6 +497,8 @@ public void Dice() {
             }
 
         }
+
+        CurrentPhaseId = 2;
     }
     
 

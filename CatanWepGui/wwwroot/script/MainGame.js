@@ -7,16 +7,7 @@
         var otherElements
         var pressedButton = document.getElementsByClassName("pressed")
         console.log(pressedButton)
-
-        if (pressedButton[0]) {
-            pressedButton[0].classlist.remove("pressed")
-            if (classId === ".intersec") {
-                node.style.visibility = "hidden"
-                
-            }else{
-
-            }
-        }
+        
         
         if(classId == ".intersec"){
             otherElements = document.querySelectorAll(".bord")
@@ -28,7 +19,7 @@
         
         if(classId == ".intersec"){
             for (const node of elements){
-                if(true && node.classList.contains("active")){ // anstatt true halt Place.CanPlaceSettlements
+                if(true && node.classList.contains("active")){
                     node.style.visibility = "visible"
                 }
             }
@@ -57,7 +48,18 @@ window.Place = window.Place || {
     placeBuilding: function (location,building, color, FirstPicValue) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
-
+        //---- Muss geändert werden
+        if(this.canPlace(location,color, firstpics)) {
+            canContinue = false
+            if(firstpics && building.id === 1){
+                canContinue = true
+            } else{
+                if(element.classList.contains("active") && !firstpics && true){
+                    canContinue = true
+                }
+            }
+            //------
+        if(canContinue) {
             element.classList.remove("active");
             element.classList.add(building.id);
             element.style.height = "20px";
@@ -71,6 +73,8 @@ window.Place = window.Place || {
             }
             element.style.backgroundColor = color;
             element.classList.add(color);
+            }
+        }
     },
 
     canPlaceSettlement: function (building, location, color, firstpics, resourceCards) {

@@ -6,6 +6,7 @@
     - und muss auch in c# noch abziehen
     - changeElement anpassen
 - debuggen
+7. leck eier und dann goonen
     
     
     
@@ -19,4 +20,4 @@ Start Player 1 -> Start Player 2 -> Würfel roll -> Ertrag von Würfel -> Player
 todo rudi weil arsch:
 - changeElement richtig changed mit den Buttons
 - CanPlaceSettlement richtig eingebunden wird, ich hoffe es funktioniert einfach
-- 
+- Buildings : Place(), ... updaten damit die auch Ressourcen wegmachen und so (wenn firstpics an is firstPics[0] is Settlement dann halt keine Resourcen weg)

@@ -426,6 +426,7 @@ public void Dice() {
         {
             GridPlacedList.Remove(location);
             await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0]);
+            Build(CurrentBuilding, ".intersec");
             if (FirstPicsList[CurrentColorId][0] > 0) {
                 FirstPicsList[CurrentColorId][0] -= 1;
             }
@@ -434,7 +435,7 @@ public void Dice() {
 
     }
     public async Task PlaceStreet(string location)
-    { 
+    {
         bool removedWood = false;
         bool removedClay = false;
         for(var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++)
@@ -454,6 +455,8 @@ public void Dice() {
         }
 
         await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
+        Build(CurrentBuilding, ".bord");
+
         if (FirstPicsList[CurrentColorId][1] > 0) {
             FirstPicsList[CurrentColorId][1] -= 1;
         }

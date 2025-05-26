@@ -159,11 +159,10 @@
 
         <div id="switchable">
             <div>
-                <h3>Ressource Cards</h3>
                 <div id="wood" class="ressource">
                     @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wood)) {
                         <article class="ressourceCard">
-                            <img src="wood" alt="kein wut">
+                            <img src="/img/log.svg" alt="kein wut">
                             <h3>@Card.Id</h3>
                         </article>
                     }
@@ -171,7 +170,7 @@
                 <div id="clay" class="ressource">
                     @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Clay)) {
                         <article class="ressourceCard">
-                            <img src="wood" alt="kein wut">
+                            <img src="/img/clay.webp" alt="kein wut">
                             <h3>@Card.Id</h3>
                         </article>
                     }
@@ -179,7 +178,7 @@
                 <div id="sheep" class="ressource">
                     @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Sheep)) {
                         <article class="ressourceCard">
-                            <img src="wood" alt="kein wut">
+                            <img src="/img/sheep.svg" alt="kein wut">
                             <h3>@Card.Id</h3>
                         </article>
                     }
@@ -187,7 +186,7 @@
                 <div id="wheat" class="ressource">
                     @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wheat)) {
                         <article class="ressourceCard">
-                            <img src="wood" alt="kein wut">
+                            <img src="/img/wheat.svg" alt="kein wut">
                             <h3>@Card.Id</h3>
                         </article>
                     }
@@ -195,7 +194,7 @@
                 <div id="ore" class="ressource">
                     @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Ore)) {
                         <article class="ressourceCard">
-                            <img src="wood" alt="kein wut">
+                            <img src="/img/ore.png" alt="kein wut">
                             <h3>@Card.Id</h3>
                         </article>
                     }
@@ -203,7 +202,6 @@
             </div>
 
             <section>
-                <h3>Special Cards</h3>
                 <div id="specialCardCorner">
 
                 </div>
@@ -406,6 +404,7 @@ public void Dice() {
                 case ECards.Ore:
                     type = "Stone";
                     break;
+                    
                 default:
                     type = "";
                     break;

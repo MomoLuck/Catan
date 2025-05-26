@@ -1,6 +1,5 @@
 ﻿window.Change = window.Change || {
     changeElement: function (classId, color, firstPics, resourceCards) {
-        //Muss noch auf die buttons angepasst werden bzw halt, dass es on/off switched
         var firstPicsSettlementBool = firstPics[0] > 0
         var firstPicsRoadBool = firstPics[1] > 0
         var elements = document.querySelectorAll(classId)
@@ -67,12 +66,10 @@ window.Place = window.Place || {
         var firstpics = FirstPicValue > 0
         if(building.id == 1){
             building = "Settlement"
-        
             element.classList.remove("active");
-            element.classList.add(building.id);
+            element.classList.add(building);
             element.style.height = "20px";
             element.style.width = "20px";
-
             element.style.top = (element.style.top).toString().split("px")[0] - (0) + "px";
             element.style.left = (element.style.left).toString().split("px")[0] - 5 + "px";
             for (let i = element.id.split("_")[2] - 1 + 1; i < document.querySelectorAll(".intersec").length; i++) {
@@ -82,7 +79,24 @@ window.Place = window.Place || {
             element.style.backgroundColor = color;
             element.classList.add(color);
         } else{
+            element.classList.remove("Settlement")
+            element.classList.add("City")
             building = "City"
+            const crown = document.createElement('div');
+            crown.classList.add("crown")
+            crown.style.position = 'absolute';
+            crown.style.top = (element.style.top).toString().split("px")[0] - (8) + "px";
+            crown.style.left = parseInt((element.style.left).toString().split("px")[0].split(".")[0]) - 9 + "px";
+            for (let i = element.id.split("_")[2] - 1 + 1; i > 0; i--) {
+                crown.style.left = parseInt((crown.style.left).toString().split("px")[0].split(".")[0]) +  10 + "px";
+            }
+            crown.style.left = parseInt((crown.style.left).toString().split("px")[0].split(".")[0]) +  10*document.getElementsByClassName("crown").length + "px";
+            crown.style.width = '18px';
+            crown.style.height = '12px';
+            crown.style.background = 'gold'; 
+            crown.style.clipPath = `polygon(0% 100%, 0% 60%, 16% 0%, 33% 60%, 50% 0%, 66% 60%, 83% 0%, 100% 60%, 100% 100%)`;
+            document.getElementById("top_grid").appendChild(crown)
+
         }
     },
 
@@ -161,6 +175,10 @@ window.Place = window.Place || {
             return true
             }
         } else{
+            var origin = document.getElementById(location)
+            const hasResources = resourceCards.filter(f => f == "Stone").length > 2 &&
+                resourceCards.filter(f => f == "Wheat").length > 1;
+            return !origin.classList.contains("active") && origin.classList.contains("Settlement") && origin.classList.contains(color) && hasResources;
             
         }
     },
@@ -306,7 +324,6 @@ window.Butn = window.Butn || {
     blockButnn: function(phase){
         var buttons = document.getElementsByClassName("butn")
         for(var button of buttons) {
-            console.log(button)
         }
         if(phase == 2){
             for(var button of buttons) {
@@ -360,10 +377,16 @@ window.Ertrag = window.Ertrag || {
             resource = tile.style.backgroundImage.split("/")[2].split(".")[0]
             
             nodes = tilePairs[tiles.indexOf(tile)]
-            nodes = nodes.filter(node => !document.getElementById(node).classList.contains("active"))
-            nodes.forEach(line => {
-                ernte[resource].push(document.getElementById(line).classList.toString().split("#")[1])
-
+            nodesSettlement = nodes.filter(node => !document.getElementById(node).classList.contains("active") && document.getElementById(node).classList.contains("Settlement"))
+            nodesCity = nodes.filter(node => !document.getElementById(node).classList.contains("active") && document.getElementById(node).classList.contains("City"))
+            
+            nodesSettlement.forEach(node => {
+                console.log(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
+                ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
+            })
+            nodesCity.forEach(node => {
+                ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
+                ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
             })
         })
         

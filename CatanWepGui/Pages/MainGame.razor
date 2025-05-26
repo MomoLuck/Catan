@@ -358,6 +358,10 @@
         .Range(1, 35)
         .Select(i => $"top_grid_{i}")
         .ToList();
+    public List<string> GridPlacedListCity { get; set; } = Enumerable
+        .Range(1, 35)
+        .Select(i => $"top_grid_{i}")
+        .ToList();
     public List<string> GridPlacedListStreet { get; set; } = Enumerable
         .Range(1, 40)
         .Select(i => $"top_grid_line_{i}")
@@ -415,7 +419,7 @@
     public void ChangeBorderColor() {
         
         if (CurrentPhaseId == 0) {
-            if (true) {// FirstPicsList[CurrentColorId][0] == 0 && FirstPicsList[CurrentColorId][1] == 0
+            if (true) { //FirstPicsList[CurrentColorId][0] == 0 && FirstPicsList[CurrentColorId][1] == 0
                 if (CurrentColorId < ActivePlayers.Count - 1) {
                     AdvanceCurrentColorIdArray();
                     CurrentColorId++;
@@ -565,6 +569,7 @@ public void Dice() {
         if (GridPlacedList.Contains(location) && CurrentBuilding.Id == new Settlement().Id)
         {
             GridPlacedList.Remove(location);
+            Console.WriteLine("ariba");
             bool removedClay = false;
             bool removedWood = false;
             bool removedSheep = false;
@@ -598,15 +603,50 @@ public void Dice() {
             Build(CurrentBuilding, ".intersec");
 
 
-        }
-        else
+        } else
         {
-            if (CurrentBuilding == new City())
+            if (GridPlacedListCity.Contains(location) && CurrentBuilding.Id == new City().Id)
             {
-                
+                GridPlacedListCity.Remove(location);
+                bool removedStone1 = false;
+                bool removedStone2 = false;
+                bool removedStone3 = false;
+                bool removedWheat = false;
+                if (FirstPicsList[CurrentColorId][0] == 0)
+                {
+                    for (var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++)
+                    {
+                        var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
+                        if (Card.Id == ECards.Wheat && removedWheat == false)
+                        {
+                            ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                            removedWheat = true;
+                        }
+
+                        if (Card.Id == ECards.Ore && removedStone1 == false)
+                        {
+                            ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                            removedStone1 = true;
+                        }
+
+                        if (Card.Id == ECards.Ore && removedStone2 == false && removedStone1 == true)
+                        {
+                            ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                            removedStone1 = true;
+                        }
+
+                        if (Card.Id == ECards.Ore && removedStone3 == false && removedStone2 == true)
+                        {
+                            ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                            removedStone1 = true;
+                        }
+                    }
+                }
+
+                await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
+                Build(CurrentBuilding, ".intersec");
             }
         }
-        
 
     }
 
@@ -646,31 +686,54 @@ public void Dice() {
         }
     }
     
-    public async Task Ertragerwirtschafter() {
+    public async Task Ertragerwirtschafter()
+    {
         if (DiceRoll != "?") {
             var resources = await Js.InvokeAsync<Dictionary<string, List<object>>>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll));
-            
+
             foreach (var color in resources["Sheep"])
             {
-                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Sheep,true,false,false));
+                foreach (var player in ActivePlayers.Where(p => p.Color == color.ToString()))
+                {
+                    Console.WriteLine("Sheep");
+                    player.RessourceCards.Add(new ACards(ECards.Sheep,true,false,false));
+                }
             }
             foreach (var color in resources["Clay"]) {
-                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Clay,true,false,false));            
+                foreach (var player in ActivePlayers.Where(p => p.Color == color.ToString()))
+                {
+                    Console.WriteLine("C");
+                    player.RessourceCards.Add(new ACards(ECards.Clay,true,false,false));
+                }
             }
             foreach (var color in resources["Stone"]) {
-                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Ore,true,false,false));
+                foreach (var player in ActivePlayers.Where(p => p.Color == color.ToString()))
+                {
+                    Console.WriteLine("St");
+                    player.RessourceCards.Add(new ACards(ECards.Ore,true,false,false));
+                }
             }
             foreach (var color in resources["Wheat"]) {
-                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Wheat,true,false,false));
+                foreach (var player in ActivePlayers.Where(p => p.Color == color.ToString()))
+                {
+                    Console.WriteLine("Wh");
+                    player.RessourceCards.Add(new ACards(ECards.Wheat,true,false,false));
+                }
             }
             foreach (var color in resources["Wood"]) {
-                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Wood,true,false,false));
+                foreach (var player in ActivePlayers.Where(p => p.Color == color.ToString()))
+                {
+                    Console.WriteLine("W");
+                    player.RessourceCards.Add(new ACards(ECards.Wood,true,false,false));
+                }
             }
 
         }
 
         CurrentPhaseId = 3;
         PlayerMove = true;
+        BlockButton();
+
     }
     
 

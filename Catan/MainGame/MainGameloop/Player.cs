@@ -29,8 +29,13 @@ public class Player {
         new ACards(ECards.Sheep,true,false,false),
         new ACards(ECards.Wood,true,false,false),
         new ACards(ECards.Ore,true,false,false),
+        new ACards(ECards.Ore,true,false,false),
+        new ACards(ECards.Ore,true,false,false),
+        new ACards(ECards.Ore,true,false,false),
         new ACards(ECards.Clay,true,false,false),
         new ACards(ECards.Clay,true,false,false),
+        new ACards(ECards.Wheat,true,false,false),
+        new ACards(ECards.Wheat,true,false,false),
         new ACards(ECards.Wheat,true,false,false),
         
         new ACards(ECards.Handelsstraße,true,true,false),

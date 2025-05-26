@@ -209,12 +209,16 @@
                 </div>
             </section>
         </div>
-        @if (CurrentPhaseId != 1) { // zu 0 wechseln falls ertrag nicht funktioniert (debuggen)
-            <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">Nächster Spieler</button></div>
+        @if (CurrentPhaseId != 0) { // muss auf 1 ändern
+            if (CurrentColorId + 1 < ActivePlayers.Count) {
+                ButtonText = "Nächster Spieler";
+            } else {
+                ButtonText = "Würfel würfeln";
+            }
+             <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">@ButtonText </button></div>
         }
         else {
             <div id="nextPlayerButton"><button @onclick="() => Ertragerwirtschafter()">Ertrag erwirtschaften</button></div>
-            
         }
     </aside>
 </main>
@@ -277,6 +281,7 @@
     public int CurrentPhaseId { get; set; } = 0;
     public string DiceRoll { get; set; } = "?";
     public bool HasRolled { get; set; } = false;
+    public string ButtonText { get; set; } = "Nächster Spieler";
     public List<string> GridPlacedList { get; set; } = Enumerable
         .Range(1, 35)
         .Select(i => $"top_grid_{i}")
@@ -498,31 +503,37 @@ public void Dice() {
     }
     
     public async Task Ertragerwirtschafter() {
+        DiceRoll = "4";
         if (DiceRoll != "?") {
-//            var resources = await Js.InvokeAsync<dynamic>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll)) ;
             var resources = await Js.InvokeAsync<Dictionary<string, List<object>>>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll));
-            Console.WriteLine(ActivePlayers.Count);
-
+            
             foreach (var color in resources["Sheep"])
             {
-                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Sheep,true,false,false));
+                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Sheep,true,false,false));
             }
             foreach (var color in resources["Clay"]) {
-                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Clay,true,false,false));            
+                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Clay,true,false,false));            
             }
             foreach (var color in resources["Stone"]) {
-                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Ore,true,false,false));
+                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Ore,true,false,false));
             }
             foreach (var color in resources["Wheat"]) {
-                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Wheat,true,false,false));
+                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Wheat,true,false,false));
             }
             foreach (var color in resources["Wood"]) {
-                ActivePlayers.Where(p => p.Color == "be1919").ToArray()[0].RessourceCards.Add(new ACards(ECards.Wood,true,false,false));
+                Console.WriteLine(color);
+                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Wood,true,false,false));
             }
 
         }
 
-        CurrentPhaseId = 2;
+        Console.WriteLine(CurrentColorId);
+        Console.WriteLine(CurrentPhaseId);
+        Console.WriteLine("--------------------");
     }
     
 

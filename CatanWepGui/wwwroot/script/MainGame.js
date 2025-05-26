@@ -7,6 +7,7 @@
         var otherElements
         var pressedButton = document.getElementsByClassName("pressed")
         var building = pressedButton[0].id
+
             if (pressedButton.length == 0) {
             for (const node of elements) {
                 if (node.classList.contains("active")) {
@@ -23,6 +24,7 @@
 
             if (classId == ".intersec") {
                 for (const node of elements) {
+
                     if (Place.canPlaceSettlement(building, node.id, color, firstPicsSettlementBool, resourceCards) && node.classList.contains("active")) {
                         node.style.visibility = "visible"
                     } else{
@@ -65,8 +67,7 @@ window.Place = window.Place || {
         } else{
                 building = "City"
         }
-        if(this.canPlaceSettlement(building, location, color, firstpics, resourceCards)){ // muss noch gefixt werden
-            console.log("ariba");
+        console.log(resourceCards);
             element.classList.remove("active");
             element.classList.add(building.id);
             element.style.height = "20px";
@@ -80,7 +81,6 @@ window.Place = window.Place || {
             }
             element.style.backgroundColor = color;
             element.classList.add(color);
-        }
     },
 
     canPlaceSettlement: function (building, location, color, firstpics, resourceCards) {

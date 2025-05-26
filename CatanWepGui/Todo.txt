@@ -5,7 +5,7 @@
     - muss auch preis zu canPlace machen
     - und muss auch in c# noch abziehen
     - changeElement anpassen
-- debuggen
+- man muss noch Settlements mit Citys replacen können
 7. leck eier und dann goonen
     
     

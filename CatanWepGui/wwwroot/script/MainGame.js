@@ -1,40 +1,41 @@
 ﻿window.Change = window.Change || {
-    changeElement: function (classId, color, firstPics, resourceCards, building) {
+    changeElement: function (classId, color, firstPics, resourceCards) {
         //Muss noch auf die buttons angepasst werden bzw halt, dass es on/off switched
-        var firstPicsBuilding = firstPics[0] > 0
-        var firstPicsRoad = firstPics[1] > 0
+        var firstPicsSettlementBool = firstPics[0] > 0
+        var firstPicsRoadBool = firstPics[1] > 0
         var elements = document.querySelectorAll(classId)
         var otherElements
         var pressedButton = document.getElementsByClassName("pressed")
-        console.log(pressedButton)
-        if (pressedButton.length == 0) {
+        var building = pressedButton[0].id
+            if (pressedButton.length == 0) {
             for (const node of elements) {
-                if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
+                if (node.classList.contains("active")) {
                     node.style.visibility = "hidden"
                 }
             }
-            console.log("hidden")
-
         }else {
             if (classId == ".intersec") {
                 otherElements = document.querySelectorAll(".bord")
             } else {
                 otherElements = document.querySelectorAll(".intersec")
             }
-            var firstPicsSettlementBool = firstPics[0] > 0
-            var firstPicsRoadBool = firstPics[1] > 0
+
 
             if (classId == ".intersec") {
                 for (const node of elements) {
-                    if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
+                    if (Place.canPlaceSettlement(building, node.id, color, firstPicsSettlementBool, resourceCards) && node.classList.contains("active")) {
                         node.style.visibility = "visible"
-                    }
+                    } else{
+                        if(node.classList.contains("active")) {
+                            node.style.visibility = "hidden"
+                        }
                 }
                 for (const node of otherElements) {
                     if (node.classList.contains("active")) {
                         node.style.visibility = "hidden"
                     }
                 }
+            }
             } else {
                 for (const node of elements) {
                     if (Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")) {
@@ -56,10 +57,16 @@
 }
 
 window.Place = window.Place || {
-    placeBuilding: function (location,building, color, FirstPicValue) {
+    placeBuilding: function (location,building, color, FirstPicValue, resourceCards) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
-        //---- Muss CanPlaceSettlements einbinden
+        if(building.id == 1){
+            building = "Settlement"
+        } else{
+                building = "City"
+        }
+        if(this.canPlaceSettlement(building, location, color, firstpics, resourceCards)){ // muss noch gefixt werden
+            console.log("ariba");
             element.classList.remove("active");
             element.classList.add(building.id);
             element.style.height = "20px";
@@ -73,6 +80,7 @@ window.Place = window.Place || {
             }
             element.style.backgroundColor = color;
             element.classList.add(color);
+        }
     },
 
     canPlaceSettlement: function (building, location, color, firstpics, resourceCards) {
@@ -129,49 +137,29 @@ window.Place = window.Place || {
             .filter(([_, nodes]) => nodes.includes(location))
             .map(([lineId]) => lineId);
 
-        // Wenn keine Linien an dem Knoten, darf man nicht bauen
-        if (connectedLines.length === 0) return false;
-
-        const nodeEl = document.getElementById(location);
-        if (!nodeEl || nodeEl.classList.contains("active")) return false;
-
+        if (connectedLines.length === 0 && !firstpics) return false;
         // Startphase: nur sicherstellen, dass keine fremden Gebäude nebenan
-        if (firstpics && building === "settlement") {
-            for (const line of connectedLines) {
-                const [n1, n2] = pairs[line];
-                const neighborNode = n1 === location ? n2 : n1;
-                const neighborEl = document.getElementById(neighborNode);
-                if (neighborEl && neighborEl.classList.contains("active")) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        else{
+        if (firstpics && building === "City") {
             return false;
         }
-
         // Normale Phase: prüfen, ob eine verbundene Linie der eigenen Farbe ist
         let hasOwnRoad = false;
         for (const line of connectedLines) {
             const lineEl = document.getElementById(line);
-            if (!lineEl) continue;
-
             if (!lineEl.classList.contains("active") && lineEl.classList.contains(color)) {
                 hasOwnRoad = true;
             } else if (!lineEl.classList.contains("active") && !lineEl.classList.contains(color)) {
-                // Fremde Straße, verbietet das Bauen
                 return false;
             }
         }
-
-        if (!hasOwnRoad) return false;
-
-        // Ressourcen checken
-        const hasResources = resourceCards.filter(f => f == "Wheat").length > 0 &&
-            resourceCards.filter(f => f == "Clay").length > 0;
-
-        return hasResources;
+        if (!hasOwnRoad && !firstpics) return false;
+        if(!firstpics) {
+            const hasResources = resourceCards.filter(f => f == "Wheat").length > 0 &&
+                resourceCards.filter(f => f == "Clay").length > 0;
+            return hasResources;
+        } else{
+            return true
+        }
     },
 
     canPlace: function (location, color, firstpics, resourceCards) {
@@ -298,7 +286,6 @@ window.Butn = window.Butn || {
             })
         }
         document.getElementById("nextPlayerButton").children[0].addEventListener("click", function () {
-            console.log("nextPlayerButton");
 
             for (const node of document.getElementsByClassName("active")) {
                 if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements

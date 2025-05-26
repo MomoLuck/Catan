@@ -17,7 +17,8 @@ Start Player 1 -> Start Player 2 -> Würfel roll -> Ertrag von Würfel -> Player
                                   |--                              Gameloop                      --|  
 
 
-todo rudi weil arsch:
-- changeElement richtig changed mit den Buttons
+todo rudi weil arsch (von oben nach unten du ayri ahh):
 - CanPlaceSettlement richtig eingebunden wird, ich hoffe es funktioniert einfach
 - Buildings : Place(), ... updaten damit die auch Ressourcen wegmachen und so (wenn firstpics an is firstPics[0] is Settlement dann halt keine Resourcen weg)
+- UI toll machen 
+- resources einmal von dem placeStreet kopieren, damit man strings anstatt enums bekommt, also basically alles von den Streets abschreiben

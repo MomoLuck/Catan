@@ -45,3 +45,15 @@ C:/Users/Moritz/RiderProjects/Catan/Catan/obj/Debug/net8.0/ref/Catan.dll
 /home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/refint/Catan.dll
 /home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/Catan.pdb
 /home/momoluck/RiderProjects/Catan/Catan/obj/Debug/net8.0/ref/Catan.dll
+/home/rudi/RiderProjects/CatanNeu/Catan/bin/Debug/net8.0/Catan.deps.json
+/home/rudi/RiderProjects/CatanNeu/Catan/bin/Debug/net8.0/Catan.dll
+/home/rudi/RiderProjects/CatanNeu/Catan/bin/Debug/net8.0/Catan.pdb
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/Catan.GeneratedMSBuildEditorConfig.editorconfig
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/Catan.AssemblyInfoInputs.cache
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/Catan.AssemblyInfo.cs
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/Catan.csproj.CoreCompileInputs.cache
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/Catan.sourcelink.json
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/Catan.dll
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/refint/Catan.dll
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/Catan.pdb
+/home/rudi/RiderProjects/CatanNeu/Catan/obj/Debug/net8.0/ref/Catan.dll

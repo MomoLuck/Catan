@@ -379,7 +379,7 @@ public void Dice() {
             HasRolled = true;
         }
     }
-
+// einamal hier kopieren
     public string[] RessourceCardsJsConvert(List<ACards> resourceCards)
     {
         var stringCards = resourceCards.Select(card =>
@@ -417,8 +417,7 @@ public void Dice() {
     
     <!-- In Asyn tasks und so ty shi ty shi mit js und so -->
     public async Task Change(string classs){
-        
-        await Js.InvokeVoidAsync("Change.changeElement", classs, ColorRotator[CurrentColorId],FirstPicsList[CurrentColorId] ,RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards), CurrentBuilding);
+        await Js.InvokeVoidAsync("Change.changeElement", classs, ColorRotator[CurrentColorId],FirstPicsList[CurrentColorId] ,RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
 
     }
 
@@ -432,11 +431,31 @@ public void Dice() {
         if (GridPlacedList.Contains(location))
         {
             GridPlacedList.Remove(location);
-            await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0]);
-            Build(CurrentBuilding, ".intersec");
+            // muss man noch anpassen
+            bool removedWood = false;
+            bool removedClay = false;
+            if (FirstPicsList[CurrentColorId][0] == 0) {
+                for (var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++) {
+                    var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
+                    if (Card.Id == ECards.Wheat && removedWood == false) {
+                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                        removedWood = true;
+                    }
+
+                    if (Card.Id == ECards.Clay && removedClay == false) {
+                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                        removedClay = true;
+                    }
+                }
+            }
+            
+            await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
             if (FirstPicsList[CurrentColorId][0] > 0) {
                 FirstPicsList[CurrentColorId][0] -= 1;
             }
+            Build(CurrentBuilding, ".intersec");
+
+
         }
         
 
@@ -463,11 +482,11 @@ public void Dice() {
             }
 
             await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
-            Build(CurrentBuilding, ".bord");
-
             if (FirstPicsList[CurrentColorId][1] > 0) {
                 FirstPicsList[CurrentColorId][1] -= 1;
             }
+            Build(CurrentBuilding, ".bord");
+
         }
     }
 

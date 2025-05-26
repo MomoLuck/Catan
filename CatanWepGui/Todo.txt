@@ -14,3 +14,9 @@ Game ablauf:
 |--           Phase 0           --|--           Phase 1             --|--         Aktion         --|
 Start Player 1 -> Start Player 2 -> Würfel roll -> Ertrag von Würfel -> Player 1 Zug -> Player 2 Zug
                                   |--                              Gameloop                      --|  
+
+
+todo rudi weil arsch:
+- changeElement richtig changed mit den Buttons
+- CanPlaceSettlement richtig eingebunden wird, ich hoffe es funktioniert einfach
+- 

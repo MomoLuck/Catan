@@ -40,42 +40,7 @@
                 }
             }
         }
-/*
-        var idk  = document.querySelectorAll(classs);
-        for (const node of idk) {
-                node.style.visibility = "visible";
-        }
-        if(classs === ".bord"){
-            var idk2 = document.querySelectorAll(".intersec")
-            for(node of idk2) {
-                node.style.visibility = "visible";
-            }
-            for (const node of idk) {
-                if (!Place.canPlace(node.id, color, firstPicsRoad,resourceCards)) {
-                    if (node.classList.contains("active")) {
-                        node.style.visibility = "hidden";
-                    }
-                }
-            }
-            for (const node of idk2) {
-                if (node.classList.contains("active")) {
-                    node.backgroundColor = "rgb(255,255,255)";
-                    node.style.visibility = "hidden"; //hidden
-                    node.backgroundColor = "rgb(0, 160, 255)";
-
-                }
-            }
-            
-        } else{
-            var idk2 = document.querySelectorAll(".bord")
-            for(node of idk2) {
-                if(node.classList.contains("active")) {
-                node.style.visibility = "hidden";
-                }
-            }
-        }
-    */
-    },
+    }
 
 }
 

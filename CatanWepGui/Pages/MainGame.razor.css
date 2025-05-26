@@ -230,14 +230,22 @@ main {
 #top_grid_line_39{
     transform: rotate(-60deg)
 }
+address{
+    display: flex;
+    min-width: 172px;
+    flex-direction: column;
+}
 
 #activePlayer{
     padding: 12px;
     border-radius: 5px;
-    height: 13%;
+    min-height: 13%;
     margin-left: 10px;
     margin-top: 5px;
-    
+    max-width: 175.48px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 #activePlayer h4{
@@ -247,6 +255,30 @@ main {
 
 #activePlayer a{
     font-size: 20px;
+}
+
+.inactivePlayer{
+    display: inline-block;
+    padding: 12px;
+    border-radius: 5px;
+    min-height: 7%;
+    margin-left: 10px;
+    margin-top: 5px;
+    min-width: 140px;
+    max-width: 140px;
+    
+    white-space: normal;
+    overflow-wrap: break-word;   
+   word-break: break-word;
+}
+
+.inactivePlayer h4{
+    font-size: 16px;
+    text-decoration: underline 1px solid;
+}
+
+.inactivePlayer a{
+    font-size: 10px;
 }
 
 aside{

@@ -6,8 +6,11 @@
         var elements = document.querySelectorAll(classId)
         var otherElements
         var pressedButton = document.getElementsByClassName("pressed")
-        var building = pressedButton[0].id
-
+        if(pressedButton[0]){
+            var building = pressedButton[0].id
+        } else{
+            var building = ""
+        }
             if (pressedButton.length == 0) {
             for (const node of elements) {
                 if (node.classList.contains("active")) {
@@ -64,10 +67,7 @@ window.Place = window.Place || {
         var firstpics = FirstPicValue > 0
         if(building.id == 1){
             building = "Settlement"
-        } else{
-                building = "City"
-        }
-        console.log(resourceCards);
+        
             element.classList.remove("active");
             element.classList.add(building.id);
             element.style.height = "20px";
@@ -81,6 +81,9 @@ window.Place = window.Place || {
             }
             element.style.backgroundColor = color;
             element.classList.add(color);
+        } else{
+            building = "City"
+        }
     },
 
     canPlaceSettlement: function (building, location, color, firstpics, resourceCards) {
@@ -131,7 +134,7 @@ window.Place = window.Place || {
             "top_grid_line_40": ["top_grid_32", "top_grid_35"],
             "top_grid_line_41": ["top_grid_33", "top_grid_36"]
         };
-
+        if(building == "Settlement"){
         // Alle Linien, die mit diesem Knoten verbunden sind
         const connectedLines = Object.entries(pairs)
             .filter(([_, nodes]) => nodes.includes(location))
@@ -139,9 +142,6 @@ window.Place = window.Place || {
 
         if (connectedLines.length === 0 && !firstpics) return false;
         // Startphase: nur sicherstellen, dass keine fremden Gebäude nebenan
-        if (firstpics && building === "City") {
-            return false;
-        }
         // Normale Phase: prüfen, ob eine verbundene Linie der eigenen Farbe ist
         let hasOwnRoad = false;
         for (const line of connectedLines) {
@@ -159,6 +159,9 @@ window.Place = window.Place || {
             return hasResources;
         } else{
             return true
+            }
+        } else{
+            
         }
     },
 
@@ -293,11 +296,27 @@ window.Butn = window.Butn || {
                 }
             }
             let button = document.getElementsByClassName("pressed")[0];
-            button.style.backgroundColor = "#83634A"
-            button.classList.remove("pressed")
-
+            if(button) {
+                button.style.backgroundColor = "#83634A"
+                button.classList.remove("pressed")
+            }
 
         })
+    },
+    blockButnn: function(phase){
+        var buttons = document.getElementsByClassName("butn")
+        for(var button of buttons) {
+            console.log(button)
+        }
+        if(phase == 2){
+            for(var button of buttons) {
+                button.disabled = true
+            }
+        } else{
+            for(var button of buttons) {
+                button.disabled = false
+            }
+        }
     }
 }
 

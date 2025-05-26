@@ -8,20 +8,32 @@
 @inject IJSRuntime Js
 
 <main>
-    @if (CurrentPhaseId != 1) {
-        <div id="activePlayer" style="border: 2px solid @ColorRotator[CurrentColorId]; transition: border-color 0.5s ease-in-out;">
-            <h4>Players @(CurrentColorId + 1)</h4>
-            <a>Name : @ActivePlayers[CurrentColorId].Name</a><br/>
-            <a>Color : @ActivePlayers[CurrentColorId].Color</a>
+    <address>
+    @if (CurrentPhaseId != 2 || PlayerMove)
+    {
+        <div id="activePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[0]]; transition: border-color 0.5s ease-in-out;">
+            <h4>Players @(CurrentcolorIdList[0] + 1)</h4>
+            <a>Name : @ActivePlayers[CurrentcolorIdList[0]].Name</a><br/>
+            <a>Victory points : @ActivePlayers[CurrentcolorIdList[0]].WinPoints</a>
         </div>
+        for (int i = 1; i < ActivePlayers.Count; i++)
+        {
+            <div class="inactivePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[i]]; transition: border-color 0.5s ease-in-out;">
+                <h4>Players @(CurrentcolorIdList[i] + 1)</h4>
+                <a>Name : @ActivePlayers[CurrentcolorIdList[i]].Name</a><br/>
+                <a>Victory points : @ActivePlayers[CurrentcolorIdList[i]].WinPoints</a>
+            </div>
+        }
     }
-    else {
-        <div id="activePlayer" style="border: 2px solid @ColorRotator[CurrentColorId]; transition: border-color 0.5s ease-in-out;">
+    else
+    {
+        <div id="activePlayer" style="border: 2px solid black; transition: border-color 0.5s ease-in-out;">
             <h4>Dice Roll</h4>
             @{ Dice(); }
             <a>@DiceRoll</a>
         </div>
     }
+    </address>
     <article>
         <section>
             <div class="non-tile"></div>
@@ -151,71 +163,91 @@
     </article>
     <aside>
         <nav>
-            <button id="City" class="building butn" @onclick="@(() => Build(new City(),".intersec"))">Stadt</button>
-            <button id="Settlement" class="building butn" @onclick="@(() => Build(new Settlement(),".intersec"))">Siedlung</button>
-            <button id="Road" class="building butn" @onclick="@(() => Build(new Road(),".bord"))">Straße</button>
+            <button id="City" class="building butn" @onclick="@(() => Build(new City(), ".intersec"))">Stadt</button>
+            <button id="Settlement" class="building butn" @onclick="@(() => Build(new Settlement(), ".intersec"))">Siedlung</button>
+            <button id="Road" class="building butn" @onclick="@(() => Build(new Road(), ".bord"))">Straße</button>
             <button id="Raider" class="activity butn">Räuber</button>
         </nav>
+    @if(CurrentPhaseId != 2)
+        {
+            <div id="switchable">
+                <div>
+                    <h3>Ressource Cards</h3>
+                    <div id="wood" class="ressource">
+                        @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wood))
+                        {
+                            <article class="ressourceCard">
+                                <img src="wood" alt="kein wut">
+                                <h3>@Card.Id</h3>
+                            </article>
+                        }
+                    </div>
+                    <div id="clay" class="ressource">
+                        @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Clay))
+                        {
+                            <article class="ressourceCard">
+                                <img src="wood" alt="kein wut">
+                                <h3>@Card.Id</h3>
+                            </article>
+                        }
+                    </div>
+                    <div id="sheep" class="ressource">
+                        @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Sheep))
+                        {
+                            <article class="ressourceCard">
+                                <img src="wood" alt="kein wut">
+                                <h3>@Card.Id</h3>
+                            </article>
+                        }
+                    </div>
+                    <div id="wheat" class="ressource">
+                        @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wheat))
+                        {
+                            <article class="ressourceCard">
+                                <img src="wood" alt="kein wut">
+                                <h3>@Card.Id</h3>
+                            </article>
+                        }
+                    </div>
+                    <div id="ore" class="ressource">
+                        @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Ore))
+                        {
+                            <article class="ressourceCard">
+                                <img src="wood" alt="kein wut">
+                                <h3>@Card.Id</h3>
+                            </article>
+                        }
+                    </div>
+                </div>
 
-        <div id="switchable">
-            <div>
-                <div id="wood" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wood)) {
-                        <article class="ressourceCard">
-                            <img src="/img/log.svg" alt="kein wut">
-                            <h3>@Card.Id</h3>
-                        </article>
-                    }
-                </div>
-                <div id="clay" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Clay)) {
-                        <article class="ressourceCard">
-                            <img src="/img/clay.webp" alt="kein wut">
-                            <h3>@Card.Id</h3>
-                        </article>
-                    }
-                </div>
-                <div id="sheep" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Sheep)) {
-                        <article class="ressourceCard">
-                            <img src="/img/sheep.svg" alt="kein wut">
-                            <h3>@Card.Id</h3>
-                        </article>
-                    }
-                </div>
-                <div id="wheat" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wheat)) {
-                        <article class="ressourceCard">
-                            <img src="/img/wheat.svg" alt="kein wut">
-                            <h3>@Card.Id</h3>
-                        </article>
-                    }
-                </div>
-                <div id="ore" class="ressource">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Ore)) {
-                        <article class="ressourceCard">
-                            <img src="/img/ore.png" alt="kein wut">
-                            <h3>@Card.Id</h3>
-                        </article>
-                    }
-                </div>
+                <section>
+                    <h3>Special Cards</h3>
+                    <div id="specialCardCorner">
+
+                    </div>
+                </section>
             </div>
+        }
+    else
+    {
+        <div id="switchable"></div>
 
-            <section>
-                <div id="specialCardCorner">
-
-                </div>
-            </section>
-        </div>
-        @if (CurrentPhaseId != 0) { // muss auf 1 ändern
-            if (CurrentColorId + 1 < ActivePlayers.Count) {
+    }
+        @if (CurrentPhaseId != 2)
+        {
+            if (CurrentPhaseId != 1 )
+            {
                 ButtonText = "Nächster Spieler";
-            } else {
+            }
+            else
+            {
                 ButtonText = "Würfel würfeln";
             }
-             <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">@ButtonText </button></div>
+
+            <div id="nextPlayerButton"><button @onclick="() => ChangeBorderColor()">@ButtonText </button></div>
         }
-        else {
+        else
+        {
             <div id="nextPlayerButton"><button @onclick="() => Ertragerwirtschafter()">Ertrag erwirtschaften</button></div>
         }
     </aside>
@@ -277,9 +309,11 @@
     public List<int[]> FirstPicsList { get; set; } = new List<int[]>();
     <!--public List<string> Phases { get; set; } = new List<string>() { "start", "ertrag", "Aktion" }; -->
     public int CurrentPhaseId { get; set; } = 0;
+    public bool PlayerMove { get; set; } = true;
     public string DiceRoll { get; set; } = "?";
     public bool HasRolled { get; set; } = false;
     public string ButtonText { get; set; } = "Nächster Spieler";
+    public List<int> CurrentcolorIdList { get; set; } = new List<int>();
     public List<string> GridPlacedList { get; set; } = Enumerable
         .Range(1, 35)
         .Select(i => $"top_grid_{i}")
@@ -293,8 +327,15 @@
         TileRandomizer.ShuffleTiles();
         TileRandomizer.AddRandId();
         InitPlayers();
+        CurrentcolorIdList = Enumerable.Range(0, ActivePlayers.Count).ToList();
     }
 
+    public void AdvanceCurrentColorIdArray()
+    {
+        var first = CurrentcolorIdList[0];
+        CurrentcolorIdList.RemoveAt(0);
+        CurrentcolorIdList.Add(first);
+    }
     public void InitPlayers()
     {
         if (Active1)
@@ -332,16 +373,23 @@
     }
 
     public void ChangeBorderColor() {
+        
         if (CurrentPhaseId == 0) {
-            if (FirstPicsList[CurrentColorId][0] == 0 && FirstPicsList[CurrentColorId][1] == 0) {
+            if (true) {// FirstPicsList[CurrentColorId][0] == 0 && FirstPicsList[CurrentColorId][1] == 0
                 if (CurrentColorId < ActivePlayers.Count - 1) {
+                    AdvanceCurrentColorIdArray();
                     CurrentColorId++;
-                }
-                else {
-                    CurrentColorId = 0;
                     HasRolled = false;
                     DiceRoll = "?";
+
+                }
+                else {
+                    AdvanceCurrentColorIdArray();
+                    CurrentColorId = 0;
                     CurrentPhaseId = 1;
+                    HasRolled = false;
+                    DiceRoll = "?";
+
                 }
             }
             else {
@@ -358,18 +406,36 @@
                 }
             }
         }
-        else {
-            if (CurrentPhaseId == 2) {
-                CurrentColorId = 0;
-                CurrentPhaseId = 1;
-                DiceRoll = "?";
+        else
+        {
+            if (CurrentPhaseId == 1)
+            {
+                CurrentPhaseId = 2;
                 HasRolled = false;
-            }
-            else {
-//                CurrentColorId = 0;
-                HasRolled = false;
+                PlayerMove = false;
                 DiceRoll = "?";
+                BlockButton();
+
             }
+                else
+                {
+                    if (CurrentPhaseId == 3)
+                    {
+                        CurrentPhaseId = 1;
+                        HasRolled = false;
+                        DiceRoll = "?";
+                        if (CurrentColorId < ActivePlayers.Count - 1) {
+                            AdvanceCurrentColorIdArray();
+                            CurrentColorId++;
+
+                        }
+                        else {
+                            AdvanceCurrentColorIdArray();
+                            CurrentColorId = 0;
+
+                        }
+                    }
+                }
         }
     }
     
@@ -409,7 +475,6 @@ public void Dice() {
                 case ECards.Ore:
                     type = "Stone";
                     break;
-                    
                 default:
                     type = "";
                     break;
@@ -418,13 +483,19 @@ public void Dice() {
         });
         return stringCards.ToArray();
     }
+
+    public void GiveWinPoints(int points)
+    {
+        ActivePlayers[CurrentColorId].WinPoints += points;
+    }
     
     <!-- In Asyn tasks und so ty shi ty shi mit js und so -->
     public async Task Change(string classs){
         await Js.InvokeVoidAsync("Change.changeElement", classs, ColorRotator[CurrentColorId],FirstPicsList[CurrentColorId] ,RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
-
     }
-
+    public async Task BlockButton(){
+        await Js.InvokeVoidAsync("Butn.blockButnn", CurrentPhaseId);
+    }
     public void Build(AFigure building, string id) {
             Change(id);
             CurrentBuilding = building;
@@ -432,23 +503,31 @@ public void Dice() {
     }
 
     public async Task Place(string location) {
-        if (GridPlacedList.Contains(location))
+        if (GridPlacedList.Contains(location) && CurrentBuilding.Id == new Settlement().Id)
         {
             GridPlacedList.Remove(location);
-            // muss man noch anpassen
-            bool removedWood = false;
             bool removedClay = false;
+            bool removedWood = false;
+            bool removedSheep = false;
+            bool removedWheat = false;
             if (FirstPicsList[CurrentColorId][0] == 0) {
                 for (var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++) {
                     var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
-                    if (Card.Id == ECards.Wheat && removedWood == false) {
+                    if (Card.Id == ECards.Wheat && removedWheat == false) {
                         ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                        removedWood = true;
+                        removedWheat = true;
                     }
-
                     if (Card.Id == ECards.Clay && removedClay == false) {
                         ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
                         removedClay = true;
+                    }
+                    if (Card.Id == ECards.Sheep && removedSheep == false) {
+                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                        removedSheep = true;
+                    }
+                    if (Card.Id == ECards.Wood && removedWood == false) {
+                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                        removedWood = true;
                     }
                 }
             }
@@ -460,6 +539,13 @@ public void Dice() {
             Build(CurrentBuilding, ".intersec");
 
 
+        }
+        else
+        {
+            if (CurrentBuilding == new City())
+            {
+                
+            }
         }
         
 
@@ -502,37 +588,30 @@ public void Dice() {
     }
     
     public async Task Ertragerwirtschafter() {
-        DiceRoll = "4";
         if (DiceRoll != "?") {
             var resources = await Js.InvokeAsync<Dictionary<string, List<object>>>("Ertrag.erwirtschaftung", Int32.Parse(DiceRoll));
             
             foreach (var color in resources["Sheep"])
             {
-                Console.WriteLine(color);
-                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Sheep,true,false,false));
+                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Sheep,true,false,false));
             }
             foreach (var color in resources["Clay"]) {
-                Console.WriteLine(color);
-                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Clay,true,false,false));            
+                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Clay,true,false,false));            
             }
             foreach (var color in resources["Stone"]) {
-                Console.WriteLine(color);
-                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Ore,true,false,false));
+                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Ore,true,false,false));
             }
             foreach (var color in resources["Wheat"]) {
-                Console.WriteLine(color);
-                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Wheat,true,false,false));
+                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Wheat,true,false,false));
             }
             foreach (var color in resources["Wood"]) {
-                Console.WriteLine(color);
-                ActivePlayers.Where(p => p.Color == color).ToArray()[0].RessourceCards.Add(new ACards(ECards.Wood,true,false,false));
+                ActivePlayers.Where(p => p.Color == color.ToString()).ToArray()[0].RessourceCards.Add(new ACards(ECards.Wood,true,false,false));
             }
 
         }
 
-        Console.WriteLine(CurrentColorId);
-        Console.WriteLine(CurrentPhaseId);
-        Console.WriteLine("--------------------");
+        CurrentPhaseId = 3;
+        PlayerMove = true;
     }
     
 

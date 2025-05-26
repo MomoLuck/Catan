@@ -1,20 +1,23 @@
 - Special cards / interface für karten
 - Räuber implementieren
-- Funktionen für resourcen fertig machen
-- canplace für settlements / city debuggen 
-    - muss auch preis zu canPlace machen
-    - und muss auch in c# noch abziehen
-    - changeElement anpassen
 - man muss noch Settlements mit Citys replacen können
+- maybe noch karten verdeckbar machen
 7. leck eier und dann goonen
     
     
     
 
-Game ablauf:
+Game ablauf (Phasen nicht korrekt):
 |--           Phase 0           --|--           Phase 1             --|--         Aktion         --|
 Start Player 1 -> Start Player 2 -> Würfel roll -> Ertrag von Würfel -> Player 1 Zug -> Player 2 Zug
                                   |--                              Gameloop                      --|  
+Phasen:
+0 - Start / einmal durchrotieren und platzieren
+1 - Würfeln
+2 - Ernten
+3 - Normal
+
+
 
 
 todo rudi weil arsch (von oben nach unten du ayri ahh):

@@ -172,12 +172,11 @@
         {
             <div id="switchable">
                 <div>
-                    <h3>Ressource Cards</h3>
                     <div id="wood" class="ressource">
                         @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wood))
                         {
                             <article class="ressourceCard">
-                                <img src="wood" alt="kein wut">
+                                <img src="/img/log.svg" alt="kein wut">
                                 <h3>@Card.Id</h3>
                             </article>
                         }
@@ -186,8 +185,9 @@
                         @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Clay))
                         {
                             <article class="ressourceCard">
-                                <img src="wood" alt="kein wut">
+                                <img src="/img/clay.webp" alt="kein wut">
                                 <h3>@Card.Id</h3>
+                                <p></p>
                             </article>
                         }
                     </div>
@@ -195,7 +195,7 @@
                         @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Sheep))
                         {
                             <article class="ressourceCard">
-                                <img src="wood" alt="kein wut">
+                                <img src="/img/sheep.svg" alt="kein wut">
                                 <h3>@Card.Id</h3>
                             </article>
                         }
@@ -204,7 +204,7 @@
                         @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Wheat))
                         {
                             <article class="ressourceCard">
-                                <img src="wood" alt="kein wut">
+                                <img src="/img/wheat.svg" alt="kein wut">
                                 <h3>@Card.Id</h3>
                             </article>
                         }
@@ -213,19 +213,59 @@
                         @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Ore))
                         {
                             <article class="ressourceCard">
-                                <img src="wood" alt="kein wut">
+                                <img src="/img/ore.png" alt="kein wut">
                                 <h3>@Card.Id</h3>
                             </article>
                         }
                     </div>
                 </div>
-
-                <section>
-                    <h3>Special Cards</h3>
-                    <div id="specialCardCorner">
-
-                    </div>
-                </section>
+                <div id="specialCardCorner">
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.IsSpecial == true))
+                    {
+                        <article class="ressourceCard specialCard">
+                            @if (Card.Id == ECards.Handelsstraße)
+                            {
+                                <img src="/img/handelsstraße.svg" alt="kein wut">
+                            }
+                            else
+                            {
+                                if (Card.Id == ECards.Rittermacht)
+                                {
+                                    <img src="/img/rittermacht.svg" alt="kein wut">
+                                }
+                                else
+                                {
+                                    if (Card.Id == ECards.Knight)
+                                    {
+                                        <img src="/img/knight.svg" alt="kein wut">
+                                    }
+                                    else
+                                    {
+                                        if (Card.Id == ECards.WinPoint)
+                                        {
+                                            <img src="/img/winpoint.svg" alt="kein wut">
+                                        }
+                                        else
+                                        {
+                                            if (Card.Id == ECards.Monopol)
+                                            {
+                                                <img src="/img/monopol.svg" alt="kein wut">
+                                            }
+                                            else
+                                            {
+                                                if (Card.Id == ECards.YearsOfPlenty)
+                                                {
+                                                    <img src="/img/yearsofplenty.svg" alt="kein wut">
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            <h3>@Card.Id</h3>
+                        </article>
+                    }
+                </div>
             </div>
         }
     else
@@ -475,6 +515,25 @@ public void Dice() {
                 case ECards.Ore:
                     type = "Stone";
                     break;
+                case ECards.Handelsstraße:
+                    type = "Handelsstraße";
+                    break;
+                case ECards.Rittermacht:
+                    type = "Rittermacht";
+                    break;
+                case ECards.Knight:
+                    type = "Knight";
+                    break;
+                case ECards.WinPoint:
+                    type = "WinPoint";
+                    break;
+                case ECards.Monopol:
+                    type = "Monopol";
+                    break;
+                case ECards.YearsOfPlenty:
+                    type = "YearsOfPlenty";
+                    break;
+
                 default:
                     type = "";
                     break;

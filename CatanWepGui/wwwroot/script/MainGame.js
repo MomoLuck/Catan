@@ -7,49 +7,45 @@
         var otherElements
         var pressedButton = document.getElementsByClassName("pressed")
         console.log(pressedButton)
-
-        if (pressedButton.length == 0) {
-            for (const node of elements) {
-                if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
+        
+        
+        if(classId == ".intersec"){
+            otherElements = document.querySelectorAll(".bord")
+        } else{
+            otherElements = document.querySelectorAll(".intersec")
+        }
+        var firstPicsSettlementBool = firstPics[0] > 0
+        var firstPicsRoadBool = firstPics[1] > 0
+        
+        if(classId == ".intersec"){
+            for (const node of elements){
+                if(true && node.classList.contains("active")){
+                    node.style.visibility = "visible"
+                }
+            }
+            for (const node of otherElements) {
+                if (node.classList.contains("active")) {
                     node.style.visibility = "hidden"
                 }
             }
-            console.log("hidden")
-            
-        }else {
-            if (classId == ".intersec") {
-                otherElements = document.querySelectorAll(".bord")
-            } else {
-                otherElements = document.querySelectorAll(".intersec")
+        } else{
+            for(const node of elements){
+                if(Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")){
+                    node.style.visibility = "visible"
+                } else{
+                    if(node.classList.contains("active")){
+                        node.style.visibility = "hidden"
+                    }
+                }
             }
-            var firstPicsSettlementBool = firstPics[0] > 0
-            var firstPicsRoadBool = firstPics[1] > 0
-
-            if (classId == ".intersec") {
-                for (const node of elements) {
-                    if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
-                        node.style.visibility = "visible"
-                    }
-                }
-                for (const node of otherElements) {
-                    if (node.classList.contains("active")) {
-                        node.style.visibility = "hidden"
-                    }
-                }
-            } else {
-                for (const node of elements) {
-                    if (Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")) {
-                        node.style.visibility = "visible"
-                    }
-                }
-                for (const node of otherElements) {
-                    if (node.classList.contains("active")) {
-                        node.style.visibility = "hidden"
-                    }
+            for (const node of otherElements){
+                if(node.classList.contains("active")){
+                    node.style.visibility = "hidden"
                 }
             }
         }
     }
+
 }
 
 window.Place = window.Place || {

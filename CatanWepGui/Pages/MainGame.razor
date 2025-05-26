@@ -281,6 +281,10 @@
         .Range(1, 35)
         .Select(i => $"top_grid_{i}")
         .ToList();
+    public List<string> GridPlacedListStreet { get; set; } = Enumerable
+        .Range(1, 40)
+        .Select(i => $"top_grid_line_{i}")
+        .ToList();
     public bool On { get; set; } = false;
     protected override async Task OnInitializedAsync() {
         TileRandomizer.ShuffleTiles();
@@ -437,35 +441,36 @@ public void Dice() {
         
 
     }
-    public async Task PlaceStreet(string location)
-    {
-        bool removedWood = false;
-        bool removedClay = false;
-        if(FirstPicsList[CurrentColorId][1] == 0){
-            for(var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++)
-            {
-                var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
-                if (Card.Id == ECards.Wood && removedWood == false)
-                {
-                    ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                    removedWood = true;
-                }
 
-                if (Card.Id == ECards.Clay && removedClay == false)
-                {
-                    ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                    removedClay = true;
+    public async Task PlaceStreet(string location) {
+        if (GridPlacedListStreet.Contains(location)) {
+            GridPlacedListStreet.Remove(location);
+            bool removedWood = false;
+            bool removedClay = false;
+            if (FirstPicsList[CurrentColorId][1] == 0) {
+                for (var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++) {
+                    var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
+                    if (Card.Id == ECards.Wheat && removedWood == false) {
+                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                        removedWood = true;
+                    }
+
+                    if (Card.Id == ECards.Clay && removedClay == false) {
+                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                        removedClay = true;
+                    }
                 }
             }
-        }
-        await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
-        Build(CurrentBuilding, ".bord");
 
-        if (FirstPicsList[CurrentColorId][1] > 0) {
-            FirstPicsList[CurrentColorId][1] -= 1;
+            await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
+            Build(CurrentBuilding, ".bord");
+
+            if (FirstPicsList[CurrentColorId][1] > 0) {
+                FirstPicsList[CurrentColorId][1] -= 1;
+            }
         }
     }
-    
+
     protected override async Task OnAfterRenderAsync(bool firstRender) {
         if (firstRender)
         {

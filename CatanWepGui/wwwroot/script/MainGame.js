@@ -7,52 +7,59 @@
         var otherElements
         var pressedButton = document.getElementsByClassName("pressed")
         console.log(pressedButton)
-        
-        
-        if(classId == ".intersec"){
-            otherElements = document.querySelectorAll(".bord")
-        } else{
-            otherElements = document.querySelectorAll(".intersec")
-        }
-        var firstPicsSettlementBool = firstPics[0] > 0
-        var firstPicsRoadBool = firstPics[1] > 0
-        
-        if(classId == ".intersec"){
-            for (const node of elements){
-                if(true && node.classList.contains("active")){
-                    node.style.visibility = "visible"
-                }
-            }
-            for (const node of otherElements) {
-                if (node.classList.contains("active")) {
+        if (pressedButton.length == 0) {
+            for (const node of elements) {
+                if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
                     node.style.visibility = "hidden"
                 }
             }
-        } else{
-            for(const node of elements){
-                if(Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")){
-                    node.style.visibility = "visible"
-                } else{
-                    if(node.classList.contains("active")){
+            console.log("hidden")
+
+        }else {
+            if (classId == ".intersec") {
+                otherElements = document.querySelectorAll(".bord")
+            } else {
+                otherElements = document.querySelectorAll(".intersec")
+            }
+            var firstPicsSettlementBool = firstPics[0] > 0
+            var firstPicsRoadBool = firstPics[1] > 0
+
+            if (classId == ".intersec") {
+                for (const node of elements) {
+                    if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
+                        node.style.visibility = "visible"
+                    }
+                }
+                for (const node of otherElements) {
+                    if (node.classList.contains("active")) {
+                        node.style.visibility = "hidden"
+                    }
+                }
+            } else {
+                for (const node of elements) {
+                    if (Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")) {
+                        node.style.visibility = "visible"
+                    } else{
+                        if(node.classList.contains("active")) {
+                            node.style.visibility = "hidden"
+                        }
+                    }
+                }
+                for (const node of otherElements) {
+                    if (node.classList.contains("active")) {
                         node.style.visibility = "hidden"
                     }
                 }
             }
-            for (const node of otherElements){
-                if(node.classList.contains("active")){
-                    node.style.visibility = "hidden"
-                }
-            }
         }
     }
-
 }
 
 window.Place = window.Place || {
     placeBuilding: function (location,building, color, FirstPicValue) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
-        //Canplace 
+        //---- Muss CanPlaceSettlements einbinden
             element.classList.remove("active");
             element.classList.add(building.id);
             element.style.height = "20px";
@@ -227,7 +234,6 @@ window.Place = window.Place || {
         for (const line in neighbors) {
             neighbors[line] = Array.from(neighbors[line]);
         }
-        if(pairs[location] !== undefined) {
             const currentNodes = pairs[location];
 
             const [node1, node2] = currentNodes.map(id => document.getElementById(id));
@@ -243,55 +249,19 @@ window.Place = window.Place || {
             if(firstpics){
                 return (ownedInactive || connectedToOwnRoad) && !enemyInactive; 
             } else{
-                if (resourceCards.filter(f => f == "Wheat").length >= 0 && resourceCards.filter(f => f == "Clay").length >= 0){
+                if (resourceCards.filter(f => f == "Wheat").length > 0 && resourceCards.filter(f => f == "Clay").length > 0){
                     return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
                 }
                 else{
                     return false;
                 }
             }
-            
-
-        } else{ // else ist wahrscheinlich unnötig
-            const currentLines = Object.keys(pairs).filter(pair => pairs[pair].includes(location));
-
-            let hasOwnRoad = false;
-            for (const line of currentLines) {
-                const lineEl = document.getElementById(line);
-                if(firstpics && !(!lineEl.classList.contains("active") && !lineEl.classList.contains(color))){
-                    return true
-                }
-                if (!lineEl.classList.contains("active") && lineEl.classList.contains(color)) {
-                    hasOwnRoad = true;
-                } else if (!lineEl.classList.contains("active") && !lineEl.classList.contains(color)) {
-                    return false;
-                }
-            }
-            if(firstpics){
-                return (ownedInactive || connectedToOwnRoad) && !enemyInactive;
-            }
-            if (resourceCards.filter(f => f == "Wheat").length > 0 && resourceCards.filter(f => f == "Clay").length > 0 && !firstpics){
-                return hasOwnRoad;
-            }
-            else{
-                return false;
-            }
-        }        
     },
     
     placeStreet: function (location, color, FirstPicValue, resourceCards) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
-        if (this.canPlace(location, color, firstpics, resourceCards)) {
-            canContinue = false
-            if (firstpics) {
-                canContinue = true
-            } else {
-                if (element.classList.contains("active") && true) {
-                    canContinue = true
-                }
-            }
-            if (canContinue) {
+        resourceCards.push("Wheat","Wood","Stone","Sheep","Clay")
                 if (this.canPlace(location, color,firstpics,resourceCards)) {
                     if (element.classList.contains("active")) {
                         element.classList.remove("active");
@@ -301,8 +271,6 @@ window.Place = window.Place || {
 
                 }
             }
-        }
-    }
 }
 
 
@@ -329,10 +297,9 @@ window.Butn = window.Butn || {
                 }
             })
         }
-        
         document.getElementById("nextPlayerButton").children[0].addEventListener("click", function () {
             console.log("nextPlayerButton");
-            
+
             for (const node of document.getElementsByClassName("active")) {
                 if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
                     node.style.visibility = "hidden"
@@ -341,8 +308,8 @@ window.Butn = window.Butn || {
             let button = document.getElementsByClassName("pressed")[0];
             button.style.backgroundColor = "#83634A"
             button.classList.remove("pressed")
-            
-            
+
+
         })
     }
 }

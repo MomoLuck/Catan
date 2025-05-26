@@ -7,59 +7,56 @@
         var otherElements
         var pressedButton = document.getElementsByClassName("pressed")
         console.log(pressedButton)
-        
-        
-        if(classId == ".intersec"){
-            otherElements = document.querySelectorAll(".bord")
-        } else{
-            otherElements = document.querySelectorAll(".intersec")
-        }
-        var firstPicsSettlementBool = firstPics[0] > 0
-        var firstPicsRoadBool = firstPics[1] > 0
-        
-        if(classId == ".intersec"){
-            for (const node of elements){
-                if(true && node.classList.contains("active")){
-                    node.style.visibility = "visible"
-                }
-            }
-            for (const node of otherElements) {
-                if (node.classList.contains("active")) {
+
+        if (pressedButton.length == 0) {
+            for (const node of elements) {
+                if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
                     node.style.visibility = "hidden"
                 }
             }
-        } else{
-            for(const node of elements){
-                if(Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")){
-                    node.style.visibility = "visible"
-                }
+            console.log("hidden")
+            
+        }else {
+            if (classId == ".intersec") {
+                otherElements = document.querySelectorAll(".bord")
+            } else {
+                otherElements = document.querySelectorAll(".intersec")
             }
-            for (const node of otherElements){
-                if(node.classList.contains("active")){
-                    node.style.visibility = "hidden"
+            var firstPicsSettlementBool = firstPics[0] > 0
+            var firstPicsRoadBool = firstPics[1] > 0
+
+            if (classId == ".intersec") {
+                for (const node of elements) {
+                    if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
+                        node.style.visibility = "visible"
+                    }
+                }
+                for (const node of otherElements) {
+                    if (node.classList.contains("active")) {
+                        node.style.visibility = "hidden"
+                    }
+                }
+            } else {
+                for (const node of elements) {
+                    if (Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")) {
+                        node.style.visibility = "visible"
+                    }
+                }
+                for (const node of otherElements) {
+                    if (node.classList.contains("active")) {
+                        node.style.visibility = "hidden"
+                    }
                 }
             }
         }
     }
-
 }
 
 window.Place = window.Place || {
     placeBuilding: function (location,building, color, FirstPicValue) {
         var element = document.getElementById(location);
         var firstpics = FirstPicValue > 0
-        //---- Muss geändert werden
-        if(this.canPlace(location,color, firstpics)) {
-            canContinue = false
-            if(firstpics && building.id === 1){
-                canContinue = true
-            } else{
-                if(element.classList.contains("active") && !firstpics && true){
-                    canContinue = true
-                }
-            }
-            //------
-        if(canContinue) {
+        //Canplace 
             element.classList.remove("active");
             element.classList.add(building.id);
             element.style.height = "20px";
@@ -73,8 +70,6 @@ window.Place = window.Place || {
             }
             element.style.backgroundColor = color;
             element.classList.add(color);
-            }
-        }
     },
 
     canPlaceSettlement: function (building, location, color, firstpics, resourceCards) {
@@ -338,6 +333,21 @@ window.Butn = window.Butn || {
                 }
             })
         }
+        
+        document.getElementById("nextPlayerButton").children[0].addEventListener("click", function () {
+            console.log("nextPlayerButton");
+            
+            for (const node of document.getElementsByClassName("active")) {
+                if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
+                    node.style.visibility = "hidden"
+                }
+            }
+            let button = document.getElementsByClassName("pressed")[0];
+            button.style.backgroundColor = "#83634A"
+            button.classList.remove("pressed")
+            
+            
+        })
     }
 }
 

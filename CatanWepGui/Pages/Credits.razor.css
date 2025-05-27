@@ -9,6 +9,7 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+    justify-content: center;
 }
 
 h1{

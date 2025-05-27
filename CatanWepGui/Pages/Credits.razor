@@ -94,6 +94,7 @@
 @code {
     protected override async Task OnInitializedAsync()
     {
-        await JSRuntime.InvokeVoidAsync("autoScroll.scroller");    }
+        Console.WriteLine("ariva");
+        await JSRuntime.InvokeVoidAsync("window.autoScroll.scroller");    }
 
 }

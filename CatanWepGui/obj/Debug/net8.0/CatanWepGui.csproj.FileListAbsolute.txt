@@ -6287,11 +6287,11 @@ C:/Users/Moritz/RiderProjects/CatanNew/CatanWepGui/obj/Debug/net8.0/CatanWepGui.
 C:/Users/Moritz/RiderProjects/CatanNew/CatanWepGui/obj/Debug/net8.0/refint/CatanWepGui.dll
 C:/Users/Moritz/RiderProjects/CatanNew/CatanWepGui/obj/Debug/net8.0/CatanWepGui.pdb
 C:/Users/Moritz/RiderProjects/CatanNew/CatanWepGui/obj/Debug/net8.0/ref/CatanWepGui.dll
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/t76f23xsbo-e90xw620y2.gz
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/68pywpernj-a6jwytosaw.gz
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/106t986sv0-10bzpeq6dp.gz
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/jc0hu5xtmg-u557ohklak.gz
-/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/ibsjcp7n0r-tyu9msny2q.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/t76f23xsbo-mtlnd7c8mv.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/68pywpernj-u9i7k66xw8.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/106t986sv0-khbp1v2rm4.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/jc0hu5xtmg-4f7hb41y0e.gz
+/home/rudi/RiderProjects/Catan/CatanWepGui/obj/Debug/net8.0/compressed/ibsjcp7n0r-071b648srm.gz
 C:\Users\Moritz\RiderProjects\CatanNew\CatanWepGui\bin\Debug\net8.0\wwwroot\_framework\blazor.webassembly.js
 C:\Users\Moritz\RiderProjects\CatanNew\CatanWepGui\bin\Debug\net8.0\wwwroot\_framework\dotnet.js
 C:\Users\Moritz\RiderProjects\CatanNew\CatanWepGui\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.map

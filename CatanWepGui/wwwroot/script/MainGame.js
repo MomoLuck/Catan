@@ -466,3 +466,44 @@ window.Win = window.Win || {
         
     }
 }
+window.Thief = window.Thief || {
+    move: function (phase){
+        if(phase === "init"){
+            for (const tile of document.getElementsByClassName("tile")) {
+                    tile.addEventListener("click", function(){
+                    Thief.createThief(tile)
+                        console.log(tile)
+                        for (let tile of document.getElementsByClassName("tile")) {
+                            tile.style.pointerEvents = "none"
+                        }
+                })
+            }
+            this.createThief(document.getElementsByClassName("tile")[9])
+        } else{
+            if(phase == "check"){
+                document.getElementById("Raider").classList.add("pressed")
+                document.getElementById("Raider").disabled = true
+                console.log(document.getElementById("Raider"))
+                var tiles = document.getElementsByClassName("tile")
+                for (let tile of tiles) {
+                    tile.style.pointerEvents = "auto"
+                }
+            }
+        }
+    },
+    createThief: function (location){
+        
+        var thief = document.createElement("div")
+        thief.style.position = "relative" // muss noch geöndert werden weil ist zu niedrig
+        thief.style.top = "49px"
+        thief.style.left = "40px"
+        thief.style.height = "50px"
+        thief.style.width = "50px"
+        thief.style.borderRadius = "50%"
+        thief.style.backgroundColor = "black"
+        thief.classList.add("thief")
+        location.appendChild(thief)
+        console.log(location.children)
+
+    }
+}

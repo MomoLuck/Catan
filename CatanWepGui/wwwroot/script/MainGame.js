@@ -4,7 +4,7 @@
         var firstPicsRoadBool = firstPics[1] > 0
         var elements = document.querySelectorAll(classId)
         var otherElements
-        var pressedäButton = document.getElementsByClassName("pressed")
+        var pressedButton = document.getElementsByClassName("pressed")
         if(pressedButton[0]){
             var building = pressedButton[0].id
         } else{
@@ -361,7 +361,6 @@ window.Butn = window.Butn || {
                 }
             }
             for (const node of document.getElementsByClassName("top_grid")) {
-                console.log(node)
             }
             let button = document.getElementsByClassName("pressed")[0];
             if(button) {
@@ -424,22 +423,23 @@ window.Ertrag = window.Ertrag || {
             Clay : []
         }
         tilesFiltered.forEach(tile => {
-            resource = tile.style.backgroundImage.split("/")[2].split(".")[0]
-            
-            nodes = tilePairs[tiles.indexOf(tile)]
-            nodesSettlement = nodes.filter(node => !document.getElementById(node).classList.contains("active") && document.getElementById(node).classList.contains("Settlement"))
-            nodesCity = nodes.filter(node => !document.getElementById(node).classList.contains("active") && document.getElementById(node).classList.contains("City"))
-            
-            nodesSettlement.forEach(node => {
-                console.log(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
-                ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
-            })
-            nodesCity.forEach(node => {
-                ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
-                ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
-            })
+            if(!tile.childNodes[1]) {
+                resource = tile.style.backgroundImage.split("/")[2].split(".")[0]
+
+                nodes = tilePairs[tiles.indexOf(tile)]
+                nodesSettlement = nodes.filter(node => !document.getElementById(node).classList.contains("active") && document.getElementById(node).classList.contains("Settlement"))
+                nodesCity = nodes.filter(node => !document.getElementById(node).classList.contains("active") && document.getElementById(node).classList.contains("City"))
+
+                nodesSettlement.forEach(node => {
+                    ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
+                })
+                nodesCity.forEach(node => {
+                    ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
+                    ernte[resource].push(document.getElementById(node).classList.toString().split("#")[1].split(" ")[0])
+                })
+            }
         })
-        
+        console.log(ernte)
         return ernte
     }
 }
@@ -447,18 +447,19 @@ window.Win = window.Win || {
     hasWon:function(winnerName, playerColor){
         document.getElementById("winnerOverlay").style.display = "flex";
         document.getElementById("winnerName").textContent = winnerName + " has Won";
-
+        console.log(playerColor)
+        
         placedStreets = Array.from(document.getElementsByClassName("bord"))
             .filter(s => !s.classList.contains("active"))
-            .filter(s => s.style.backgroundColor === playerColor).length;
+            .filter(s => s.classList.toString().split("#")[1] === playerColor).length;
 
         placedSettlements = Array.from(document.getElementsByClassName("Settlement"))
             .filter(s => !s.classList.contains("active"))
-            .filter(s => s.style.backgroundColor === playerColor).length;
+            .filter(s => s.classList.toString().split("#")[1] === playerColor).length;
 
         placedCities = Array.from(document.getElementsByClassName("City"))
             .filter(s => !s.classList.contains("active"))
-            .filter(s => s.style.backgroundColor === playerColor).length;
+            .filter(s => s.classList.toString().split("#")[1] === playerColor).length;
         
         document.getElementById("streetsPlaced").textContent = "Streets Placed: " + placedStreets;
         document.getElementById("settlementsPlaced").textContent = "Settlements Placed: " + placedStreets;
@@ -528,9 +529,9 @@ window.Thief = window.Thief || {
         thief.style.width = "50px"
         thief.style.borderRadius = "50%"
         thief.style.backgroundColor = "black"
+        thief.style.zIndex = "1"
         thief.classList.add("thief")
         location.appendChild(thief)
-        console.log(location.children)
 
     }
 }

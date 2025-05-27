@@ -184,7 +184,7 @@
             <button id="City" class="building butn" @onclick="@(() => Build(new City(), ".intersec"))">Stadt</button>
             <button id="Settlement" class="building butn" @onclick="@(() => Build(new Settlement(), ".intersec"))">Siedlung</button>
             <button id="Road" class="building butn" @onclick="@(() => Build(new Road(), ".bord"))">Straße</button>
-            <button id="Raider" class="activity butn">Räuber</button>
+            <button id="Raider" class="activity">Räuber</button>
         </nav>
         @if (CurrentPhaseId != 2)
         {
@@ -798,7 +798,7 @@ public void Dice() {
             ];
             Random random = new Random();
             int randomIndex = random.Next(possibleCards.Count);
-            ACards randomCard = possibleCards[22]; //Replace mit randomindex
+            ACards randomCard = possibleCards[randomIndex];
             if (randomCard.Id == ECards.Knight)
             {
                 player.RessourceCards.Add(randomCard);

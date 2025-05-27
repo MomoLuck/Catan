@@ -5,6 +5,27 @@
     background-position: -100px 0px;
 }
 
+.tile{
+    position: relative;
+    transition: 0.2s;
+    background-size: cover;
+}
+.tile a{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    z-index: 2;
+    font-size: 20px;
+    color: rgba(255,255,255, 0.85);
+}
+.tile a:hover{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        z-index: 2;
+        font-size: 20px;
+        color: rgba(255,255,255, 0.85);
+}
 .non-tile{
     background-color: transparent !important;
 }
@@ -55,14 +76,7 @@ section::before {
 .non-tile{
     background: #ffffff;
 }
-.tile{
-    transition: 0.2s;
-    background-size: cover;
-}
-.tile a{
-    font-size: 20px;
-    color: rgba(255,255,255, 0.85);
-}
+
 #top_grid{
     position: relative;
     top: -5px;

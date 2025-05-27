@@ -649,6 +649,7 @@ public void Dice() {
                     for (var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++)
                     {
                         var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
+                        Console.WriteLine(Card.Id);
                         if (Card.Id == ECards.Wheat && removedWheat == false)
                         {
                             ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
@@ -659,18 +660,28 @@ public void Dice() {
                         {
                             ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
                             removedStone1 = true;
+                            Console.WriteLine("ariba1");
+                            Console.WriteLine(ActivePlayers[CurrentColorId].RessourceCards.Count);
                         }
+                        else {
+                            
 
-                        if (Card.Id == ECards.Ore && removedStone2 == false && removedStone1 == true)
-                        {
-                            ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                            removedStone1 = true;
-                        }
-
-                        if (Card.Id == ECards.Ore && removedStone3 == false && removedStone2 == true)
-                        {
-                            ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                            removedStone1 = true;
+                            if (Card.Id == ECards.Ore && removedStone2 == false && removedStone1)
+                            {
+                                ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                                removedStone2 = true;
+                                Console.WriteLine("ariba2");
+                                Console.WriteLine(ActivePlayers[CurrentColorId].RessourceCards.Count);
+                            }
+                            else {
+                                if (Card.Id == ECards.Ore && removedStone3 == false && removedStone2)
+                                {
+                                    ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
+                                    removedStone3 = true;
+                                    Console.WriteLine("ariba3");
+                                    Console.WriteLine(ActivePlayers[CurrentColorId].RessourceCards.Count);
+                                }
+                            }
                         }
                     }
                 }

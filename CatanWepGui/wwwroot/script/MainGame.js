@@ -10,13 +10,13 @@
         } else{
             var building = ""
         }
-            if (pressedButton.length == 0) {
+        if (pressedButton.length == 0) {
             for (const node of elements) {
                 if (node.classList.contains("active")) {
                     node.style.visibility = "hidden"
                 }
             }
-        }else {
+        } else {
             if (classId == ".intersec") {
                 otherElements = document.querySelectorAll(".bord")
             } else {
@@ -25,27 +25,47 @@
 
 
             if (classId == ".intersec") {
-                for (const node of elements) {
-
-                    if (Place.canPlaceSettlement(building, node.id, color, firstPicsSettlementBool, resourceCards) && node.classList.contains("active")) {
-                        node.style.visibility = "visible"
-                    } else{
-                        if(node.classList.contains("active")) {
-                            node.style.visibility = "hidden"
+                if (building == "Settlement") {
+                    for (const node of elements) {
+                        if (Place.canPlaceSettlement(building, node.id, color, firstPicsSettlementBool, resourceCards) && node.classList.contains("active")) {
+                            node.style.visibility = "visible"
+                        } else {
+                            if (node.classList.contains("active")) {
+                                node.style.visibility = "hidden"
+                            }
                         }
-                }
-                for (const node of otherElements) {
-                    if (node.classList.contains("active")) {
-                        node.style.visibility = "hidden"
+                        for (const node of otherElements) {
+                            if (node.classList.contains("active")) {
+                                node.style.visibility = "hidden"
+                            }
+                        }
+                    }
+                    for (const element of document.getElementById("top_grid")) {
+                        if (element.classList) {
+                            if (element.classList.contains("crownTemp")) {
+                                document.getElementById("top_grid").remove(element)
+                            }
+                        }
+                    }
+                } else {
+                    for (const node of elements) {
+                        if (Place.canPlaceSettlement(building, node.id, color, firstPicsSettlementBool, resourceCards) && !node.classList.contains("active")) {
+                            console.log("aribaasd")
+                            this.createCrown(node, "#00A0FF80", false)
+
+                        } else {
+                            if (node.classList.contains("active")) {
+                                node.style.visibility = "hidden"
+                            }
+                        }
                     }
                 }
-            }
             } else {
                 for (const node of elements) {
                     if (Place.canPlace(node.id, color, firstPicsRoadBool, resourceCards) && node.classList.contains("active")) {
                         node.style.visibility = "visible"
-                    } else{
-                        if(node.classList.contains("active")) {
+                    } else {
+                        if (node.classList.contains("active")) {
                             node.style.visibility = "hidden"
                         }
                     }
@@ -55,10 +75,47 @@
                         node.style.visibility = "hidden"
                     }
                 }
+                for (const element of document.getElementById("top_grid")) {
+                    if (element.classList) {
+                        if (element.classList.contains("crownTemp")) {
+                            document.getElementById("top_grid").removeChild (element)
+                        }
+                    }
+                }
             }
         }
+    },
+    createCrown: function (node,color, real) {
+        const crown = document.createElement('div');
+        if(real) {
+            crown.classList.add("crown")
+        } else{
+            crown.classList.add("crownTemp")
+            crown.classList.add("active")
+        }
+        crown.style.position = 'absolute';
+        //crown.style.top = (node.style.top).toString().split("px")[0] - (8) + "px";
+        //crown.style.left = parseInt((node.style.left).toString().split("px")[0].split(".")[0]) - 9 + "px";
+        crown.style.top = "-8px";
+        crown.style.left = "1px";
+        for (let i = node.id.split("_")[2] - 1 + 1; i > 0; i--) {
+            //crown.style.left = parseInt((crown.style.left).toString().split("px")[0].split(".")[0]) +  10 + "px";
+        }
+        if(real) {
+            //crown.style.left = parseInt((crown.style.left).toString().split("px")[0].split(".")[0]) + 10 * document.getElementsByClassName("crown").length + "px";
+        } else {
+            //crown.style.left = parseInt((crown.style.left).toString().split("px")[0].split(".")[0]) + 10 * document.getElementsByClassName("crownTemp").length + "px";
+        }
+        crown.style.width = '18px';
+        crown.style.height = '12px';
+        crown.style.backgroundColor = color;
+        crown.style.zIndex = "1";
+        node.style.zindex = "2";
+        crown.style.clipPath = `polygon(0% 100%, 0% 60%, 16% 0%, 33% 60%, 50% 0%, 66% 60%, 83% 0%, 100% 60%, 100% 100%)`;
+        node.appendChild(crown)        
     }
-}
+
+    }
 
 window.Place = window.Place || {
     placeBuilding: function (location,building, color, FirstPicValue, resourceCards) {
@@ -82,20 +139,7 @@ window.Place = window.Place || {
             element.classList.remove("Settlement")
             element.classList.add("City")
             building = "City"
-            const crown = document.createElement('div');
-            crown.classList.add("crown")
-            crown.style.position = 'absolute';
-            crown.style.top = (element.style.top).toString().split("px")[0] - (8) + "px";
-            crown.style.left = parseInt((element.style.left).toString().split("px")[0].split(".")[0]) - 9 + "px";
-            for (let i = element.id.split("_")[2] - 1 + 1; i > 0; i--) {
-                crown.style.left = parseInt((crown.style.left).toString().split("px")[0].split(".")[0]) +  10 + "px";
-            }
-            crown.style.left = parseInt((crown.style.left).toString().split("px")[0].split(".")[0]) +  10*document.getElementsByClassName("crown").length + "px";
-            crown.style.width = '18px';
-            crown.style.height = '12px';
-            crown.style.background = 'gold'; 
-            crown.style.clipPath = `polygon(0% 100%, 0% 60%, 16% 0%, 33% 60%, 50% 0%, 66% 60%, 83% 0%, 100% 60%, 100% 100%)`;
-            document.getElementById("top_grid").appendChild(crown)
+            Change.createCrown(element,"gold",true)
 
         }
     },
@@ -309,8 +353,15 @@ window.Butn = window.Butn || {
         document.getElementById("nextPlayerButton").children[0].addEventListener("click", function () {
 
             for (const node of document.getElementsByClassName("active")) {
-                if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements
+                if (true && node.classList.contains("active")) { // anstatt true halt Place.CanPlaceSettlements mabye ka
                     node.style.visibility = "hidden"
+                }
+            }
+            for (const node of document.getElementsByClassName("crownTemp")) {
+                if(node.classList) {
+                    if (node.classList.contains("crownTemp")) {
+                        document.getElementById("top_grid").removeChild(node)
+                    }
                 }
             }
             let button = document.getElementsByClassName("pressed")[0];

@@ -1,116 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj": {}
+    "/home/momoluck/RiderProjects/Catan/CatanWepGui/CatanWepGui.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj": {
+    "/home/momoluck/RiderProjects/Catan/Catan/Catan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj",
-        "projectName": "CatanWepGui",
-        "projectPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\CatanWepGui.csproj",
-        "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\CatanWepGui\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj": {
-                "projectPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Components.WebAssembly": {
-              "target": "Package",
-              "version": "[8.0.13, )"
-            },
-            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.13, )"
-            },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.16, )",
-              "autoReferenced": true
-            },
-            "Microsoft.NET.Sdk.WebAssembly.Pack": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.16, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[8.0.16, 8.0.16]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "browser-wasm": {
-          "#import": []
-        }
-      }
-    },
-    "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj",
+        "projectUniqueName": "/home/momoluck/RiderProjects/Catan/Catan/Catan.csproj",
         "projectName": "Catan",
-        "projectPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\Catan.csproj",
-        "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Moritz\\RiderProjects\\Catan\\Catan\\obj\\",
+        "projectPath": "/home/momoluck/RiderProjects/Catan/Catan/Catan.csproj",
+        "packagesPath": "/home/momoluck/.nuget/packages/",
+        "outputPath": "/home/momoluck/RiderProjects/Catan/Catan/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/momoluck/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -154,7 +58,103 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/momoluck/.dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/momoluck/RiderProjects/Catan/CatanWepGui/CatanWepGui.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/momoluck/RiderProjects/Catan/CatanWepGui/CatanWepGui.csproj",
+        "projectName": "CatanWepGui",
+        "projectPath": "/home/momoluck/RiderProjects/Catan/CatanWepGui/CatanWepGui.csproj",
+        "packagesPath": "/home/momoluck/.nuget/packages/",
+        "outputPath": "/home/momoluck/RiderProjects/Catan/CatanWepGui/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/momoluck/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/momoluck/RiderProjects/Catan/Catan/Catan.csproj": {
+                "projectPath": "/home/momoluck/RiderProjects/Catan/Catan/Catan.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[8.0.13, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.13, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/momoluck/.dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
         }
       }
     }

@@ -768,21 +768,43 @@ public void Dice() {
             }
 
             var player = ActivePlayers[CurrentColorId];
-            ACards[] possibleCards =
+            List<ACards> possibleCards =
             [
                 new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.WinPoint, true, true, false),
+                new ACards(ECards.WinPoint, true, true, false),
+                new ACards(ECards.WinPoint, true, true, false),
+                new ACards(ECards.WinPoint, true, true, false),
                 new ACards(ECards.WinPoint, true, true, false),
                 new ACards(ECards.Monopol, true, true, false),
-                new ACards(ECards.YearsOfPlenty, true, true, false)
+                new ACards(ECards.Monopol, true, true, false),
+                new ACards(ECards.Monopol, true, true, false),
+                new ACards(ECards.YearsOfPlenty, true, true, false),
+                new ACards(ECards.YearsOfPlenty, true, true, false),
+                new ACards(ECards.YearsOfPlenty, true, true, false),
             ];
             Random random = new Random();
-            int randomIndex = random.Next(possibleCards.Length);
+            int randomIndex = random.Next(possibleCards.Count);
             ACards randomCard = possibleCards[randomIndex];
             if (randomCard.Id == ECards.Knight)
             {
                 player.RessourceCards.Add(randomCard);
+                possibleCards.Remove(randomCard);
                 MoveThief("check");
-            } // da else hin für die anderen karten effekte
+            } //  Winpoints geben 1 VP und werden removed aber bleiben im inventar; Monopol wird direkt gespielt und steht im Todo, werden auch removed aber bleiben inventar; YearsofPlenty --//--
         }
     }
 

@@ -1,7 +1,6 @@
-- man muss noch Settlements mit Citys replacen können
-- maybe noch karten verdeckbar machen
-- city preise anpassen
-7. leck eier und dann goonen
+- wenn 7 dann robber
+
+
     
     
     

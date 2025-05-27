@@ -468,26 +468,39 @@ window.Win = window.Win || {
 }
 window.Thief = window.Thief || {
     move: function (phase){
+        var raiderButton = document.getElementById("Raider")
+        var nextPlayerButton = document.getElementById("nextPlayerButton").childNodes[0]
+        var developmentBuy = document.getElementById("developmentBuy")
         if(phase === "init"){
             for (const tile of document.getElementsByClassName("tile")) {
                     tile.addEventListener("click", function(){
                     Thief.createThief(tile)
-                        console.log(tile)
                         for (let tile of document.getElementsByClassName("tile")) {
                             tile.style.pointerEvents = "none"
                         }
                         const button = document.getElementById("Raider");
                         button.style.backgroundColor = "#83634A"
                         button.classList.remove("pressed")
+                        raiderButton.disabled = false
+                        for (const button of document.getElementsByClassName("butn")) {
+                            button.disabled = false
+                        }
+                        nextPlayerButton.disabled = false
+                        developmentBuy.disabled = false
                 })
                 
             }
             this.createThief(document.getElementsByClassName("tile")[9])
         } else{
             if(phase == "check"){
-                document.getElementById("Raider").classList.add("pressed")
-                document.getElementById("Raider").disabled = true
-                console.log(document.getElementById("Raider"))
+                raiderButton.classList.add("pressed")
+                raiderButton.style.backgroundColor = "#af7e69";
+                raiderButton.disabled = true
+                for (const button of document.getElementsByClassName("butn")) {
+                    button.disabled = true
+                }
+                nextPlayerButton.disabled = true
+                developmentBuy.disabled = true
                 var tiles = document.getElementsByClassName("tile")
                 for (let tile of tiles) {
                     tile.style.pointerEvents = "auto"

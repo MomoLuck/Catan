@@ -49,7 +49,7 @@
                 </div>
             }
         </div>
-        <button id="developmentBuy">Buy Developmentcard</button>
+        <button id="developmentBuy"  @onclick="@(() => BuyDevCard())">Buy Developmentcard</button>
 
     </address>
     <article>
@@ -184,7 +184,7 @@
             <button id="City" class="building butn" @onclick="@(() => Build(new City(), ".intersec"))">Stadt</button>
             <button id="Settlement" class="building butn" @onclick="@(() => Build(new Settlement(), ".intersec"))">Siedlung</button>
             <button id="Road" class="building butn" @onclick="@(() => Build(new Road(), ".bord"))">Straße</button>
-            <button id="Raider" class="activity butn" @onclick="@(() => MoveThief("check"))">Räuber</button>
+            <button id="Raider" class="activity butn">Räuber</button>
         </nav>
         @if (CurrentPhaseId != 2)
         {
@@ -745,11 +745,7 @@ public void Dice() {
         {
             if (phase == "check")
             {
-                if (player.RessourceCards.Where(card => card.Id == ECards.Knight).Count() > 0 || true) // true wegmachen
-                {
-                    //player.RessourceCards.Remove(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Knight).ToList()[0]);
                     await Js.InvokeVoidAsync("Thief.move", phase); 
-                }
             }
         }
     }
@@ -765,19 +761,43 @@ public void Dice() {
             var toRemove = ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Sheep).Take(1).ToList();
             toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Sheep).Take(1).ToList()[0]);
             toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Wheat).Take(1).ToList()[0]);
-            
+
             foreach (var card in toRemove)
             {
                 ActivePlayers[CurrentColorId].RessourceCards.Remove(card);
             }
-            
+
             var player = ActivePlayers[CurrentColorId];
-            ECards[] possibleCards = { ECards.Handelsstraße, ECards.Rittermacht, ECards.Knight, ECards.WinPoint, ECards.Monopol, ECards.YearsOfPlenty };
+            ACards[] possibleCards =
+            [
+                new ACards(ECards.Knight, true, true, false),
+                new ACards(ECards.WinPoint, true, true, false),
+                new ACards(ECards.Monopol, true, true, false),
+                new ACards(ECards.YearsOfPlenty, true, true, false)
+            ];
             Random random = new Random();
             int randomIndex = random.Next(possibleCards.Length);
-            ECards randomCard = possibleCards[randomIndex];
-            /*Sussy*/
+            ACards randomCard = possibleCards[randomIndex];
+            if (randomCard.Id == ECards.Knight)
+            {
+                player.RessourceCards.Add(randomCard);
+                MoveThief("check");
+            }
         }
+    }
+
+    public async Task YearsOfFortune()
+    {
+        
+    }
+
+    public async Task Monopol()
+    {
+        
+    }
+
+    public async Task Handelsstraße()
+    {
         
     }
 

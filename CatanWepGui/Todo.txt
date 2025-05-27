@@ -1,5 +1,3 @@
-- Special cards / interface für karten
-- Räuber implementieren
 - man muss noch Settlements mit Citys replacen können
 - maybe noch karten verdeckbar machen
 - city preise anpassen
@@ -26,3 +24,9 @@ todo rudi weil arsch (von oben nach unten du ayri ahh):
 - Buildings : Place(), ... updaten damit die auch Ressourcen wegmachen und so (wenn firstpics an is firstPics[0] is Settlement dann halt keine Resourcen weg)
 - UI toll machen 
 - resources einmal von dem placeStreet kopieren, damit man strings anstatt enums bekommt, also basically alles von den Streets abschreiben
+
+
+-- Years of Fortune: 3 resources von dem du am wenigsten hast
+-- Monopol: von den resourcen die du am wenigsten hast die von den anderen spielern
+-- Handesstraße: min. 5 kontinuierliche straßen -> 2 Victory Points -> geht an den spieler mit der längsten straße
+-- Rittermacht: 

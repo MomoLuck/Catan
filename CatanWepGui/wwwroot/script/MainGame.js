@@ -55,12 +55,13 @@
         } else {
                     for (const node of elements) {
                         if (Place.canPlaceSettlement(building, node.id, color, firstPicsSettlementBool, resourceCards) && !node.classList.contains("active")) {
-                            console.log("aribaasd")
                             this.createCrown(node, "#00A0FF80", false)
 
                         } else {
-                            if (node.classList.contains("active")) {
-                                node.style.visibility = "hidden"
+                            for (const crown of node.children) {
+                                if (crown.classList.contains("crownTemp")) {
+                                    crown.remove()
+                                }
                             }
                         }
                     }
@@ -112,8 +113,6 @@
         crown.style.width = '18px';
         crown.style.height = '12px';
         crown.style.backgroundColor = color;
-        crown.style.zIndex = "1";
-        node.style.zindex = "2";
         crown.style.clipPath = `polygon(0% 100%, 0% 60%, 16% 0%, 33% 60%, 50% 0%, 66% 60%, 83% 0%, 100% 60%, 100% 100%)`;
         node.appendChild(crown)        
     }

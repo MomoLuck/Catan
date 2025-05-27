@@ -1,7 +1,7 @@
 ﻿main{
     display: flex;
     flex-direction: row;
-    background-image: url("./img/catan2.jpg");
+    background-image: url("./img/catan2Blurred.png");
     background-position: -100px 0px;
 }
 
@@ -56,6 +56,11 @@ section::before {
 }
 .tile{
     transition: 0.2s;
+    background-size: cover;
+}
+.tile a{
+    font-size: 20px;
+    color: rgba(255,255,255, 0.85);
 }
 #top_grid{
     position: relative;
@@ -376,9 +381,7 @@ aside nav button:hover{;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background:
-    url('https://www.transparenttextures.com/patterns/paper.png') repeat,
-    linear-gradient(145deg, #c2ab80, #a88b5a);
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
     background-blend-mode: multiply;
     border: 0.4px solid black;
     margin:0px;
@@ -410,6 +413,7 @@ aside nav button:hover{;
 
 .specialCard{
     font-size: 60% !important;
+    background-color: #ffdb00;
 }
 
 #winnerOverlay{
@@ -518,4 +522,29 @@ aside nav button:hover{;
 #developmentBuy:hover{
     background-color: #d6ab4b;
     text-decoration: underline;
+}
+
+.WoodCard{
+    background-color: #624C25;
+}
+
+.ClayCard{
+    background-color: #873914; 
+}
+
+.SheepCard{
+    background-color: #ffffff;
+}
+
+.WheatCard{
+    background-color: #ffd456;
+}
+
+.OreCard{
+    background-color: #74674A;
+}
+
+.thief{
+    background-color: red !important;
+    
 }

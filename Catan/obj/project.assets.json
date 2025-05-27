@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Moritz\\.nuget\\packages\\": {}
+    "/home/rudi/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\Catan.csproj",
+      "projectUniqueName": "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj",
       "projectName": "Catan",
-      "projectPath": "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\Catan.csproj",
-      "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\obj\\",
+      "projectPath": "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj",
+      "packagesPath": "/home/rudi/.nuget/packages/",
+      "outputPath": "/home/rudi/RiderProjects/Catan/Catan/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/rudi/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -43,7 +43,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -59,12 +60,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.13, 8.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.13, 8.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/rudi/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

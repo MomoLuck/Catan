@@ -525,7 +525,7 @@ aside nav button:hover{;
 }
 
 .WoodCard{
-    background-color: #624C25;
+    background-color: #6c5429;
 }
 
 .ClayCard{
@@ -537,14 +537,9 @@ aside nav button:hover{;
 }
 
 .WheatCard{
-    background-color: #ffd456;
+    background-color: #DDB72D;
 }
 
 .OreCard{
-    background-color: #74674A;
-}
-
-.thief{
-    background-color: red !important;
-    
+    background-color: #878172;
 }

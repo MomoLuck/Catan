@@ -552,6 +552,8 @@ public void Dice() {
                     break;
                 case ECards.Monopol:
                     type = "Monopol";
+
+
                     break;
                 case ECards.YearsOfPlenty:
                     type = "YearsOfPlenty";
@@ -750,6 +752,33 @@ public void Dice() {
                 }
             }
         }
+    }
+
+    public async Task BuyDevCard()
+    {
+        if (
+            ActivePlayers[CurrentColorId].RessourceCards.Count(card => card.Id == ECards.Sheep) >= 1
+            && ActivePlayers[CurrentColorId].RessourceCards.Count(card => card.Id == ECards.Wheat) >= 1
+            && ActivePlayers[CurrentColorId].RessourceCards.Count(card => card.Id == ECards.Ore) >= 1
+        )
+        {
+            var toRemove = ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Sheep).Take(1).ToList();
+            toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Sheep).Take(1).ToList()[0]);
+            toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Wheat).Take(1).ToList()[0]);
+            
+            foreach (var card in toRemove)
+            {
+                ActivePlayers[CurrentColorId].RessourceCards.Remove(card);
+            }
+            
+            var player = ActivePlayers[CurrentColorId];
+            ECards[] possibleCards = { ECards.Handelsstraße, ECards.Rittermacht, ECards.Knight, ECards.WinPoint, ECards.Monopol, ECards.YearsOfPlenty };
+            Random random = new Random();
+            int randomIndex = random.Next(possibleCards.Length);
+            ECards randomCard = possibleCards[randomIndex];
+            /*Sussy*/
+        }
+        
     }
 
 }

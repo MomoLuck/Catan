@@ -493,7 +493,7 @@ window.Thief = window.Thief || {
     },
     createThief: function (location){
         
-        var thief = document.createElement("div")
+        const thief = document.createElement("div")
         thief.style.position = "relative" // muss noch geöndert werden weil ist zu niedrig
         thief.style.top = "49px"
         thief.style.left = "40px"

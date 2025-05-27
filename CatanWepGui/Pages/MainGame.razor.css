@@ -40,6 +40,7 @@ section div {
     text-align: center;
     vertical-align: middle;
     line-height: 9.5em;
+    position: relative;
 }
 
 section::before {

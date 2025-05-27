@@ -2,7 +2,7 @@
 - Räuber implementieren
 - man muss noch Settlements mit Citys replacen können
 - maybe noch karten verdeckbar machen
-- "top_grid" zu node verändern wegen citys und so
+- city preise anpassen
 7. leck eier und dann goonen
     
     

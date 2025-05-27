@@ -16,6 +16,13 @@
                     node.style.visibility = "hidden"
                 }
             }
+            for (const node of document.getElementById("top_grid").children) {
+                for(const crown of node.children) {
+                    if (crown.classList.contains("crownTemp")) {
+                        crown.remove()
+                    }
+                }
+            }
         } else {
             if (classId == ".intersec") {
                 otherElements = document.querySelectorAll(".bord")
@@ -40,14 +47,12 @@
                             }
                         }
                     }
-                    for (const element of document.getElementById("top_grid")) {
-                        if (element.classList) {
-                            if (element.classList.contains("crownTemp")) {
-                                document.getElementById("top_grid").remove(element)
-                            }
+                    for (const crown of node.children) {
+                        if (crown.classList.contains("crownTemp")) {
+                            crown.remove()
                         }
                     }
-                } else {
+        } else {
                     for (const node of elements) {
                         if (Place.canPlaceSettlement(building, node.id, color, firstPicsSettlementBool, resourceCards) && !node.classList.contains("active")) {
                             console.log("aribaasd")
@@ -75,13 +80,11 @@
                         node.style.visibility = "hidden"
                     }
                 }
-                for (const element of document.getElementById("top_grid")) {
-                    if (element.classList) {
-                        if (element.classList.contains("crownTemp")) {
-                            document.getElementById("top_grid").removeChild (element)
-                        }
-                    }
+            for (const crown of node.children) {
+                if (crown.classList.contains("crownTemp")) {
+                    crown.remove()
                 }
+            }
             }
         }
     },
@@ -219,6 +222,7 @@ window.Place = window.Place || {
             return true
             }
         } else{
+            if(firstpics) return false
             var origin = document.getElementById(location)
             const hasResources = resourceCards.filter(f => f == "Stone").length > 2 &&
                 resourceCards.filter(f => f == "Wheat").length > 1;
@@ -357,12 +361,8 @@ window.Butn = window.Butn || {
                     node.style.visibility = "hidden"
                 }
             }
-            for (const node of document.getElementsByClassName("crownTemp")) {
-                if(node.classList) {
-                    if (node.classList.contains("crownTemp")) {
-                        document.getElementById("top_grid").removeChild(node)
-                    }
-                }
+            for (const node of document.getElementsByClassName("top_grid")) {
+                console.log(node)
             }
             let button = document.getElementsByClassName("pressed")[0];
             if(button) {

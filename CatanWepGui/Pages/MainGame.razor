@@ -12,7 +12,7 @@
 <main>
     <div id="winnerOverlay">
         <footer>
-            <h1 id="winnerName">Player1 has Won!</h1>
+            <h1 id="winnerName"></h1>
             <div id="otherSuccesses">
                 <p id="streetsPlaced"></p>
                 <p id="settlementsPlaced"></p>
@@ -23,30 +23,34 @@
         </footer>
     </div>
     <address>
-        @if (CurrentPhaseId != 2 || PlayerMove)
-        {
-            <div id="activePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[0]]; transition: border-color 0.5s ease-in-out;">
-                <h4>Players @(CurrentcolorIdList[0] + 1)</h4>
-                <a>Name : @ActivePlayers[CurrentcolorIdList[0]].Name</a><br/>
-                <a>Victory points : @ActivePlayers[CurrentcolorIdList[0]].WinPoints</a>
-            </div>
-            for (int i = 1; i < ActivePlayers.Count; i++)
+        <div>
+            @if (CurrentPhaseId != 2 || PlayerMove)
             {
-                <div class="inactivePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[i]]; transition: border-color 0.5s ease-in-out;">
-                    <h4>Players @(CurrentcolorIdList[i] + 1)</h4>
-                    <a>Name : @ActivePlayers[CurrentcolorIdList[i]].Name</a><br/>
-                    <a>Victory points : @ActivePlayers[CurrentcolorIdList[i]].WinPoints</a>
+                <div id="activePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[0]]; transition: border-color 0.5s ease-in-out;">
+                    <h4>Players @(CurrentcolorIdList[0] + 1)</h4>
+                    <a>Name : @ActivePlayers[CurrentcolorIdList[0]].Name</a><br/>
+                    <a>Victory points : @ActivePlayers[CurrentcolorIdList[0]].WinPoints</a>
+                </div>
+                for (int i = 1; i < ActivePlayers.Count; i++)
+                {
+                    <div class="inactivePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[i]]; transition: border-color 0.5s ease-in-out;">
+                        <h4>Players @(CurrentcolorIdList[i] + 1)</h4>
+                        <a>Name : @ActivePlayers[CurrentcolorIdList[i]].Name</a><br/>
+                        <a>Victory points : @ActivePlayers[CurrentcolorIdList[i]].WinPoints</a>
+                    </div>
+                }
+            }
+            else
+            {
+                <div id="activePlayer" style="border: 2px solid black; transition: border-color 0.5s ease-in-out;">
+                    <h4>Dice Roll</h4>
+                    @{ Dice(); }
+                    <a>@DiceRoll</a>
                 </div>
             }
-        }
-        else
-        {
-            <div id="activePlayer" style="border: 2px solid black; transition: border-color 0.5s ease-in-out;">
-                <h4>Dice Roll</h4>
-                @{ Dice(); }
-                <a>@DiceRoll</a>
-            </div>
-        }
+        </div>
+        <button id="developmentBuy">Buy Developmentcard</button>
+
     </address>
     <article>
         <section>

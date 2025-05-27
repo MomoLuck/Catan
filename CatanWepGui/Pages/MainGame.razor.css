@@ -237,6 +237,7 @@ address{
     display: flex;
     min-width: 172px;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #activePlayer{
@@ -504,4 +505,19 @@ aside nav button:hover{;
 #fancyButton:hover span:after {
     opacity: 1;
     right: 0;
+}
+
+#developmentBuy{
+    width: 80%;
+    padding: 12px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 5px;
+    background-color: #DAB45F;
+    border: 2px solid black
+}
+
+#developmentBuy:hover{
+    background-color: #d6ab4b;
+    text-decoration: underline;
 }

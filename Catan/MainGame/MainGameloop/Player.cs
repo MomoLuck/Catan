@@ -23,8 +23,6 @@ public class Player {
         new ACards(ECards.Wood,true,false,false),        
         new ACards(ECards.Wood,true,false,false),        
         new ACards(ECards.Wood,true,false,false),
-
-        
         new ACards(ECards.Clay,true,false,false),
         new ACards(ECards.Sheep,true,false,false),
         new ACards(ECards.Wood,true,false,false),
@@ -36,12 +34,7 @@ public class Player {
         new ACards(ECards.Clay,true,false,false),
         new ACards(ECards.Wheat,true,false,false),
         new ACards(ECards.Wheat,true,false,false),
-        new ACards(ECards.Wheat,true,false,false),
-        
-        new ACards(ECards.Handelsstraße,true,true,false),
-        new ACards(ECards.Handelsstraße,true,true,false),
-        new ACards(ECards.YearsOfPlenty,true,true,false),
-        new ACards(ECards.Monopol,true,true,false),
+        new ACards(ECards.Wheat,true,false,false)
     };
     public List<ACards> SpecialCards { get; set; } = new List<ACards>();
 

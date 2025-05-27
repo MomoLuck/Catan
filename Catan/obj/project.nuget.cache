@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XGrTG/yASZo=",
+  "dgSpecHash": "3b1fiVdL5kU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\Catan.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj",
+  "expectedPackageFiles": [
+    "/home/rudi/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "/home/rudi/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512"
+  ],
   "logs": []
 }

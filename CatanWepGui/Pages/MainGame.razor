@@ -798,24 +798,66 @@ public void Dice() {
             ];
             Random random = new Random();
             int randomIndex = random.Next(possibleCards.Count);
-            ACards randomCard = possibleCards[randomIndex];
+            ACards randomCard = possibleCards[22]; //Replace mit randomindex
             if (randomCard.Id == ECards.Knight)
             {
                 player.RessourceCards.Add(randomCard);
                 possibleCards.Remove(randomCard);
                 MoveThief("check");
             } //  Winpoints geben 1 VP und werden removed aber bleiben im inventar; Monopol wird direkt gespielt und steht im Todo, werden auch removed aber bleiben inventar; YearsofPlenty --//--
+
+            if (randomCard.Id == ECards.WinPoint)
+            {
+                GiveWinPoints(1);
+            }
+
+            if (randomCard.Id == ECards.Monopol)
+            {
+                List<Player> otherplayers = new List<Player>();
+                foreach (var p in ActivePlayers)
+                {
+                    if (player != p)
+                    {
+                        otherplayers.Add(p);
+                    }
+                }
+                
+                var leastCommon = player.RessourceCards.Where(c => !c.IsSpecial)
+                    .GroupBy(card => card.Id)
+                    .Aggregate((minGroup, nextGroup) =>
+                        nextGroup.Count() < minGroup.Count() ? nextGroup : minGroup)
+                    .Key;
+
+                for (int i = 0; i < otherplayers.Count; i++)
+                {
+                    var p = otherplayers[i];
+                    var toMove = p.RessourceCards.Where(card => card.Id == leastCommon).ToList();
+                    foreach (var card in toMove)
+                    {
+                        p.RessourceCards.Remove(card);
+                        player.RessourceCards.Add(card);
+                    }
+                    
+                    
+                }
+                
+            }
+
+            if (randomCard.Id == ECards.YearsOfPlenty)
+            {
+                var leastCommon = player.RessourceCards.Where(c => !c.IsSpecial)
+                    .GroupBy(card => card.Id)
+                    .Aggregate((minGroup, nextGroup) =>
+                        nextGroup.Count() < minGroup.Count() ? nextGroup : minGroup)
+                    .Key;
+
+                var toAdd = ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == leastCommon).ToList()[0];
+                for (int i = 0; i < 3; i++)
+                {
+                    player.RessourceCards.Add(toAdd);
+                }
+            }
         }
-    }
-
-    public async Task YearsOfFortune()
-    {
-        
-    }
-
-    public async Task Monopol()
-    {
-        
     }
 
     public async Task Handelsstraße()
@@ -825,7 +867,25 @@ public void Dice() {
 
     public async Task Rittermacht()
     {
-        
+        if (ActivePlayers.Where(p => p.RessourceCards.Where(c => c.Id == ECards.Rittermacht).Count() > 0).Count() > 0)
+        {
+            if (ActivePlayers[CurrentColorId].RessourceCards.Where(c => c.Id == ECards.Knight).ToList().Count >= 3)
+            {
+                GiveWinPoints(2);
+                ActivePlayers[CurrentColorId].RessourceCards.Add(new ACards(ECards.Rittermacht, true, true, false));
+            }
+        }
+        else
+        {
+            var playerWithRittermacht = ActivePlayers.Where(p => p.RessourceCards.Where(c => c.Id == ECards.Rittermacht).Count() > 0).ToList()[0];
+            if (ActivePlayers[CurrentColorId].RessourceCards.Where(c => c.Id == ECards.Rittermacht).ToList().Count >= playerWithRittermacht.RessourceCards.Where(r => r.Id == ECards.Knight).Count())
+            {
+                playerWithRittermacht.WinPoints -= 2;
+                GiveWinPoints(2);
+                playerWithRittermacht.RessourceCards.Remove(playerWithRittermacht.RessourceCards.Where(c => c.Id == ECards.Rittermacht).ToList()[0]);
+                ActivePlayers[CurrentColorId].RessourceCards.Add(new ACards(ECards.Rittermacht, true, true, false));
+            }
+        }
     }
 
 }

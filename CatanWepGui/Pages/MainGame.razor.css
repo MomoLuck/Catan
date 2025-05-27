@@ -289,7 +289,7 @@ address{
 aside{
     height: 100%;
     width: 20vw;
-    background-color: #af7e69;
+    background-color: #b68b69;
     border: none;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
@@ -321,7 +321,7 @@ aside nav button{
 }
 
 aside nav button:hover{;
-    background-color: #af7e69;
+    background-color: #83634A;
     text-decoration: underline;
 }
 
@@ -329,7 +329,7 @@ aside nav button:hover{;
     height:84%;
     border-radius: 8px;
     margin: 8px;
-    background-color: #83634A;
+    background-color: #826249;
     padding: 2%
     
 }
@@ -366,7 +366,7 @@ aside nav button:hover{;
 }
 
 .ressourceCard img{
-    width: 50px;
+    height: 40%;
 }
 
 .ressourceCard{
@@ -404,9 +404,103 @@ aside nav button:hover{;
     width: 125%;
     height: 12vh;
     display: flex;
-    margin-left: -100px;
+    margin: 20%;
+    margin-left: -100px !important;
 }
 
 .specialCard{
-    font-size: 60% !important;;
+    font-size: 60% !important;
+}
+
+#winnerOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#winnerOverlay footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    flex-direction: column;
+    width: 30%;
+    height: 30%;
+    background-color: #b68b69;
+}
+
+#winnerName{
+    color: white;
+    font-size: 250%;
+    background-color: #83634A;
+    width: 95%;
+    height: 20%;
+    margin-bottom: 1%;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+#otherSuccesses{
+    width: 95%;
+    height: 67%;
+    border-radius: 4px;
+    background-color: #83634A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1.5%;
+}
+
+#otherSuccesses p{
+    font-size: 20px;
+    color: white;
+}
+
+#fancyButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 20em;
+    border: none;
+    border-radius: 8px;
+    background-color: #c5523b;
+    color: #fff;
+    transition-duration: 0.4s;
+    align-self: center !important;
+}
+#fancyButton:hover{
+    background-color: #F2AC57; /* Green */
+    color: white;
+}
+#fancyButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#fancyButton span:after {
+    content: '→';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+#fancyButton:hover span {
+    padding-right: 25px;
+}
+
+#fancyButton:hover span:after {
+    opacity: 1;
+    right: 0;
 }

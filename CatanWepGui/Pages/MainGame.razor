@@ -6,33 +6,46 @@
 @using Catan.MainGame.Figures
 @using Catan.MainGame.MainGameloop
 @inject IJSRuntime Js
+@inject NavigationManager _nav
 
 <main>
+    <div id="winnerOverlay">
+        <footer>
+            <h1 id="winnerName">Player1 has Won!</h1>
+            <div id="otherSuccesses">
+                <p id="streetsPlaced"></p>
+                <p id="settlementsPlaced"></p>
+                <p id="citiesPlaced"></p>
+                <button id="fancyButton" @onclick="@(()=>_nav.NavigateTo("/"))"><span>Zurück zum Hauptmenü</span></button>
+            </div>
+
+        </footer>
+    </div>
     <address>
-    @if (CurrentPhaseId != 2 || PlayerMove)
-    {
-        <div id="activePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[0]]; transition: border-color 0.5s ease-in-out;">
-            <h4>Players @(CurrentcolorIdList[0] + 1)</h4>
-            <a>Name : @ActivePlayers[CurrentcolorIdList[0]].Name</a><br/>
-            <a>Victory points : @ActivePlayers[CurrentcolorIdList[0]].WinPoints</a>
-        </div>
-        for (int i = 1; i < ActivePlayers.Count; i++)
+        @if (CurrentPhaseId != 2 || PlayerMove)
         {
-            <div class="inactivePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[i]]; transition: border-color 0.5s ease-in-out;">
-                <h4>Players @(CurrentcolorIdList[i] + 1)</h4>
-                <a>Name : @ActivePlayers[CurrentcolorIdList[i]].Name</a><br/>
-                <a>Victory points : @ActivePlayers[CurrentcolorIdList[i]].WinPoints</a>
+            <div id="activePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[0]]; transition: border-color 0.5s ease-in-out;">
+                <h4>Players @(CurrentcolorIdList[0] + 1)</h4>
+                <a>Name : @ActivePlayers[CurrentcolorIdList[0]].Name</a><br/>
+                <a>Victory points : @ActivePlayers[CurrentcolorIdList[0]].WinPoints</a>
+            </div>
+            for (int i = 1; i < ActivePlayers.Count; i++)
+            {
+                <div class="inactivePlayer" style="border: 2px solid @ColorRotator[CurrentcolorIdList[i]]; transition: border-color 0.5s ease-in-out;">
+                    <h4>Players @(CurrentcolorIdList[i] + 1)</h4>
+                    <a>Name : @ActivePlayers[CurrentcolorIdList[i]].Name</a><br/>
+                    <a>Victory points : @ActivePlayers[CurrentcolorIdList[i]].WinPoints</a>
+                </div>
+            }
+        }
+        else
+        {
+            <div id="activePlayer" style="border: 2px solid black; transition: border-color 0.5s ease-in-out;">
+                <h4>Dice Roll</h4>
+                @{ Dice(); }
+                <a>@DiceRoll</a>
             </div>
         }
-    }
-    else
-    {
-        <div id="activePlayer" style="border: 2px solid black; transition: border-color 0.5s ease-in-out;">
-            <h4>Dice Roll</h4>
-            @{ Dice(); }
-            <a>@DiceRoll</a>
-        </div>
-    }
     </address>
     <article>
         <section>
@@ -168,7 +181,7 @@
             <button id="Road" class="building butn" @onclick="@(() => Build(new Road(), ".bord"))">Straße</button>
             <button id="Raider" class="activity butn">Räuber</button>
         </nav>
-    @if(CurrentPhaseId != 2)
+        @if (CurrentPhaseId != 2)
         {
             <div id="switchable">
                 <div>
@@ -268,14 +281,14 @@
                 </div>
             </div>
         }
-    else
-    {
-        <div id="switchable"></div>
+        else
+        {
+            <div id="switchable"></div>
 
-    }
+        }
         @if (CurrentPhaseId != 2)
         {
-            if (CurrentPhaseId != 1 )
+            if (CurrentPhaseId != 1)
             {
                 ButtonText = "Nächster Spieler";
             }
@@ -347,6 +360,7 @@
     public List<string> ColorRotator { get; set; } = new List<string>();
     public List<Player> ActivePlayers { get; set; } = new List<Player>();
     public List<int[]> FirstPicsList { get; set; } = new List<int[]>();
+    public bool HasWon { get; set; } = false;
     <!--public List<string> Phases { get; set; } = new List<string>() { "start", "ertrag", "Aktion" }; -->
     public int CurrentPhaseId { get; set; } = 0;
     public bool PlayerMove { get; set; } = true;
@@ -553,6 +567,24 @@ public void Dice() {
     }
     
     <!-- In Asyn tasks und so ty shi ty shi mit js und so -->
+    
+    public async Task Win()
+    {
+        foreach (var player in ActivePlayers)
+        {
+            if (player.WinPoints >= 10)
+            {
+                HasWon = true;
+            }
+        }
+
+        if (HasWon)
+        {
+            var player = ActivePlayers.Where(player => player.WinPoints >= 10).ToList()[0];
+            await Js.InvokeVoidAsync("Win.hasWon", player.Name, player.Color);
+        }
+    }
+    
     public async Task Change(string classs){
         await Js.InvokeVoidAsync("Change.changeElement", classs, ColorRotator[CurrentColorId],FirstPicsList[CurrentColorId] ,RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
     }

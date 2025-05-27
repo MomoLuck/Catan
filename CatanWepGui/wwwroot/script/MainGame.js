@@ -444,5 +444,26 @@ window.Ertrag = window.Ertrag || {
         return ernte
     }
 }
-// muss man ganz am ende rauslöschen
-// Place.canPlaceSettlement()
+window.Win = window.Win || {
+    hasWon:function(winnerName, playerColor){
+        document.getElementById("winnerOverlay").style.display = "flex";
+        document.getElementById("winnerName").textContent = winnerName + " has Won";
+
+        placedStreets = Array.from(document.getElementsByClassName("bord"))
+            .filter(s => !s.classList.contains("active"))
+            .filter(s => s.style.backgroundColor === playerColor).length;
+
+        placedSettlements = Array.from(document.getElementsByClassName("Settlement"))
+            .filter(s => !s.classList.contains("active"))
+            .filter(s => s.style.backgroundColor === playerColor).length;
+
+        placedCities = Array.from(document.getElementsByClassName("City"))
+            .filter(s => !s.classList.contains("active"))
+            .filter(s => s.style.backgroundColor === playerColor).length;
+        
+        document.getElementById("streetsPlaced").textContent = "Streets Placed: " + placedStreets;
+        document.getElementById("settlementsPlaced").textContent = "Settlements Placed: " + placedStreets;
+        document.getElementById("citiesPlaced").textContent = "Cities Placed: " + placedCities;
+        
+    }
+}

@@ -96,10 +96,10 @@
             crown.classList.add("crownTemp")
             crown.classList.add("active")
         }
-        crown.style.position = 'absolute';
+        crown.style.position = 'relative';
         //crown.style.top = (node.style.top).toString().split("px")[0] - (8) + "px";
         //crown.style.left = parseInt((node.style.left).toString().split("px")[0].split(".")[0]) - 9 + "px";
-        crown.style.top = "-8px";
+        crown.style.top = "-7px";
         crown.style.left = "1px";
         for (let i = node.id.split("_")[2] - 1 + 1; i > 0; i--) {
             //crown.style.left = parseInt((crown.style.left).toString().split("px")[0].split(".")[0]) +  10 + "px";

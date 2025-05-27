@@ -1,4 +1,5 @@
 ﻿@page "/MainGame"
+@using System.Drawing
 @using System.Runtime.CompilerServices
 @using System.Text.Json
 @using Catan.MainGame
@@ -566,6 +567,7 @@ public void Dice() {
         ActivePlayers[CurrentColorId].WinPoints += points;
     }
     
+    
     <!-- In Asyn tasks und so ty shi ty shi mit js und so -->
     
     public async Task Win()
@@ -601,93 +603,45 @@ public void Dice() {
         if (GridPlacedList.Contains(location) && CurrentBuilding.Id == new Settlement().Id)
         {
             GridPlacedList.Remove(location);
-            Console.WriteLine("ariba");
-            bool removedClay = false;
-            bool removedWood = false;
-            bool removedSheep = false;
-            bool removedWheat = false;
-            if (FirstPicsList[CurrentColorId][0] == 0) {
-                for (var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++) {
-                    var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
-                    if (Card.Id == ECards.Wheat && removedWheat == false) {
-                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                        removedWheat = true;
-                    }
-                    if (Card.Id == ECards.Clay && removedClay == false) {
-                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                        removedClay = true;
-                    }
-                    if (Card.Id == ECards.Sheep && removedSheep == false) {
-                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                        removedSheep = true;
-                    }
-                    if (Card.Id == ECards.Wood && removedWood == false) {
-                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                        removedWood = true;
+                if (FirstPicsList[CurrentColorId][0] == 0)
+                {
+                    var toRemove = ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Clay).Take(1).ToList();
+                    toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Wood).Take(1).ToList()[0]);
+                    toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Sheep).Take(1).ToList()[0]);
+                    toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Wheat).Take(1).ToList()[0]);
+                    foreach (var card in toRemove)
+                    {
+                        ActivePlayers[CurrentColorId].RessourceCards.Remove(card);
                     }
                 }
-            }
             
             await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
             if (FirstPicsList[CurrentColorId][0] > 0) {
                 FirstPicsList[CurrentColorId][0] -= 1;
             }
             Build(CurrentBuilding, ".intersec");
+            GiveWinPoints(1);
 
 
         } else
         {
-            if (GridPlacedListCity.Contains(location) && CurrentBuilding.Id == new City().Id)
+            var canPlace = await Js.InvokeAsync<bool>("Place.canPlaceSettlement","City", location, "#" + ActivePlayers[CurrentColorId].Color, false, RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
+            if (GridPlacedListCity.Contains(location) && CurrentBuilding.Id == new City().Id && FirstPicsList[CurrentColorId][0] == 0 && canPlace)
             {
                 GridPlacedListCity.Remove(location);
-                bool removedStone1 = false;
-                bool removedStone2 = false;
-                bool removedStone3 = false;
-                bool removedWheat = false;
                 if (FirstPicsList[CurrentColorId][0] == 0)
                 {
-                    for (var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++)
+                    var toRemove = ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Ore).Take(3).ToList();
+                    toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Wheat).Take(1).ToList()[0]);
+                    foreach (var card in toRemove)
                     {
-                        var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
-                        Console.WriteLine(Card.Id);
-                        if (Card.Id == ECards.Wheat && removedWheat == false)
-                        {
-                            ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                            removedWheat = true;
-                        }
-
-                        if (Card.Id == ECards.Ore && removedStone1 == false)
-                        {
-                            ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                            removedStone1 = true;
-                            Console.WriteLine("ariba1");
-                            Console.WriteLine(ActivePlayers[CurrentColorId].RessourceCards.Count);
-                        }
-                        else {
-                            
-
-                            if (Card.Id == ECards.Ore && removedStone2 == false && removedStone1)
-                            {
-                                ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                                removedStone2 = true;
-                                Console.WriteLine("ariba2");
-                                Console.WriteLine(ActivePlayers[CurrentColorId].RessourceCards.Count);
-                            }
-                            else {
-                                if (Card.Id == ECards.Ore && removedStone3 == false && removedStone2)
-                                {
-                                    ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                                    removedStone3 = true;
-                                    Console.WriteLine("ariba3");
-                                    Console.WriteLine(ActivePlayers[CurrentColorId].RessourceCards.Count);
-                                }
-                            }
-                        }
+                        ActivePlayers[CurrentColorId].RessourceCards.Remove(card);
                     }
                 }
 
                 await Js.InvokeVoidAsync("Place.placeBuilding", location, CurrentBuilding, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][0], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
                 Build(CurrentBuilding, ".intersec");
+                GiveWinPoints(2);
             }
         }
 
@@ -696,23 +650,17 @@ public void Dice() {
     public async Task PlaceStreet(string location) {
         if (GridPlacedListStreet.Contains(location)) {
             GridPlacedListStreet.Remove(location);
-            bool removedWood = false;
-            bool removedClay = false;
-            if (FirstPicsList[CurrentColorId][1] == 0) {
-                for (var x = 0; x < ActivePlayers[CurrentColorId].RessourceCards.Count; x++) {
-                    var Card = ActivePlayers[CurrentColorId].RessourceCards[x];
-                    if (Card.Id == ECards.Wheat && removedWood == false) {
-                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                        removedWood = true;
-                    }
 
-                    if (Card.Id == ECards.Clay && removedClay == false) {
-                        ActivePlayers[CurrentColorId].RessourceCards.Remove(Card);
-                        removedClay = true;
-                    }
+            if (FirstPicsList[CurrentColorId][0] == 0)
+            {
+                var toRemove = ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Wood).Take(1).ToList();
+                toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Clay).Take(1).ToList()[0]);
+                foreach (var card in toRemove)
+                {
+                    ActivePlayers[CurrentColorId].RessourceCards.Remove(card);
+                    Console.WriteLine(card.Id);
                 }
             }
-
             await Js.InvokeVoidAsync("Place.placeStreet", location, ColorRotator[CurrentColorId], FirstPicsList[CurrentColorId][1], RessourceCardsJsConvert(ActivePlayers[CurrentColorId].RessourceCards));
             if (FirstPicsList[CurrentColorId][1] > 0) {
                 FirstPicsList[CurrentColorId][1] -= 1;

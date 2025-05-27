@@ -4,7 +4,7 @@
         var firstPicsRoadBool = firstPics[1] > 0
         var elements = document.querySelectorAll(classId)
         var otherElements
-        var pressedButton = document.getElementsByClassName("pressed")
+        var pressedäButton = document.getElementsByClassName("pressed")
         if(pressedButton[0]){
             var building = pressedButton[0].id
         } else{
@@ -476,7 +476,11 @@ window.Thief = window.Thief || {
                         for (let tile of document.getElementsByClassName("tile")) {
                             tile.style.pointerEvents = "none"
                         }
+                        const button = document.getElementById("Raider");
+                        button.style.backgroundColor = "#83634A"
+                        button.classList.remove("pressed")
                 })
+                
             }
             this.createThief(document.getElementsByClassName("tile")[9])
         } else{
@@ -492,9 +496,19 @@ window.Thief = window.Thief || {
         }
     },
     createThief: function (location){
-        
+        for (const tile of document.getElementsByClassName("tile")) {
+            if(tile.style.backgroundImage.split("/")[2].split(".")[0] !== "Desert") {
+                if (tile.childNodes.length >= 2) {
+                    tile.childNodes[1].remove()
+                }
+            } else{
+                if (tile.childNodes.length >= 1) {
+                    tile.childNodes[0].remove()
+                }
+            }
+        }
         var thief = document.createElement("div")
-        thief.style.position = "relative" // muss noch geöndert werden weil ist zu niedrig
+        thief.style.position = "absolute" // muss noch geöndert werden weil ist zu niedrig
         thief.style.top = "49px"
         thief.style.left = "40px"
         thief.style.height = "50px"

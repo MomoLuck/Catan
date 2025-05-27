@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj": {}
+    "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\Catan.csproj": {}
   },
   "projects": {
-    "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj": {
+    "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\Catan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj",
+        "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\Catan.csproj",
         "projectName": "Catan",
-        "projectPath": "/home/rudi/RiderProjects/Catan/Catan/Catan.csproj",
-        "packagesPath": "/home/rudi/.nuget/packages/",
-        "outputPath": "/home/rudi/RiderProjects/Catan/Catan/obj/",
+        "projectPath": "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\Catan.csproj",
+        "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Moritz\\RiderProjects\\CatanNew\\Catan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/rudi/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,8 +37,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -54,22 +53,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/rudi/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

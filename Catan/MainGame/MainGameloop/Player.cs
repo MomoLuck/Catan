@@ -16,28 +16,8 @@ public class Player {
         new Road(),new Road(),new Road(),new Road(),new Road(),
         new Road(),new Road(),new Road(),new Road(),new Road()
     };
-    public List<ACards> RessourceCards { get; set; } = new List<ACards>()
-    {
-        new ACards(ECards.Wood,true,false,false),
-        new ACards(ECards.Wood,true,false,false),
-        new ACards(ECards.Wood,true,false,false),        
-        new ACards(ECards.Wood,true,false,false),        
-        new ACards(ECards.Wood,true,false,false),
 
-        
-        new ACards(ECards.Clay,true,false,false),
-        new ACards(ECards.Sheep,true,false,false),
-        new ACards(ECards.Wood,true,false,false),
-        new ACards(ECards.Ore,true,false,false),
-        new ACards(ECards.Ore,true,false,false),
-        new ACards(ECards.Ore,true,false,false),
-        new ACards(ECards.Ore,true,false,false),
-        new ACards(ECards.Clay,true,false,false),
-        new ACards(ECards.Clay,true,false,false),
-        new ACards(ECards.Wheat,true,false,false),
-        new ACards(ECards.Wheat,true,false,false),
-        new ACards(ECards.Wheat,true,false,false),
-    };
+    public List<ACards> RessourceCards { get; set; } = new List<ACards>();
     public List<ACards> SpecialCards { get; set; } = new List<ACards>();
 
     public Player(string name, string color) {

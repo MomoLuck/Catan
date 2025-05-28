@@ -274,15 +274,18 @@
                             @if (SCard.Id == ECards.Monopol)
                             {
                                 <img src="/img/monopol.svg" alt="kein wut">
+                                <h3>@SCard.Id</h3>
+
                             }
                             else
                             {
                                 if (SCard.Id == ECards.YearsOfPlenty)
                                 {
                                     <img src="/img/yearsofplenty.svg" alt="kein wut">
+                                    <h3>Year of Plenty</h3>
+
                                 }
                             }
-                            <h3>@SCard.Id</h3>
 
                         </article>
 
@@ -515,7 +518,6 @@ public void Dice() {
             HasRolled = true;
         }
     }
-// einamal hier kopieren
     public string[] RessourceCardsJsConvert(List<ACards> resourceCards)
     {
         var stringCards = resourceCards.Select(card =>
@@ -737,7 +739,6 @@ public void Dice() {
         BlockButton();
 
     }
-    // ab hier kommen karten und so ty shi
     public async Task MoveThief(string phase)
     {
         var player = ActivePlayers[CurrentColorId];
@@ -808,7 +809,7 @@ public void Dice() {
                 player.RessourceCards.Add(randomCard);
                 possibleCards.Remove(randomCard);
                 MoveThief("check");
-            } //  Winpoints geben 1 VP und werden removed aber bleiben im inventar; Monopol wird direkt gespielt und steht im Todo, werden auch removed aber bleiben inventar; YearsofPlenty --//--
+            }
 
             if (randomCard.Id == ECards.WinPoint)
             {

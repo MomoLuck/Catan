@@ -402,7 +402,7 @@ aside nav button:hover{;
     margin:0px;
     position: relative;
     z-index: 1;
-    margin-left: -50px; /* Überlappung nach links */
+    margin-left: -50px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     max-width: 20%;
     transition: all 0.3s ease;
@@ -410,9 +410,9 @@ aside nav button:hover{;
     flex-wrap: wrap;
 }
 .ressourceCard:hover {
-    transform: translateY(-20px);       /* Hochheben */
-    margin-right: 50px;                   /* Kein Überlappen mehr */
-    z-index: 10;                        /* Ganz oben */
+    transform: translateY(-20px);      
+    margin-right: 50px;                
+    z-index: 10;                       
 }
 
 .ressourceCard h3{
@@ -503,7 +503,7 @@ aside nav button:hover{;
     align-self: center !important;
 }
 #fancyButton:hover{
-    background-color: #F2AC57; /* Green */
+    background-color: #F2AC57; 
     color: white;
 }
 #fancyButton span {
@@ -565,7 +565,7 @@ aside nav button:hover{;
     background-color: #ae8a32;
 }
 
-.Used{
+.used{
     filter: grayscale(65%);
     text-decoration: line-through;
     text-decoration-thickness: 2px;

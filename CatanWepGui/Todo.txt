@@ -1,6 +1,5 @@
 TODO (falls zeit):
 - Für die special Cards Monopol, und Years of Plenty ausgegraute Karten machen
-- Maybe Karten effekt wegmachen
 - 
 
     

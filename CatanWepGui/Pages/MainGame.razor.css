@@ -407,6 +407,7 @@ aside nav button:hover{;
     max-width: 20%;
     transition: all 0.3s ease;
     padding: 10px;
+    flex-wrap: wrap;
 }
 .ressourceCard:hover {
     transform: translateY(-20px);       /* Hochheben */
@@ -561,5 +562,11 @@ aside nav button:hover{;
 }
 
 .OreCard{
-    background-color: #878172;
+    background-color: #ae8a32;
+}
+
+.Used{
+    filter: grayscale(65%);
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
 }

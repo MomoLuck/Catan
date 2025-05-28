@@ -230,7 +230,7 @@
                     <div id="ore" class="ressource">
                         @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.Id == ECards.Ore))
                         {
-                            <article class="ressourceCard OreCard">
+                            <article class="ressourceCard OreCard Used">
                                 <img src="/img/ore.png" alt="kein wut">
                                 <h3>@Card.Id</h3>
                             </article>

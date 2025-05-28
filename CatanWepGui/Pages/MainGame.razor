@@ -238,7 +238,7 @@
                     </div>
                 </div>
                 <div id="specialCardCorner">
-                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.IsSpecial == true))
+                    @foreach (var Card in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.IsSpecial == true && !r.IsDevelopment))
                     {
                         <article class="ressourceCard specialCard">
                             @if (Card.Id == ECards.Handelsstraße)
@@ -263,25 +263,29 @@
                                         {
                                             <img src="/img/winpoint.svg" alt="kein wut">
                                         }
-                                        else
-                                        {
-                                            if (Card.Id == ECards.Monopol)
-                                            {
-                                                <img src="/img/monopol.svg" alt="kein wut">
-                                            }
-                                            else
-                                            {
-                                                if (Card.Id == ECards.YearsOfPlenty)
-                                                {
-                                                    <img src="/img/yearsofplenty.svg" alt="kein wut">
-                                                }
-                                            }
-                                        }
                                     }
                                 }
                             }
                             <h3>@Card.Id</h3>
                         </article>
+                    }
+                    @foreach (var SCard in ActivePlayers[CurrentColorId].RessourceCards.Where(r => r.IsSpecial && r.IsDevelopment)) {
+                        <article class="ressourceCard specialCard used">
+                            @if (SCard.Id == ECards.Monopol)
+                            {
+                                <img src="/img/monopol.svg" alt="kein wut">
+                            }
+                            else
+                            {
+                                if (SCard.Id == ECards.YearsOfPlenty)
+                                {
+                                    <img src="/img/yearsofplenty.svg" alt="kein wut">
+                                }
+                            }
+                            <h3>@SCard.Id</h3>
+
+                        </article>
+
                     }
                 </div>
             </div>
@@ -438,7 +442,7 @@
     public void ChangeBorderColor() {
         
         if (CurrentPhaseId == 0) {
-            if (true) { //FirstPicsList[CurrentColorId][0] == 0 && FirstPicsList[CurrentColorId][1] == 0
+            if (FirstPicsList[CurrentColorId][0] == 0 && FirstPicsList[CurrentColorId][1] == 0) {
                 if (CurrentColorId < ActivePlayers.Count - 1) {
                     AdvanceCurrentColorIdArray();
                     CurrentColorId++;
@@ -789,12 +793,12 @@ public void Dice() {
                 new ACards(ECards.WinPoint, true, true, false),
                 new ACards(ECards.WinPoint, true, true, false),
                 new ACards(ECards.WinPoint, true, true, false),
-                new ACards(ECards.Monopol, true, true, false),
-                new ACards(ECards.Monopol, true, true, false),
-                new ACards(ECards.Monopol, true, true, false),
-                new ACards(ECards.YearsOfPlenty, true, true, false),
-                new ACards(ECards.YearsOfPlenty, true, true, false),
-                new ACards(ECards.YearsOfPlenty, true, true, false),
+                new ACards(ECards.Monopol, true, true, true),
+                new ACards(ECards.Monopol, true, true, true),
+                new ACards(ECards.Monopol, true, true, true),
+                new ACards(ECards.YearsOfPlenty, true, true, true),
+                new ACards(ECards.YearsOfPlenty, true, true, true),
+                new ACards(ECards.YearsOfPlenty, true, true, true),
             ];
             Random random = new Random();
             int randomIndex = random.Next(possibleCards.Count);
@@ -832,6 +836,7 @@ public void Dice() {
                 {
                     var p = otherplayers[i];
                     var toMove = p.RessourceCards.Where(card => card.Id == leastCommon).ToList();
+                    player.RessourceCards.Add(randomCard);
                     foreach (var card in toMove)
                     {
                         p.RessourceCards.Remove(card);
@@ -852,6 +857,7 @@ public void Dice() {
                     .Key;
 
                 var toAdd = ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == leastCommon).ToList()[0];
+                player.RessourceCards.Add(randomCard);
                 for (int i = 0; i < 3; i++)
                 {
                     player.RessourceCards.Add(toAdd);

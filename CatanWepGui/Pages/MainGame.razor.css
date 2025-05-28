@@ -405,8 +405,13 @@ aside nav button:hover{;
     margin-left: -50px; /* Überlappung nach links */
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     max-width: 20%;
-    
+    transition: all 0.3s ease;
     padding: 10px;
+}
+.ressourceCard:hover {
+    transform: translateY(-20px);       /* Hochheben */
+    margin-right: 50px;                   /* Kein Überlappen mehr */
+    z-index: 10;                        /* Ganz oben */
 }
 
 .ressourceCard h3{

@@ -3,6 +3,8 @@
     flex-direction: row;
     background-image: url("./img/catan2Blurred.png");
     background-position: -100px 0px;
+    background-repeat:no-repeat;
+    background-size:cover
 }
 
 .tile{

@@ -663,7 +663,7 @@ public void Dice() {
         if (GridPlacedListStreet.Contains(location)) {
             GridPlacedListStreet.Remove(location);
 
-            if (FirstPicsList[CurrentColorId][0] == 0)
+            if (FirstPicsList[CurrentColorId][1] == 0)
             {
                 var toRemove = ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Wood).Take(1).ToList();
                 toRemove.Add(ActivePlayers[CurrentColorId].RessourceCards.Where(card => card.Id == ECards.Clay).Take(1).ToList()[0]);

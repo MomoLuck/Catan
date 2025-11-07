@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "MFwnGKp7c1M=",
+  "dgSpecHash": "pmAhY1saBa0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\M.Boehmwalder\\RiderProjects\\Catan\\Catan\\Catan.csproj",
+  "projectFilePath": "C:\\Users\\r.hubaczek\\RiderProjects\\Catan\\Catan\\Catan.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\M.Boehmwalder\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.19\\microsoft.netcore.app.ref.8.0.19.nupkg.sha512",
-    "C:\\Users\\M.Boehmwalder\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.19\\microsoft.windowsdesktop.app.ref.8.0.19.nupkg.sha512",
-    "C:\\Users\\M.Boehmwalder\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.19\\microsoft.aspnetcore.app.ref.8.0.19.nupkg.sha512"
+    "C:\\Users\\r.hubaczek\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.19\\microsoft.netcore.app.ref.8.0.19.nupkg.sha512",
+    "C:\\Users\\r.hubaczek\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.19\\microsoft.windowsdesktop.app.ref.8.0.19.nupkg.sha512",
+    "C:\\Users\\r.hubaczek\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.19\\microsoft.aspnetcore.app.ref.8.0.19.nupkg.sha512"
   ],
   "logs": []
 }

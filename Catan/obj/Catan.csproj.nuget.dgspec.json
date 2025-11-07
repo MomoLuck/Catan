@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\M.Boehmwalder\\RiderProjects\\Catan\\Catan\\Catan.csproj": {}
+    "C:\\Users\\r.hubaczek\\RiderProjects\\Catan\\Catan\\Catan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\M.Boehmwalder\\RiderProjects\\Catan\\Catan\\Catan.csproj": {
+    "C:\\Users\\r.hubaczek\\RiderProjects\\Catan\\Catan\\Catan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\M.Boehmwalder\\RiderProjects\\Catan\\Catan\\Catan.csproj",
+        "projectUniqueName": "C:\\Users\\r.hubaczek\\RiderProjects\\Catan\\Catan\\Catan.csproj",
         "projectName": "Catan",
-        "projectPath": "C:\\Users\\M.Boehmwalder\\RiderProjects\\Catan\\Catan\\Catan.csproj",
-        "packagesPath": "C:\\Users\\M.Boehmwalder\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\M.Boehmwalder\\RiderProjects\\Catan\\Catan\\obj\\",
+        "projectPath": "C:\\Users\\r.hubaczek\\RiderProjects\\Catan\\Catan\\Catan.csproj",
+        "packagesPath": "C:\\Users\\r.hubaczek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\r.hubaczek\\RiderProjects\\Catan\\Catan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\M.Boehmwalder\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\r.hubaczek\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

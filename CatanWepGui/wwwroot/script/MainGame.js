@@ -215,7 +215,9 @@ window.Place = window.Place || {
         if (!hasOwnRoad && !firstpics) return false;
         if(!firstpics) {
             const hasResources = resourceCards.filter(f => f == "Wheat").length > 0 &&
-                resourceCards.filter(f => f == "Clay").length > 0;
+                resourceCards.filter(f => f == "Clay").length > 0 &&
+                resourceCards.filter(f => f == "Sheep").length > 0 &&
+                resourceCards.filter(f => f == "Wood").length > 0;
             return hasResources;
         } else{
             return true

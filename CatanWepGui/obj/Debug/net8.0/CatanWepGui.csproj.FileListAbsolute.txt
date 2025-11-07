@@ -7328,11 +7328,6 @@ C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compress
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\g8azpyoxxu-tptq2av103.gz
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\u1hy20ndsu-lfu7j35m59.gz
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\wj1m95359b-oyz0vx2fzb.gz
-C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\t76f23xsbo-cqlt1vflux.gz
-C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\68pywpernj-l9osagc9zt.gz
-C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\106t986sv0-49o9oj2cf8.gz
-C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\jc0hu5xtmg-cbdwrlxv38.gz
-C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\ibsjcp7n0r-wrij8ggm8g.gz
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\staticwebassets.development.json
@@ -7342,3 +7337,8 @@ C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\CatanWep
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\refint\CatanWepGui.dll
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\CatanWepGui.pdb
 C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\ref\CatanWepGui.dll
+C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\t76f23xsbo-bd5gga6vog.gz
+C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\68pywpernj-56bbokacef.gz
+C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\106t986sv0-k2ii90wqv6.gz
+C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\jc0hu5xtmg-slxepw7k2c.gz
+C:\Users\M.Boehmwalder\RiderProjects\Catan\CatanWepGui\obj\Debug\net8.0\compressed\ibsjcp7n0r-xlwcv6cvn7.gz

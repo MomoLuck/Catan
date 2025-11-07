@@ -6,18 +6,17 @@
     color: #A96F4A;
     font-size: 100px;
     font-weight: bold;
-    background-repeat:no-repeat;
-    background-size:cover
 }
 
 main{
     background-image: url("./img/catan2.jpg");
-    background-repeat: no-repeat;
     background-position: center;
     justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 20px;
+    background-repeat: no-repeat;
+    background-size:cover
 }
 section {
     display: flex;

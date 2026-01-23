@@ -93,3 +93,15 @@ C:\Users\M.Boehmwalder\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.dll
 C:\Users\M.Boehmwalder\RiderProjects\Catan\Catan\obj\Debug\net8.0\refint\Catan.dll
 C:\Users\M.Boehmwalder\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.pdb
 C:\Users\M.Boehmwalder\RiderProjects\Catan\Catan\obj\Debug\net8.0\ref\Catan.dll
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\bin\Debug\net8.0\Catan.deps.json
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\bin\Debug\net8.0\Catan.dll
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\bin\Debug\net8.0\Catan.pdb
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.AssemblyInfoInputs.cache
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.AssemblyInfo.cs
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.csproj.CoreCompileInputs.cache
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.sourcelink.json
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.dll
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\refint\Catan.dll
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\Catan.pdb
+C:\Users\D.Schneider\RiderProjects\Catan\Catan\obj\Debug\net8.0\ref\Catan.dll

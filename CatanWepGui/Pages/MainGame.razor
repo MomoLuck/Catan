@@ -513,7 +513,7 @@
 public void Dice() {
         if (!HasRolled && CurrentPhaseId != 0) {
             Random rand = new Random();
-            int randomNum = rand.Next(1, 13);
+            int randomNum = rand.Next(2, 13);
             DiceRoll = randomNum.ToString();
             HasRolled = true;
         }
@@ -736,6 +736,11 @@ public void Dice() {
 
         CurrentPhaseId = 3;
         PlayerMove = true;
+        if (DiceRoll == "7")
+        {
+            MoveThief("check");
+        }
+
         BlockButton();
 
     }
